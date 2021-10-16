@@ -9,8 +9,8 @@ import UIKit
 
 extension UserDefaults {
     
-    // save theme color selected in ColorSettingView.
-    // To save UIColor with UserDefautls, UIColor must be changed to NSData.
+    // Save theme color selected in ColorSettingView.
+    // UIColor must be changed to NSData for saving with UserDefautls.
     func saveColor(color: UIColor?, key: String) {
         var colorData: NSData?
         if let color = color {
@@ -24,6 +24,8 @@ extension UserDefaults {
         set(colorData, forKey: key)
     }
     
+    // Get saved color with UserDefaults.
+    // Saved color changes the type from NSData to UIColor.
     func getColorForKey(key: String) -> UIColor? {
         var colorReturned: UIColor?
         if let colorData = data(forKey: key) {
