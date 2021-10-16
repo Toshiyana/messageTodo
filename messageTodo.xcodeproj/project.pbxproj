@@ -3,19 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		9950FCFF2712DB2800E1B3AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FCFE2712DB2800E1B3AF /* AppDelegate.swift */; };
 		9950FD012712DB2800E1B3AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FD002712DB2800E1B3AF /* SceneDelegate.swift */; };
-		9950FD032712DB2800E1B3AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FD022712DB2800E1B3AF /* ViewController.swift */; };
 		9950FD062712DB2800E1B3AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9950FD042712DB2800E1B3AF /* Main.storyboard */; };
 		9950FD092712DB2800E1B3AF /* messageTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9950FD072712DB2800E1B3AF /* messageTodo.xcdatamodeld */; };
 		9950FD0B2712DB2900E1B3AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9950FD0A2712DB2900E1B3AF /* Assets.xcassets */; };
 		9950FD0E2712DB2900E1B3AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9950FD0C2712DB2900E1B3AF /* LaunchScreen.storyboard */; };
 		9950FD192712DB2900E1B3AF /* messageTodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FD182712DB2900E1B3AF /* messageTodoTests.swift */; };
 		9950FD242712DB2900E1B3AF /* messageTodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FD232712DB2900E1B3AF /* messageTodoUITests.swift */; };
+		9950FD522713D1E800E1B3AF /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FD512713D1E800E1B3AF /* TodoListViewController.swift */; };
+		9950FD662713D2B600E1B3AF /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FD652713D2B600E1B3AF /* MessageListViewController.swift */; };
+		9950FD6B2713D50C00E1B3AF /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FD6A2713D50C00E1B3AF /* SwipeTableViewController.swift */; };
+		9950FD732713DF0000E1B3AF /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FD722713DF0000E1B3AF /* FloatingButton.swift */; };
+		9950FD7C27142B4A00E1B3AF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FD7B27142B4A00E1B3AF /* Item.swift */; };
+		9950FD8127142C2800E1B3AF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FD8027142C2800E1B3AF /* Message.swift */; };
+		9950FD8627142E1F00E1B3AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FD8527142E1F00E1B3AF /* Constants.swift */; };
+		9950FD9E2714854F00E1B3AF /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9950FD9D2714854F00E1B3AF /* MessageCell.xib */; };
+		9950FDA3271485B900E1B3AF /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FDA2271485B900E1B3AF /* MessageCell.swift */; };
 		A60783F7E1929B4F2DA6B87C /* Pods_messageTodo_messageTodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58FF47784E10E3703E19C29 /* Pods_messageTodo_messageTodoUITests.framework */; };
 		ADC7C691B5BD80D1008CFB59 /* Pods_messageTodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DEFB1798620513323B4F33F /* Pods_messageTodo.framework */; };
 		C9F07E14F8DF82BEA6058851 /* Pods_messageTodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C1A0BAFCBBDC5263A74B059 /* Pods_messageTodoTests.framework */; };
@@ -49,7 +57,6 @@
 		9950FCFB2712DB2800E1B3AF /* messageTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = messageTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9950FCFE2712DB2800E1B3AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9950FD002712DB2800E1B3AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9950FD022712DB2800E1B3AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9950FD052712DB2800E1B3AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9950FD082712DB2800E1B3AF /* messageTodo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = messageTodo.xcdatamodel; sourceTree = "<group>"; };
 		9950FD0A2712DB2900E1B3AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +68,15 @@
 		9950FD1F2712DB2900E1B3AF /* messageTodoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = messageTodoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9950FD232712DB2900E1B3AF /* messageTodoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageTodoUITests.swift; sourceTree = "<group>"; };
 		9950FD252712DB2900E1B3AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9950FD512713D1E800E1B3AF /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
+		9950FD652713D2B600E1B3AF /* MessageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
+		9950FD6A2713D50C00E1B3AF /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
+		9950FD722713DF0000E1B3AF /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		9950FD7B27142B4A00E1B3AF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		9950FD8027142C2800E1B3AF /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		9950FD8527142E1F00E1B3AF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9950FD9D2714854F00E1B3AF /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		9950FDA2271485B900E1B3AF /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		DE8BE26CF3001E7104A50856 /* Pods-messageTodo-messageTodoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-messageTodo-messageTodoUITests.debug.xcconfig"; path = "Target Support Files/Pods-messageTodo-messageTodoUITests/Pods-messageTodo-messageTodoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E58FF47784E10E3703E19C29 /* Pods_messageTodo_messageTodoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_messageTodo_messageTodoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -130,8 +146,10 @@
 			children = (
 				9950FCFE2712DB2800E1B3AF /* AppDelegate.swift */,
 				9950FD002712DB2800E1B3AF /* SceneDelegate.swift */,
-				9950FD022712DB2800E1B3AF /* ViewController.swift */,
-				9950FD042712DB2800E1B3AF /* Main.storyboard */,
+				9950FD8527142E1F00E1B3AF /* Constants.swift */,
+				9950FD422713304200E1B3AF /* Model */,
+				9950FD402713300600E1B3AF /* Views */,
+				9950FD412713302F00E1B3AF /* Controllers */,
 				9950FD0A2712DB2900E1B3AF /* Assets.xcassets */,
 				9950FD0C2712DB2900E1B3AF /* LaunchScreen.storyboard */,
 				9950FD0F2712DB2900E1B3AF /* Info.plist */,
@@ -158,6 +176,36 @@
 			path = messageTodoUITests;
 			sourceTree = "<group>";
 		};
+		9950FD402713300600E1B3AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9950FD042712DB2800E1B3AF /* Main.storyboard */,
+				9950FD722713DF0000E1B3AF /* FloatingButton.swift */,
+				9950FDA2271485B900E1B3AF /* MessageCell.swift */,
+				9950FD9D2714854F00E1B3AF /* MessageCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9950FD412713302F00E1B3AF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9950FD6A2713D50C00E1B3AF /* SwipeTableViewController.swift */,
+				9950FD512713D1E800E1B3AF /* TodoListViewController.swift */,
+				9950FD652713D2B600E1B3AF /* MessageListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9950FD422713304200E1B3AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9950FD7B27142B4A00E1B3AF /* Item.swift */,
+				9950FD8027142C2800E1B3AF /* Message.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B1C38B04DDBF7FEFE42B0DBA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +216,6 @@
 				16F26EE5CE5F04CF7DAA9978 /* Pods-messageTodoTests.debug.xcconfig */,
 				7F2057046A0090CD4679121E /* Pods-messageTodoTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -281,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9950FD0E2712DB2900E1B3AF /* LaunchScreen.storyboard in Resources */,
+				9950FD9E2714854F00E1B3AF /* MessageCell.xib in Resources */,
 				9950FD0B2712DB2900E1B3AF /* Assets.xcassets in Resources */,
 				9950FD062712DB2800E1B3AF /* Main.storyboard in Resources */,
 			);
@@ -410,9 +458,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9950FD032712DB2800E1B3AF /* ViewController.swift in Sources */,
+				9950FDA3271485B900E1B3AF /* MessageCell.swift in Sources */,
+				9950FD522713D1E800E1B3AF /* TodoListViewController.swift in Sources */,
+				9950FD662713D2B600E1B3AF /* MessageListViewController.swift in Sources */,
+				9950FD732713DF0000E1B3AF /* FloatingButton.swift in Sources */,
+				9950FD8127142C2800E1B3AF /* Message.swift in Sources */,
 				9950FCFF2712DB2800E1B3AF /* AppDelegate.swift in Sources */,
+				9950FD8627142E1F00E1B3AF /* Constants.swift in Sources */,
+				9950FD7C27142B4A00E1B3AF /* Item.swift in Sources */,
 				9950FD012712DB2800E1B3AF /* SceneDelegate.swift in Sources */,
+				9950FD6B2713D50C00E1B3AF /* SwipeTableViewController.swift in Sources */,
 				9950FD092712DB2800E1B3AF /* messageTodo.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
