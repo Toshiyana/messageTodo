@@ -5,7 +5,10 @@ target 'messageTodo' do
 
   # Pods for messageTodo
   pod 'RealmSwift'
-  pod 'SwipeCellKit' 
+  pod 'SwipeCellKit'
+
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon.git',
+      :branch => 'swift5'
 
   target 'messageTodoTests' do
     inherit! :search_paths
