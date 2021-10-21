@@ -71,21 +71,21 @@ class TodoListViewController: SwipeTableViewController {
 
     //MARK: - TableView Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let item = todoItems?[indexPath.row] {
-            do {
-                try realm.write {
-                    //realm.delete(item)//tapした時にitemの除去
-                    item.done = !item.done
-                }
-            } catch {
-                print("Error saving done status, \(error)")
-            }
-        }
-        
-        tableView.reloadData()
-        
-        // セルが選択状態のままになるのを防ぐ
-        tableView.deselectRow(at: indexPath, animated: true)
+//        if let item = todoItems?[indexPath.row] {
+//            do {
+//                try realm.write {
+//                    //realm.delete(item)//tapした時にitemの除去
+//                    item.done = !item.done
+//                }
+//            } catch {
+//                print("Error saving done status, \(error)")
+//            }
+//        }
+//
+//        tableView.reloadData()
+//
+//        // セルが選択状態のままになるのを防ぐ
+//        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     //MARK: - Load Data Method
