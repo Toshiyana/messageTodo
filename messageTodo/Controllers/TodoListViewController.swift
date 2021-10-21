@@ -86,6 +86,7 @@ class TodoListViewController: SwipeTableViewController {
 //
 //        // セルが選択状態のままになるのを防ぐ
 //        tableView.deselectRow(at: indexPath, animated: true)
+        //
     }
     
     //MARK: - Load Data Method
