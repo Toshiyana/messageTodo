@@ -8,23 +8,42 @@
 import UIKit
 import SwipeCellKit
 import RealmSwift
+import ChameleonFramework
 
 class TodoListViewController: SwipeTableViewController {
 
     private var addButton: FloatingButton!
     @IBOutlet weak var editButton: UIBarButtonItem!//SwipeTableViewControllerを継承している場合、cell.delegate = selfをやらないと、storyboardから設定できない
 
+    let defaults = UserDefaults.standard
     let realm = try! Realm()
     var todoItems: Results<Item>?
     
     override func viewDidLoad() {
+        // 画面初期表示の時にのみ呼び出し
         super.viewDidLoad()
         
         loadItems()
         addButton = FloatingButton(attachedToView: view)
         addButton.floatButton.addTarget(self, action: #selector(addButtonPressed(_:)), for: .touchUpInside)
-
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // 画面初期表示の時と遷移先画面から戻ってきた時に実行
+        super.viewWillAppear(animated)
+        
+        // 設定画面で全データを削除してこの画面に戻ってきた時、リストを更新するためにリロード
+        tableView.reloadData()
+        
+        guard let navBar = navigationController?.navigationBar else {
+            fatalError("NavigationController does not exist.")
+        }
+        navBar.barTintColor = defaults.getColorForKey(key: "NavBarColor") ?? FlatBlue()
+        addButton.floatButton.layer.backgroundColor = (defaults.getColorForKey(key: "NavBarColor") ?? FlatBlue()).cgColor
+        
+        tabBarController?.tabBar.isHidden = false
+    }
+
     
     //MARK: - Tableview Datasource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

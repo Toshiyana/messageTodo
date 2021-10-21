@@ -6,84 +6,240 @@
 //
 
 import UIKit
+import ChameleonFramework
+import RealmSwift
+
+//MARK: - Section Type
+struct Section {
+    let title: String
+    let options: [SettingOptionType]
+}
+
+//MARK: - Setting Option Type
+enum SettingOptionType {
+    case staticCell(model: SettingStaticOption)
+    case iconCell(model: SettingIconOption)
+    case colorCell(model: SettingColorOption)
+    case versionCell(model: SettingVersionOption)
+}
+
+struct SettingStaticOption {
+    let title: String
+    let handler: (() -> Void)
+}
+
+struct SettingIconOption {
+    let title: String
+    let icon: UIImage?
+    let handler: (() -> Void)
+}
+
+struct SettingColorOption {
+    let title: String
+    let icon: UIImage?
+    let handler: (() -> Void)
+}
+
+struct SettingVersionOption {
+    let title: String
+    let icon: UIImage?
+    let detailText: String
+}
 
 class SettingViewController: UITableViewController {
 
+    let defaults = UserDefaults.standard
+    let realm = try! Realm()
+    
+    private var models = [Section]()
+    
+    private let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        configure()
+        
+        title = "設定画面"
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: K.Setting.staticCellIdentifier)
+        tableView.register(SettingIconCell.self, forCellReuseIdentifier: K.Setting.iconCellIdentifier)
+        tableView.register(SettingColorCell.self, forCellReuseIdentifier: K.Setting.colorCellIdentifier)
+        tableView.register(SettingVersionCell.self, forCellReuseIdentifier: K.Setting.versionCellIdentifier)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let navBar = navigationController?.navigationBar else {
+            fatalError("NavigationController does not exist.")
+        }
+        navBar.barTintColor = defaults.getColorForKey(key: "NavBarColor") ?? FlatBlue()
+        
+        tableView.reloadData()
+        
+        tabBarController?.tabBar.isHidden = true
     }
 
+    private func configure() {
+        models.append(Section(title: "ユーザー設定", options: [
+            .iconCell(model: SettingIconOption(
+                        title: "通知時刻",
+                        icon: UIImage(systemName: "clock"))
+                        {
+                            // handler
+                        }),
+            .colorCell(model: SettingColorOption(
+                        title: "テーマカラーの変更",
+                        icon: UIImage(systemName: "paintpalette"))
+                        {
+                self.performSegue(withIdentifier: K.settingToColorSegue, sender: self)
+                        }),
+        ]))
+        
+        models.append(Section(title: "アプリについて", options: [
+            .iconCell(model: SettingIconOption(
+                        title: "アプリの使い方",
+                        icon: UIImage(systemName: "text.book.closed"))
+                        {
+                            //
+                        }),
+            .iconCell(model: SettingIconOption(
+                        title: "不具合を報告",
+                        icon: UIImage(systemName: "exclamationmark.triangle"))
+                        {
+                            //
+                        }),
+            .iconCell(model: SettingIconOption(
+                        title: "アプリを評価",
+                        icon: UIImage(systemName: "star"))
+                        {
+                            //
+                        }),
+        ]))
+        
+        models.append(Section(title: "その他", options: [
+            .iconCell(model: SettingIconOption(
+                        title: "データの削除",
+                        icon: UIImage(systemName: "trash"))
+                        {
+                self.deleteDataAction()
+                        }),
+            
+            .versionCell(model: SettingVersionOption(
+                            title: "バージョン",
+                            icon: UIImage(systemName: "info.circle"),
+                            detailText: version))
+        ]))
+    }
+    
     // MARK: - Table view data source
-
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let section = models[section]
+        return section.title
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return models.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return models[section].options.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let type = models[indexPath.section].options[indexPath.row]
+        
+        switch type.self {
+        case .staticCell(let model):
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: K.Setting.staticCellIdentifier,
+                for: indexPath)
+            cell.textLabel?.text = model.title
+            cell.accessoryType = .disclosureIndicator
+            return cell
+            
+        case .iconCell(let model):
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: K.Setting.iconCellIdentifier,
+                for: indexPath
+            ) as? SettingIconCell else {
+                return UITableViewCell()
+            }
+            cell.configure(with: model)
+            return cell
+        
+        case .colorCell(let model):
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: K.Setting.colorCellIdentifier,
+                for: indexPath
+            ) as? SettingColorCell else {
+                return UITableViewCell()
+            }
+            cell.configure(with: model)
+            return cell
 
-        // Configure the cell...
-
-        return cell
+        case .versionCell(let model):
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: K.Setting.versionCellIdentifier,
+                for: indexPath
+            ) as? SettingVersionCell else {
+                return UITableViewCell()
+            }
+            cell.configure(with: model)
+            return cell
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // action when call was tapped
+        tableView.deselectRow(at: indexPath, animated: true)
+        let type = models[indexPath.section].options[indexPath.row]
+        
+        switch type.self {
+        case .staticCell(let model):
+            model.handler()
+        case .iconCell(let model):
+            model.handler()
+        case .colorCell(let model):
+            model.handler()
+        default: // case .versionCell
+            return
+        }
     }
-    */
+    
+    //MARK: - Delete All Data Method
+    private func deleteDataAction() {
+        let allItems = self.realm.objects(Item.self)
+        let allMessages = self.realm.objects(Message.self)
+        
+        let alert = UIAlertController(title: "Delet data", message: "", preferredStyle: .alert)
+        
+        let deleteItemAction = UIAlertAction(title: "Delete All Items", style: .default) { (action) in
+            do {
+                try self.realm.write {
+                    self.realm.delete(allItems)
+                }
+            } catch {
+                print("Error deleting All item, \(error)")
+            }
+        }
+        let deleteMessageAction = UIAlertAction(title: "Delete All Messages", style: .default) { (action) in
+            do {
+                try self.realm.write {
+                    self.realm.delete(allMessages)
+                }
+            } catch {
+                print("Error deleting All Messages, \(error)")
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(deleteItemAction)
+        alert.addAction(deleteMessageAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

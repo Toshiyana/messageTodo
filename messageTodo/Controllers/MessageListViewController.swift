@@ -8,26 +8,41 @@
 import UIKit
 import RealmSwift
 import SwipeCellKit
+import ChameleonFramework
 
 class MessageListViewController: SwipeTableViewController {
 
     private var addButton: FloatingButton!
     @IBOutlet weak var sortButton: UIBarButtonItem!
     
+    let defaults = UserDefaults.standard
     let realm = try! Realm()
     var messages: Results<Message>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.rowHeight = 61.0//cellのautolayoutのheightを考慮
-        
+                
         loadMessages()
         addButton = FloatingButton(attachedToView: self.view)
         addButton.floatButton.addTarget(self, action: #selector(addButtonPressed(_:)), for: .touchUpInside)
         
         tableView.register(UINib(nibName: K.messageCellIdentifier, bundle: nil), forCellReuseIdentifier: K.messageCellIdentifier)
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // 設定画面で全データを削除してこの画面に戻ってきた時、リストを更新するためにリロード
+        tableView.reloadData()
+        
+        guard let navBar = navigationController?.navigationBar else {
+            fatalError("NavigationController does not exist.")
+        }
+        navBar.barTintColor = defaults.getColorForKey(key: "NavBarColor") ?? FlatBlue()
+        addButton.floatButton.layer.backgroundColor = (defaults.getColorForKey(key: "NavBarColor") ?? FlatBlue()).cgColor
+        
+        tabBarController?.tabBar.isHidden = false
     }
 
     // MARK: - TableView Datasource Method
