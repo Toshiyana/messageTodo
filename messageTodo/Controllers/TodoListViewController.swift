@@ -74,7 +74,7 @@ class TodoListViewController: SwipeTableViewController {
             
             let alert = UIAlertController(title: "Edit Todo Item", message: "", preferredStyle: .alert)
             
-            let editAction = UIAlertAction(title: "Edit Item", style: .default) { (action) in
+            let editAction = UIAlertAction(title: "OK", style: .default) { (action) in
                 do {
                     try self.realm.write {
                         item.title = textField.text!
