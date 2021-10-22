@@ -23,4 +23,7 @@ struct K {
     
     // Segue
     static let settingToColorSegue = "goToColor"
+    
+    // UserDefault
+    static let messagesOrder = "MessagesOrder"
 }

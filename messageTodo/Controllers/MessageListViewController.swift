@@ -105,10 +105,24 @@ class MessageListViewController: SwipeTableViewController {
     
     //MARK: - Load Data Method
     private func loadMessages() {
-        messages = realm.objects(Message.self).sorted(byKeyPath: "name", ascending: true)
+        // アプリ起動時のcellの並び順を、以前sortで並べ替えた順番にする
+        if let messageOrder = defaults.string(forKey: K.messagesOrder) {
+            switch messageOrder {
+            case "DateOrder":
+                messages = realm.objects(Message.self).sorted(byKeyPath: "dateCreated", ascending: true)
+            case "TitleOrder":
+                messages = realm.objects(Message.self).sorted(byKeyPath: "content", ascending: true)
+            case "NameOrder":
+                messages = realm.objects(Message.self).sorted(byKeyPath: "name", ascending: true)
+            default:
+                messages = realm.objects(Message.self)//defaultは実行されることがない
+            }
+        } else {
+            messages = realm.objects(Message.self).sorted(byKeyPath: "name", ascending: true)
+        }
         tableView.reloadData()
     }
-    
+        
     //MARK: - Save Data Method
     private func save(message: Message) {
         do {
@@ -177,14 +191,17 @@ class MessageListViewController: SwipeTableViewController {
             let sheet = UIAlertController(title: "Sort Messages", message: "", preferredStyle: .alert)
             let dateSortAction = UIAlertAction(title: "Date Order", style: .default) { (action) in
                 self.messages = self.realm.objects(Message.self).sorted(byKeyPath: "dateCreated", ascending: true)
+                self.defaults.set("DateOrder", forKey: K.messagesOrder)
                 self.tableView.reloadData()
             }
             let contentSortAction = UIAlertAction(title: "Title Order", style: .default) { (action) in
                 self.messages = self.realm.objects(Message.self).sorted(byKeyPath: "content", ascending: true)
+                self.defaults.set("TitleOrder", forKey: K.messagesOrder)
                 self.tableView.reloadData()
             }
             let nameSortAction = UIAlertAction(title: "Name Order", style: .default) { (action) in
                 self.messages = self.realm.objects(Message.self).sorted(byKeyPath: "name", ascending: true)
+                self.defaults.set("NameOrder", forKey: K.messagesOrder)
                 self.tableView.reloadData()
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)

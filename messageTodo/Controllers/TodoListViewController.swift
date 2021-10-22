@@ -165,6 +165,7 @@ class TodoListViewController: SwipeTableViewController {
     
     //MARK: - EditButton Method
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        //print(todoItems)
         if tableView.isEditing {
             tableView.isEditing = false
             editButton.title = "Edit"
