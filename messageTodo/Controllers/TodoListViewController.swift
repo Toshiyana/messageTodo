@@ -56,12 +56,9 @@ class TodoListViewController: SwipeTableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.todoCellIdentifier, for: indexPath) as! SwipeTableViewCell
         
         cell.delegate = self
-        
-        //print(todoItems)
-        
+                
         if let item = todoItems?[indexPath.row] {
             cell.textLabel?.text = item.title
-            cell.accessoryType = item.done ? .checkmark : .none
         } else {
             cell.textLabel?.text = "No Items Added."
         }
@@ -70,23 +67,7 @@ class TodoListViewController: SwipeTableViewController {
     }
 
     //MARK: - TableView Delegate Methods
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if let item = todoItems?[indexPath.row] {
-//            do {
-//                try realm.write {
-//                    //realm.delete(item)//tapした時にitemの除去
-//                    item.done = !item.done
-//                }
-//            } catch {
-//                print("Error saving done status, \(error)")
-//            }
-//        }
-//
-//        tableView.reloadData()
-//
-//        // セルが選択状態のままになるのを防ぐ
-//        tableView.deselectRow(at: indexPath, animated: true)
-        
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
         // タップしたセルの内容を編集
         if let item = todoItems?[indexPath.row] {
             var textField = UITextField()
