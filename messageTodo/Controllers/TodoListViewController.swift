@@ -86,6 +86,40 @@ class TodoListViewController: SwipeTableViewController {
 //
 //        // セルが選択状態のままになるのを防ぐ
 //        tableView.deselectRow(at: indexPath, animated: true)
+        
+        // タップしたセルの内容を編集
+        if let item = todoItems?[indexPath.row] {
+            var textField = UITextField()
+            
+            let alert = UIAlertController(title: "Edit Todo Item", message: "", preferredStyle: .alert)
+            
+            let editAction = UIAlertAction(title: "Edit Item", style: .default) { (action) in
+                do {
+                    try self.realm.write {
+                        item.title = textField.text!
+                    }
+                } catch {
+                    print("Error updating item. \(error)")
+                }
+                tableView.reloadData()
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            
+            alert.addAction(editAction)
+            alert.addAction(cancelAction)
+            
+            alert.addTextField { (field) in
+                field.placeholder = "Edit item"
+                field.text = item.title
+                textField = field
+            }
+            
+            present(alert, animated: true, completion: nil)
+        }
+
+        // セルが選択状態のままになるのを防ぐ
+        tableView.deselectRow(at: indexPath, animated: true)
 
     }
     

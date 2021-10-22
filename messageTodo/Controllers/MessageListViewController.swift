@@ -63,6 +63,46 @@ class MessageListViewController: SwipeTableViewController {
         return cell
     }
     
+    //MARK: - TableView Delegate Method
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let message = messages?[indexPath.row] {
+            var contentField = UITextField()
+            var nameField = UITextField()
+            
+            let alert = UIAlertController(title: "Edit Message", message: "", preferredStyle: .alert)
+            
+            let editAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                do {
+                    try self.realm.write {
+                        message.content = contentField.text!
+                        message.name = nameField.text!
+                        message.dateCreated = Date()
+                    }
+                } catch {
+                    print("Error updating message. \(error)")
+                }
+                tableView.reloadData()
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            
+            alert.addAction(editAction)
+            alert.addAction(cancelAction)
+            
+            alert.addTextField { (field) in
+                field.text = message.content
+                contentField = field
+            }
+            alert.addTextField { (field) in
+                field.text = message.name
+                nameField = field
+            }
+            present(alert, animated: true, completion: nil)
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     //MARK: - Load Data Method
     private func loadMessages() {
         messages = realm.objects(Message.self).sorted(byKeyPath: "name", ascending: true)
@@ -133,6 +173,7 @@ class MessageListViewController: SwipeTableViewController {
     
     //MARK: - SortButton Method
     @IBAction func sortButtonPressed(_ sender: UIBarButtonItem) {
+        
     }
     
 
