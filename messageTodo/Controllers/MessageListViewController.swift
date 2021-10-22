@@ -173,7 +173,29 @@ class MessageListViewController: SwipeTableViewController {
     
     //MARK: - SortButton Method
     @IBAction func sortButtonPressed(_ sender: UIBarButtonItem) {
-        
+        if messages?.count != 0 {
+            let sheet = UIAlertController(title: "Sort Messages", message: "", preferredStyle: .alert)
+            let dateSortAction = UIAlertAction(title: "Date Order", style: .default) { (action) in
+                self.messages = self.realm.objects(Message.self).sorted(byKeyPath: "dateCreated", ascending: true)
+                self.tableView.reloadData()
+            }
+            let contentSortAction = UIAlertAction(title: "Title Order", style: .default) { (action) in
+                self.messages = self.realm.objects(Message.self).sorted(byKeyPath: "content", ascending: true)
+                self.tableView.reloadData()
+            }
+            let nameSortAction = UIAlertAction(title: "Name Order", style: .default) { (action) in
+                self.messages = self.realm.objects(Message.self).sorted(byKeyPath: "name", ascending: true)
+                self.tableView.reloadData()
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            
+            sheet.addAction(dateSortAction)
+            sheet.addAction(contentSortAction)
+            sheet.addAction(nameSortAction)
+            sheet.addAction(cancelAction)
+
+            present(sheet, animated: false, completion: nil)
+        }
     }
     
 
