@@ -73,8 +73,9 @@ class SettingViewController: UITableViewController {
         guard let navBar = navigationController?.navigationBar else {
             fatalError("NavigationController does not exist.")
         }
-        navBar.barTintColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
-        
+        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
+        ChameleonUtility.changeNabBarColor(navBar: navBar, color: themeColor)
+
         tableView.reloadData()
         
         tabBarController?.tabBar.isHidden = true

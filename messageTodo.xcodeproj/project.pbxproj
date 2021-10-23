@@ -12,6 +12,7 @@
 		9946B4B7271BB4EA00AC1611 /* SettingIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9946B4B6271BB4EA00AC1611 /* SettingIconCell.swift */; };
 		9946B4BF271BE51600AC1611 /* SettingColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9946B4BE271BE51600AC1611 /* SettingColorCell.swift */; };
 		9946B4C4271BE57900AC1611 /* SettingVersionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9946B4C3271BE57900AC1611 /* SettingVersionCell.swift */; };
+		994D396427242C28004C429F /* ChameleonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994D396327242C28004C429F /* ChameleonUtility.swift */; };
 		9950FCFF2712DB2800E1B3AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FCFE2712DB2800E1B3AF /* AppDelegate.swift */; };
 		9950FD012712DB2800E1B3AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FD002712DB2800E1B3AF /* SceneDelegate.swift */; };
 		9950FD062712DB2800E1B3AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9950FD042712DB2800E1B3AF /* Main.storyboard */; };
@@ -66,6 +67,7 @@
 		9946B4B6271BB4EA00AC1611 /* SettingIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingIconCell.swift; sourceTree = "<group>"; };
 		9946B4BE271BE51600AC1611 /* SettingColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingColorCell.swift; sourceTree = "<group>"; };
 		9946B4C3271BE57900AC1611 /* SettingVersionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVersionCell.swift; sourceTree = "<group>"; };
+		994D396327242C28004C429F /* ChameleonUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChameleonUtility.swift; sourceTree = "<group>"; };
 		9950FCFB2712DB2800E1B3AF /* messageTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = messageTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9950FCFE2712DB2800E1B3AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9950FD002712DB2800E1B3AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		994D396227242B81004C429F /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				994D396327242C28004C429F /* ChameleonUtility.swift */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
 		9950FCF22712DB2800E1B3AF = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +179,7 @@
 				9950FCFE2712DB2800E1B3AF /* AppDelegate.swift */,
 				9950FD002712DB2800E1B3AF /* SceneDelegate.swift */,
 				9950FD8527142E1F00E1B3AF /* Constants.swift */,
+				994D396227242B81004C429F /* Commons */,
 				9946B4A8271ABBB700AC1611 /* Extensions */,
 				9950FD422713304200E1B3AF /* Model */,
 				9950FD402713300600E1B3AF /* Views */,
@@ -503,6 +514,7 @@
 				9946B4AA271ABC2D00AC1611 /* UserDefaults+UIColor.swift in Sources */,
 				9950FD012712DB2800E1B3AF /* SceneDelegate.swift in Sources */,
 				9950FD6B2713D50C00E1B3AF /* SwipeTableViewController.swift in Sources */,
+				994D396427242C28004C429F /* ChameleonUtility.swift in Sources */,
 				998AB88A271C1F080042F371 /* ColorCollectionViewController.swift in Sources */,
 				9950FD092712DB2800E1B3AF /* messageTodo.xcdatamodeld in Sources */,
 			);

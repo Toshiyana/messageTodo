@@ -19,6 +19,8 @@ class ColorCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "テーマカラーの選択"
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -28,7 +30,8 @@ class ColorCollectionViewController: UICollectionViewController {
             fatalError("NavigationController does not exist.")
         }
         
-        navBar.barTintColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
+        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
+        ChameleonUtility.changeNabBarColor(navBar: navBar, color: themeColor)
     }
     
     // MARK: UICollectionViewDataSource
@@ -65,8 +68,8 @@ class ColorCollectionViewController: UICollectionViewController {
         guard let navBar = navigationController?.navigationBar else {
             fatalError("NavigationController does not exist.")
         }
-        
-        navBar.barTintColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
+        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
+        ChameleonUtility.changeNabBarColor(navBar: navBar, color: themeColor)
 
         // reload the border with selected color button
         collectionView.reloadData()
