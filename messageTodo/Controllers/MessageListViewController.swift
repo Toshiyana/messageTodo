@@ -14,6 +14,8 @@ class MessageListViewController: SwipeTableViewController {
 
     private var addButton: FloatingButton!
     @IBOutlet weak var sortButton: UIBarButtonItem!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     
     let defaults = UserDefaults.standard
     let realm = try! Realm()
@@ -217,6 +219,24 @@ class MessageListViewController: SwipeTableViewController {
             present(sheet, animated: false, completion: nil)
         }
     }
-    
+}
 
+extension MessageListViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        messages = messages?.filter("(content CONTAINS[cd] %@) || (name CONTAINS[cd] %@)", searchBar.text!, searchBar.text!).sorted(byKeyPath: "dateCreated", ascending: true)
+        
+        tableView.reloadData()
+    }
+    
+    // 検索バーのテキスト入力がない時にセルの内容を表示
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            loadMessages()
+
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }
+    }
 }
