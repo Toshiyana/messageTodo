@@ -23,6 +23,7 @@ class TodoListViewController: SwipeTableViewController {
         // 画面初期表示の時にのみ呼び出し
         super.viewDidLoad()
         
+        title = "タスク"
         loadItems()
         addButton = FloatingButton(attachedToView: view)
         addButton.floatButton.addTarget(self, action: #selector(addButtonPressed(_:)), for: .touchUpInside)
@@ -60,7 +61,7 @@ class TodoListViewController: SwipeTableViewController {
         if let item = todoItems?[indexPath.row] {
             cell.textLabel?.text = item.title
         } else {
-            cell.textLabel?.text = "No Items Added."
+            cell.textLabel?.text = "タスクが追加されていません"
         }
         
         return cell
@@ -72,7 +73,7 @@ class TodoListViewController: SwipeTableViewController {
         if let item = todoItems?[indexPath.row] {
             var textField = UITextField()
             
-            let alert = UIAlertController(title: "Edit Todo Item", message: "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "タスクの編集", message: "", preferredStyle: .alert)
             
             let editAction = UIAlertAction(title: "OK", style: .default) { (action) in
                 do {
@@ -91,7 +92,7 @@ class TodoListViewController: SwipeTableViewController {
             alert.addAction(cancelAction)
             
             alert.addTextField { (field) in
-                field.placeholder = "Edit item"
+                field.placeholder = "タスク"
                 field.text = item.title
                 textField = field
             }
@@ -168,11 +169,11 @@ class TodoListViewController: SwipeTableViewController {
         //print(todoItems)
         if tableView.isEditing {
             tableView.isEditing = false
-            editButton.title = "Edit"
+            editButton.title = "並び替え"
             addButton.floatButton.isHidden = false
         } else {
             tableView.isEditing = true
-            editButton.title = "Done"
+            editButton.title = "完了"
             addButton.floatButton.isHidden = true
         }
     }

@@ -37,7 +37,7 @@
                                 <segue destination="8Ef-Yo-rew" kind="show" id="M8u-9B-g3z"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="VIv-RJ-3dW">
+                        <barButtonItem key="rightBarButtonItem" title="並び替え" id="VIv-RJ-3dW">
                             <connections>
                                 <action selector="editButtonPressed:" destination="wlj-8m-V1R" id="N2V-tb-5Ob"/>
                             </connections>
@@ -80,7 +80,7 @@
                                 <segue destination="8Ef-Yo-rew" kind="show" id="jyz-n7-fhc"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Sort" id="CGf-3a-1VA">
+                        <barButtonItem key="rightBarButtonItem" title="並び替え" id="CGf-3a-1VA">
                             <connections>
                                 <action selector="sortButtonPressed:" destination="a81-vq-82H" id="KhJ-kS-dkA"/>
                             </connections>
@@ -252,7 +252,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jyz-n7-fhc"/>
+        <segue reference="M8u-9B-g3z"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>

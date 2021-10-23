@@ -22,6 +22,7 @@ class MessageListViewController: SwipeTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
                 
+        title = "思い出の言葉"
         loadMessages()
         addButton = FloatingButton(attachedToView: self.view)
         addButton.floatButton.addTarget(self, action: #selector(addButtonPressed(_:)), for: .touchUpInside)
@@ -69,7 +70,7 @@ class MessageListViewController: SwipeTableViewController {
             var contentField = UITextField()
             var nameField = UITextField()
             
-            let alert = UIAlertController(title: "Edit Message", message: "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "言葉の編集", message: "", preferredStyle: .alert)
             
             let editAction = UIAlertAction(title: "OK", style: .default) { (action) in
                 do {
@@ -91,10 +92,12 @@ class MessageListViewController: SwipeTableViewController {
             
             alert.addTextField { (field) in
                 field.text = message.content
+                field.placeholder = "言葉"
                 contentField = field
             }
             alert.addTextField { (field) in
                 field.text = message.name
+                field.placeholder = "発言者"
                 nameField = field
             }
             present(alert, animated: true, completion: nil)
@@ -154,9 +157,9 @@ class MessageListViewController: SwipeTableViewController {
         var contentField = UITextField()
         var nameField = UITextField()
         
-        let alert = UIAlertController(title: "Add New Message", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "言葉の追加", message: "", preferredStyle: .alert)
         
-        let addAction = UIAlertAction(title: "Add", style: .default) { (action) in
+        let addAction = UIAlertAction(title: "追加", style: .default) { (action) in
 
             let newMessage = Message()
             newMessage.content = contentField.text!
@@ -166,18 +169,18 @@ class MessageListViewController: SwipeTableViewController {
             self.save(message: newMessage)
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         
         alert.addAction(addAction)
         alert.addAction(cancelAction)
 
         alert.addTextField { (field) in
-            field.placeholder = "Add a new content"
+            field.placeholder = "言葉"
             contentField = field
         }
         
         alert.addTextField { (field) in
-            field.placeholder = "Add a new name"
+            field.placeholder = "発言者"
             nameField = field
         }
         
