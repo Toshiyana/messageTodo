@@ -28,7 +28,7 @@ class ColorCollectionViewController: UICollectionViewController {
             fatalError("NavigationController does not exist.")
         }
         
-        navBar.barTintColor = defaults.getColorForKey(key: "NavBarColor") ?? FlatBlue()
+        navBar.barTintColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
     }
     
     // MARK: UICollectionViewDataSource
@@ -54,19 +54,19 @@ class ColorCollectionViewController: UICollectionViewController {
    
     // MARK: Save Color Method
     private func saveNavColor(color: UIColor) {
-        defaults.saveColor(color: color, key: "NavBarColor")
+        defaults.saveColor(color: color, key: K.navbarColor)
     }
 
     @IBAction func colorButtonPressed(_ sender: UIButton) {
         let selectedColor = sender.backgroundColor
-        defaults.saveColor(color: selectedColor, key: "NavBarColor")
+        defaults.saveColor(color: selectedColor, key: K.navbarColor)
         
         // NavBarを選択した色に更新するためには、.barTintColorに再度アクセスする必要あり
         guard let navBar = navigationController?.navigationBar else {
             fatalError("NavigationController does not exist.")
         }
         
-        navBar.barTintColor = defaults.getColorForKey(key: "NavBarColor") ?? FlatBlue()
+        navBar.barTintColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
 
         // reload the border with selected color button
         collectionView.reloadData()

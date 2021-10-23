@@ -38,8 +38,8 @@ class TodoListViewController: SwipeTableViewController {
         guard let navBar = navigationController?.navigationBar else {
             fatalError("NavigationController does not exist.")
         }
-        navBar.barTintColor = defaults.getColorForKey(key: "NavBarColor") ?? FlatBlue()
-        addButton.floatButton.layer.backgroundColor = (defaults.getColorForKey(key: "NavBarColor") ?? FlatBlue()).cgColor
+        navBar.barTintColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
+        addButton.floatButton.layer.backgroundColor = (defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()).cgColor
         
         tabBarController?.tabBar.isHidden = false
     }

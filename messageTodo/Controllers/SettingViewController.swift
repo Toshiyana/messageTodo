@@ -73,7 +73,7 @@ class SettingViewController: UITableViewController {
         guard let navBar = navigationController?.navigationBar else {
             fatalError("NavigationController does not exist.")
         }
-        navBar.barTintColor = defaults.getColorForKey(key: "NavBarColor") ?? FlatBlue()
+        navBar.barTintColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
         
         tableView.reloadData()
         

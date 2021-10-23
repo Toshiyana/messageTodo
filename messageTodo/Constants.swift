@@ -26,4 +26,5 @@ struct K {
     
     // UserDefault
     static let messagesOrder = "MessagesOrder"
+    static let navbarColor = "NavBarColor"
 }
