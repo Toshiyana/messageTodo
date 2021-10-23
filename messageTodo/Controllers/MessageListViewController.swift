@@ -48,6 +48,7 @@ class MessageListViewController: SwipeTableViewController {
         let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
         ChameleonUtility.changeNabBarColor(navBar: navBar, color: themeColor)
         addButton.floatButton.layer.backgroundColor = themeColor.cgColor
+        searchBar.tintColor = themeColor
         searchBar.barTintColor = themeColor
         searchBar.searchTextField.backgroundColor = UIColor.white
         
