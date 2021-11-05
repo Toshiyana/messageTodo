@@ -97,6 +97,7 @@
                     <connections>
                         <outlet property="searchBar" destination="nA5-JD-uCG" id="Mtw-Ve-iq9"/>
                         <outlet property="sortButton" destination="CGf-3a-1VA" id="8o5-v6-iHj"/>
+                        <segue destination="bKV-BN-VEH" kind="presentation" identifier="goToMessagePopup" animates="NO" id="i9V-Oa-apH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xEh-gO-Wps" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -258,6 +259,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O56-vN-YtE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1586.9565217391305" y="77.678571428571431"/>
+        </scene>
+        <!--MessagePopupViewController-->
+        <scene sceneID="c5a-wm-5tz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MessagePopupViewController" id="bKV-BN-VEH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wv6-3N-i7L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3426" y="1303"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

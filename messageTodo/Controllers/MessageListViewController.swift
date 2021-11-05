@@ -75,44 +75,49 @@ class MessageListViewController: SwipeTableViewController {
     
     //MARK: - TableView Delegate Method
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let message = messages?[indexPath.row] {
-            var contentField = UITextField()
-            var nameField = UITextField()
-            
-            let alert = UIAlertController(title: "言葉の編集", message: "", preferredStyle: .alert)
-            
-            let editAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                do {
-                    try self.realm.write {
-                        message.content = contentField.text!
-                        message.name = nameField.text!
-                        message.dateCreated = Date()
-                    }
-                } catch {
-                    print("Error updating message. \(error)")
-                }
-                tableView.reloadData()
-            }
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            
-            alert.addAction(editAction)
-            alert.addAction(cancelAction)
-            
-            alert.addTextField { (field) in
-                field.text = message.content
-                field.placeholder = "言葉"
-                contentField = field
-            }
-            alert.addTextField { (field) in
-                field.text = message.name
-                field.placeholder = "発言者"
-                nameField = field
-            }
-            present(alert, animated: true, completion: nil)
-        }
-        
-        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: K.messageListTomessagePopup, sender: self)
+//        if let message = messages?[indexPath.row] {
+//            var contentField = UITextField()
+//            var nameField = UITextField()
+//
+//            let alert = UIAlertController(title: "言葉の編集", message: "", preferredStyle: .alert)
+//
+//            let editAction = UIAlertAction(title: "OK", style: .default) { (action) in
+//                do {
+//                    try self.realm.write {
+//                        message.content = contentField.text!
+//                        message.name = nameField.text!
+//                        message.dateCreated = Date()
+//                    }
+//                } catch {
+//                    print("Error updating message. \(error)")
+//                }
+//                tableView.reloadData()
+//            }
+//
+//            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//
+//            alert.addAction(editAction)
+//            alert.addAction(cancelAction)
+//
+//            alert.addTextField { (field) in
+//                field.text = message.content
+//                field.placeholder = "言葉"
+//                contentField = field
+//            }
+//            alert.addTextField { (field) in
+//                field.text = message.name
+//                field.placeholder = "発言者"
+//                nameField = field
+//            }
+//            present(alert, animated: true, completion: nil)
+//        }
+//
+//        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //
     }
     
     //MARK: - Load Data Method
