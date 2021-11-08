@@ -10,7 +10,7 @@ import Foundation
 struct K {
     // Cell
     static let todoCellIdentifier = "TodoCell"
-    static let messageCellIdentifier = "MessageCell"
+    static let messageImageCellIdentifier = "ImageMessageCell"
     static let colorCollectionCellIdentifier = "ColorCollectionCell"
     
     // Setting

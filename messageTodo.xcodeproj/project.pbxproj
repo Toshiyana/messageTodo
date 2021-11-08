@@ -29,8 +29,6 @@
 		9950FD7C27142B4A00E1B3AF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FD7B27142B4A00E1B3AF /* Item.swift */; };
 		9950FD8127142C2800E1B3AF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FD8027142C2800E1B3AF /* Message.swift */; };
 		9950FD8627142E1F00E1B3AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FD8527142E1F00E1B3AF /* Constants.swift */; };
-		9950FD9E2714854F00E1B3AF /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9950FD9D2714854F00E1B3AF /* MessageCell.xib */; };
-		9950FDA3271485B900E1B3AF /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FDA2271485B900E1B3AF /* MessageCell.swift */; };
 		9967E5722735246200F80E28 /* MessagePopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967E5712735246200F80E28 /* MessagePopupDelegate.swift */; };
 		998AB88A271C1F080042F371 /* ColorCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998AB889271C1F080042F371 /* ColorCollectionViewController.swift */; };
 		998AB8CF271DBBA10042F371 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998AB8CE271DBBA10042F371 /* ColorCollectionViewCell.swift */; };
@@ -96,8 +94,6 @@
 		9950FD7B27142B4A00E1B3AF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		9950FD8027142C2800E1B3AF /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		9950FD8527142E1F00E1B3AF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		9950FD9D2714854F00E1B3AF /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
-		9950FDA2271485B900E1B3AF /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		9967E5712735246200F80E28 /* MessagePopupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePopupDelegate.swift; sourceTree = "<group>"; };
 		998AB889271C1F080042F371 /* ColorCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewController.swift; sourceTree = "<group>"; };
 		998AB8CE271DBBA10042F371 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -226,8 +222,6 @@
 			children = (
 				9950FD042712DB2800E1B3AF /* Main.storyboard */,
 				9950FD722713DF0000E1B3AF /* FloatingButton.swift */,
-				9950FDA2271485B900E1B3AF /* MessageCell.swift */,
-				9950FD9D2714854F00E1B3AF /* MessageCell.xib */,
 				9946B4B6271BB4EA00AC1611 /* SettingIconCell.swift */,
 				9946B4BE271BE51600AC1611 /* SettingColorCell.swift */,
 				9946B4C3271BE57900AC1611 /* SettingVersionCell.swift */,
@@ -386,7 +380,6 @@
 				9950FD0E2712DB2900E1B3AF /* LaunchScreen.storyboard in Resources */,
 				998FA98F2733E22C0065DD63 /* MessagePopupViewController.storyboard in Resources */,
 				998FA9812733E0E90065DD63 /* Main.storyboard in Resources */,
-				9950FD9E2714854F00E1B3AF /* MessageCell.xib in Resources */,
 				9950FD0B2712DB2900E1B3AF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,7 +508,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9950FDA3271485B900E1B3AF /* MessageCell.swift in Sources */,
 				9967E5722735246200F80E28 /* MessagePopupDelegate.swift in Sources */,
 				9946B4BF271BE51600AC1611 /* SettingColorCell.swift in Sources */,
 				9950FD522713D1E800E1B3AF /* TodoListViewController.swift in Sources */,

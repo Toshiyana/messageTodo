@@ -30,8 +30,10 @@ class MessageListViewController: SwipeTableViewController {
         addButton = FloatingButton(attachedToView: self.view)
         addButton.floatButton.addTarget(self, action: #selector(addButtonPressed(_:)), for: .touchUpInside)
         
-        tableView.register(UINib(nibName: K.messageCellIdentifier, bundle: nil), forCellReuseIdentifier: K.messageCellIdentifier)
+        tableView.register(UINib(nibName: K.messageImageCellIdentifier, bundle: nil), forCellReuseIdentifier: K.messageImageCellIdentifier)
 
+        tableView.separatorStyle = .none
+        tableView.rowHeight = 100
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,7 +64,7 @@ class MessageListViewController: SwipeTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.messageCellIdentifier, for: indexPath) as! MessageCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.messageImageCellIdentifier, for: indexPath) as! ImageMessageCell
         
         cell.delegate = self
         
