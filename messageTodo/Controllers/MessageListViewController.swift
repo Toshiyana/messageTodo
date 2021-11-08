@@ -20,6 +20,7 @@ class MessageListViewController: SwipeTableViewController {
     let defaults = UserDefaults.standard
     let realm = try! Realm()
     var messages: Results<Message>?
+    var showEditPopup = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,49 +76,27 @@ class MessageListViewController: SwipeTableViewController {
     
     //MARK: - TableView Delegate Method
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showEditPopup = true
         performSegue(withIdentifier: K.messageListTomessagePopup, sender: self)
-//        if let message = messages?[indexPath.row] {
-//            var contentField = UITextField()
-//            var nameField = UITextField()
-//
-//            let alert = UIAlertController(title: "言葉の編集", message: "", preferredStyle: .alert)
-//
-//            let editAction = UIAlertAction(title: "OK", style: .default) { (action) in
-//                do {
-//                    try self.realm.write {
-//                        message.content = contentField.text!
-//                        message.name = nameField.text!
-//                        message.dateCreated = Date()
-//                    }
-//                } catch {
-//                    print("Error updating message. \(error)")
-//                }
-//                tableView.reloadData()
-//            }
-//
-//            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//
-//            alert.addAction(editAction)
-//            alert.addAction(cancelAction)
-//
-//            alert.addTextField { (field) in
-//                field.text = message.content
-//                field.placeholder = "言葉"
-//                contentField = field
-//            }
-//            alert.addTextField { (field) in
-//                field.text = message.name
-//                field.placeholder = "発言者"
-//                nameField = field
-//            }
-//            present(alert, animated: true, completion: nil)
-//        }
-//
-//        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //
+        if segue.identifier == K.messageListTomessagePopup {
+
+            let popup = segue.destination as! MessagePopupViewController
+            popup.delegate = self
+            popup.titleColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
+            
+            if showEditPopup {
+                if let indexPath = tableView.indexPathForSelectedRow,
+                   let message = messages?[indexPath.row] {
+                    
+                    popup.showEditPopup = showEditPopup
+                    popup.name = message.name
+                    popup.content = message.content
+                }
+            }
+        }
     }
     
     //MARK: - Load Data Method
@@ -151,7 +130,7 @@ class MessageListViewController: SwipeTableViewController {
         }
         tableView.reloadData()
     }
-    
+        
     //MARK: - Delete Data Method
     override func updateModel(at indexPath: IndexPath) {
         if let message = messages?[indexPath.row] {
@@ -167,38 +146,8 @@ class MessageListViewController: SwipeTableViewController {
 
     //MARK: - Add New Messages
     @objc private func addButtonPressed(_ sender: FloatingButton) {
-        
-        var contentField = UITextField()
-        var nameField = UITextField()
-        
-        let alert = UIAlertController(title: "言葉の追加", message: "", preferredStyle: .alert)
-        
-        let addAction = UIAlertAction(title: "追加", style: .default) { (action) in
-
-            let newMessage = Message()
-            newMessage.content = contentField.text!
-            newMessage.name = nameField.text!
-            newMessage.dateCreated = Date()
-            
-            self.save(message: newMessage)
-        }
-        
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
-        
-        alert.addAction(addAction)
-        alert.addAction(cancelAction)
-
-        alert.addTextField { (field) in
-            field.placeholder = "言葉"
-            contentField = field
-        }
-        
-        alert.addTextField { (field) in
-            field.placeholder = "発言者"
-            nameField = field
-        }
-        
-        present(alert, animated: true, completion: nil)
+        showEditPopup = false
+        performSegue(withIdentifier: K.messageListTomessagePopup, sender: self)
     }
 
     
@@ -249,6 +198,36 @@ extension MessageListViewController: UISearchBarDelegate {
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()
             }
+        }
+    }
+}
+
+extension MessageListViewController: MessagePopupDelegate {
+    
+    func popupValueAdded(name: String, content: String) {
+        let newMessage = Message()
+        newMessage.name = name
+        newMessage.content = content
+        newMessage.dateCreated = Date()
+        
+        save(message: newMessage)
+    }
+    
+    func popupValueEdited(name: String, content: String) {
+
+        if let indexPath = tableView.indexPathForSelectedRow,
+           let message = messages?[indexPath.row] {
+            
+            do {
+                try realm.write {
+                    message.name = name
+                    message.content = content
+                    message.dateCreated = Date()
+                }
+            } catch {
+                print("Error editing message. \(error)")
+            }
+            tableView.reloadData()
         }
     }
 }

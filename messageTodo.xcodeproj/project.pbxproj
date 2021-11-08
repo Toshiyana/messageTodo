@@ -31,6 +31,7 @@
 		9950FD8627142E1F00E1B3AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FD8527142E1F00E1B3AF /* Constants.swift */; };
 		9950FD9E2714854F00E1B3AF /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9950FD9D2714854F00E1B3AF /* MessageCell.xib */; };
 		9950FDA3271485B900E1B3AF /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950FDA2271485B900E1B3AF /* MessageCell.swift */; };
+		9967E5722735246200F80E28 /* MessagePopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967E5712735246200F80E28 /* MessagePopupDelegate.swift */; };
 		998AB88A271C1F080042F371 /* ColorCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998AB889271C1F080042F371 /* ColorCollectionViewController.swift */; };
 		998AB8CF271DBBA10042F371 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998AB8CE271DBBA10042F371 /* ColorCollectionViewCell.swift */; };
 		998FA9722733D6FB0065DD63 /* MessagePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998FA9712733D6FB0065DD63 /* MessagePopupViewController.swift */; };
@@ -97,6 +98,7 @@
 		9950FD8527142E1F00E1B3AF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9950FD9D2714854F00E1B3AF /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		9950FDA2271485B900E1B3AF /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		9967E5712735246200F80E28 /* MessagePopupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePopupDelegate.swift; sourceTree = "<group>"; };
 		998AB889271C1F080042F371 /* ColorCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewController.swift; sourceTree = "<group>"; };
 		998AB8CE271DBBA10042F371 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		998FA9712733D6FB0065DD63 /* MessagePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePopupViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			children = (
 				9950FCFE2712DB2800E1B3AF /* AppDelegate.swift */,
 				9950FD002712DB2800E1B3AF /* SceneDelegate.swift */,
+				9967E5712735246200F80E28 /* MessagePopupDelegate.swift */,
 				9950FD8527142E1F00E1B3AF /* Constants.swift */,
 				994D396227242B81004C429F /* Commons */,
 				9946B4A8271ABBB700AC1611 /* Extensions */,
@@ -513,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9950FDA3271485B900E1B3AF /* MessageCell.swift in Sources */,
+				9967E5722735246200F80E28 /* MessagePopupDelegate.swift in Sources */,
 				9946B4BF271BE51600AC1611 /* SettingColorCell.swift in Sources */,
 				9950FD522713D1E800E1B3AF /* TodoListViewController.swift in Sources */,
 				9950FD662713D2B600E1B3AF /* MessageListViewController.swift in Sources */,
