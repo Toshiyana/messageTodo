@@ -99,6 +99,7 @@ class TodoListViewController: SwipeTableViewController {
                 field.placeholder = "タスク"
                 field.text = item.title
                 textField = field
+                textField.returnKeyType = .done
             }
             
             present(alert, animated: true, completion: nil)

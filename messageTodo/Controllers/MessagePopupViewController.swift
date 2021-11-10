@@ -25,6 +25,9 @@ class MessagePopupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameTextField.delegate = self
+        contentTextField.delegate = self
                 
         popupView.layer.cornerRadius = 15
         popupView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -57,4 +60,24 @@ class MessagePopupViewController: UIViewController {
         dismiss(animated: false)
     }
     
+}
+
+extension MessagePopupViewController: UITextFieldDelegate {
+    
+    // keyboardのreturnを押した時の処理を記述
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Returnを押した時にkeyboardを閉じる（Popup上の全てのtextFieldを対象）
+        // 指定のtextFieldに対して行う場合は、IBOutletで命名した名前を利用（ex: nameTextField.endEditing(true)）
+        textField.endEditing(true)
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField.text != "" {
+            return true // keyboardを閉じる
+        } else {
+            textField.placeholder = "文字を入力してください"
+            return false // keyboardを開いたまま
+        }
+    }
 }
