@@ -8,6 +8,6 @@
 import Foundation
 
 protocol MessagePopupDelegate {
-    func popupValueAdded(name: String, content: String)
-    func popupValueEdited(name: String, content: String)
+    func popupValueAdded(name: String, content: String, imageData: Data?)
+    func popupValueEdited(name: String, content: String, imageData: Data?)
 }

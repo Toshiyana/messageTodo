@@ -71,6 +71,7 @@ class MessageListViewController: SwipeTableViewController {
         if let message = messages?[indexPath.row] {
             cell.messageLabel.text = message.content
             cell.nameLabel.text = message.name
+            cell.messageImgView.image = UIImage(data: message.imageData!)//!は良くない
         }
         
         return cell
@@ -96,6 +97,8 @@ class MessageListViewController: SwipeTableViewController {
                     popup.showEditPopup = showEditPopup
                     popup.name = message.name
                     popup.content = message.content
+                    popup.imgData = message.imageData
+// default画像を設定しているので、編集時点でmessage.imageDataには必ず画像dataが入っている（default画像を入れていることを前提にしているので再利用性はあんまり良くない?）
                 }
             }
         }
@@ -206,16 +209,16 @@ extension MessageListViewController: UISearchBarDelegate {
 
 extension MessageListViewController: MessagePopupDelegate {
     
-    func popupValueAdded(name: String, content: String) {
+    func popupValueAdded(name: String, content: String, imageData: Data?) {
         let newMessage = Message()
         newMessage.name = name
         newMessage.content = content
         newMessage.dateCreated = Date()
-        
+        newMessage.imageData = imageData
         save(message: newMessage)
     }
     
-    func popupValueEdited(name: String, content: String) {
+    func popupValueEdited(name: String, content: String, imageData: Data?) {
 
         if let indexPath = tableView.indexPathForSelectedRow,
            let message = messages?[indexPath.row] {
@@ -225,6 +228,7 @@ extension MessageListViewController: MessagePopupDelegate {
                     message.name = name
                     message.content = content
                     message.dateCreated = Date()
+                    message.imageData = imageData
                 }
             } catch {
                 print("Error editing message. \(error)")
