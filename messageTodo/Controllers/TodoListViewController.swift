@@ -39,12 +39,16 @@ class TodoListViewController: SwipeTableViewController {
         guard let navBar = navigationController?.navigationBar else {
             fatalError("NavigationController does not exist.")
         }
-          
+
         // change color
         let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
         ChameleonUtility.changeNabBarColor(navBar: navBar, color: themeColor)
         addButton.floatButton.layer.backgroundColor = themeColor.cgColor
-        
+
+        guard let tabBar = tabBarController?.tabBar else {
+            fatalError("NavigationController does not exist.")
+        }
+        TabBarUtility.Set(tabBar: tabBar) // for iOS15
         
         tabBarController?.tabBar.isHidden = false
     }

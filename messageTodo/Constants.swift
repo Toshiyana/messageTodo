@@ -20,9 +20,19 @@ struct K {
         static let colorCellIdentifier = "SettingColorCell"
         static let versionCellIdentifier = "SettingVersionCell"
     }
+    struct Scheduler {
+        static let notificationCellIdentifier = "NotificationCell"
+        static let wordCellIdentifier = "WordCell"
+        static let timeCellIdentifier = "TimeCell"
+    }
+    struct TimeSetting {
+        static let timePickerCellIdentifier = "TimePickerCell"
+        static let switchCellIdentifier = "SwitchCell"
+    }
     
     // Segue
     static let settingToColorSegue = "goToColor"
+    static let settingToScheduler = "goToScheduler"
     static let messageListTomessagePopup = "goToMessagePopup"
     
     // UserDefault

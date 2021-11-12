@@ -87,13 +87,13 @@ class SettingViewController: UITableViewController {
                         title: "通知時刻",
                         icon: UIImage(systemName: "clock"))
                         {
-                            // handler
+                            self.performSegue(withIdentifier: K.settingToScheduler, sender: self)
                         }),
             .colorCell(model: SettingColorOption(
                         title: "テーマカラーの変更",
                         icon: UIImage(systemName: "paintpalette"))
                         {
-                self.performSegue(withIdentifier: K.settingToColorSegue, sender: self)
+                            self.performSegue(withIdentifier: K.settingToColorSegue, sender: self)
                         }),
         ]))
         

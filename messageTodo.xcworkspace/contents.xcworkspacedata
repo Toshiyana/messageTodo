@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/toshi/Desktop/iOSApp/myApp/messageTodo/messageTodo/Views/SchedulerTableViewController.storyboard">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/toshi/Desktop/iOSApp/myApp/messageTodo/messageTodo/Views/ColorCollectionViewController.storyboard">
+   </FileRef>
+   <FileRef
       location = "group:/Users/toshi/Desktop/iOSApp/myApp/messageTodo/messageTodo/Views/MessagePopupViewController.storyboard">
    </FileRef>
    <FileRef
