@@ -25,10 +25,6 @@ struct K {
         static let wordCellIdentifier = "WordCell"
         static let timeCellIdentifier = "TimeCell"
     }
-    struct TimeSetting {
-        static let timePickerCellIdentifier = "TimePickerCell"
-        static let switchCellIdentifier = "SwitchCell"
-    }
     
     // Segue
     static let settingToColorSegue = "goToColor"

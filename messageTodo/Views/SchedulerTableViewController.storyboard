@@ -139,16 +139,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5B-rK-Stk">
                                 <rect key="frame" x="47.5" y="213" width="319" height="470"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="通知時間の設定" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cP2-yB-dxr">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="通知時間の設定" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cP2-yB-dxr">
                                         <rect key="frame" x="0.0" y="0.0" width="319" height="54"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="rQQ-nz-8UQ"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BrV-3o-Z2a">
-                                        <rect key="frame" x="160" y="427" width="159" height="43"/>
+                                        <rect key="frame" x="167" y="427" width="152" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="完了"/>
@@ -165,17 +167,56 @@
                                             <action selector="cancelButtonPressed:" destination="Wtu-p5-H20" eventType="touchUpInside" id="5A3-hS-0Y6"/>
                                         </connections>
                                     </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ATh-4W-n8X">
-                                        <rect key="frame" x="0.0" y="62" width="319" height="357"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <sections/>
-                                    </tableView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="113" translatesAutoresizingMaskIntoConstraints="NO" id="e7m-MZ-ttX">
+                                        <rect key="frame" x="27" y="366" width="266" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="リピート通知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Sp-vw-zGQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="104" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Kyh-Tm-en4">
+                                                <rect key="frame" x="217" y="0.0" width="51" height="31"/>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="mZQ-0q-UPd">
+                                        <rect key="frame" x="0.0" y="76" width="319" height="254"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fvK-OY-iVq">
+                                                <rect key="frame" x="74.5" y="0.0" width="170" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="170" id="qh0-S6-fZs"/>
+                                                </constraints>
+                                                <segments>
+                                                    <segment title="間隔"/>
+                                                    <segment title="日時"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="segmentedControlValueChanged:" destination="Wtu-p5-H20" eventType="valueChanged" id="RNY-EL-lZW"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjl-Wv-Piz">
+                                                <rect key="frame" x="0.0" y="38" width="319" height="216"/>
+                                                <locale key="locale" localeIdentifier="ja"/>
+                                            </datePicker>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="cP2-yB-dxr" firstAttribute="trailing" secondItem="mZQ-0q-UPd" secondAttribute="trailing" id="4YT-P7-mDT"/>
                                     <constraint firstAttribute="height" constant="470" id="7jc-5K-TWr"/>
+                                    <constraint firstAttribute="trailing" secondItem="e7m-MZ-ttX" secondAttribute="trailing" constant="26" id="GSD-Va-eca"/>
+                                    <constraint firstItem="e7m-MZ-ttX" firstAttribute="top" secondItem="mZQ-0q-UPd" secondAttribute="bottom" constant="36" id="NsA-Cb-MAQ"/>
+                                    <constraint firstItem="mZQ-0q-UPd" firstAttribute="top" secondItem="cP2-yB-dxr" secondAttribute="bottom" constant="22" id="PdO-54-HTa"/>
+                                    <constraint firstItem="mZQ-0q-UPd" firstAttribute="leading" secondItem="a5B-rK-Stk" secondAttribute="leading" id="QXm-Od-eWw"/>
+                                    <constraint firstAttribute="trailing" secondItem="mZQ-0q-UPd" secondAttribute="trailing" id="cfI-pA-0Gb"/>
+                                    <constraint firstItem="cP2-yB-dxr" firstAttribute="top" secondItem="a5B-rK-Stk" secondAttribute="top" id="jcz-23-kJr"/>
+                                    <constraint firstItem="e7m-MZ-ttX" firstAttribute="leading" secondItem="a5B-rK-Stk" secondAttribute="leading" constant="27" id="nBY-lH-ac3"/>
                                     <constraint firstAttribute="width" constant="319" id="qAi-Li-MJO"/>
+                                    <constraint firstItem="cP2-yB-dxr" firstAttribute="leading" secondItem="mZQ-0q-UPd" secondAttribute="leading" id="uea-RT-JKG"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -189,12 +230,14 @@
                     <navigationItem key="navigationItem" id="yrx-Ee-I38"/>
                     <connections>
                         <outlet property="popupLabel" destination="cP2-yB-dxr" id="2R9-d4-8xn"/>
-                        <outlet property="timeTableView" destination="ATh-4W-n8X" id="6gp-aN-QfE"/>
+                        <outlet property="popupView" destination="a5B-rK-Stk" id="N0j-c6-QpF"/>
+                        <outlet property="repeatSwitch" destination="Kyh-Tm-en4" id="7vQ-yD-eXa"/>
+                        <outlet property="timePicker" destination="Yjl-Wv-Piz" id="ONr-Ct-jjX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZw-QP-q3o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5952" y="374"/>
+            <point key="canvasLocation" x="5950.7246376811599" y="373.66071428571428"/>
         </scene>
     </scenes>
     <resources>

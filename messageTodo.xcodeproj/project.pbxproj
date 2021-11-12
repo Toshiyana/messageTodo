@@ -40,10 +40,6 @@
 		998FA9722733D6FB0065DD63 /* MessagePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998FA9712733D6FB0065DD63 /* MessagePopupViewController.swift */; };
 		998FA9812733E0E90065DD63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9950FD042712DB2800E1B3AF /* Main.storyboard */; };
 		998FA98F2733E22C0065DD63 /* MessagePopupViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 998FA9762733D7410065DD63 /* MessagePopupViewController.storyboard */; };
-		9998EEDD273E9D8300324E1B /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEDB273E9D8300324E1B /* SwitchCell.swift */; };
-		9998EEDE273E9D8300324E1B /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9998EEDC273E9D8300324E1B /* SwitchCell.xib */; };
-		9998EEE1273E9DF200324E1B /* TimePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEDF273E9DF200324E1B /* TimePickerCell.swift */; };
-		9998EEE2273E9DF200324E1B /* TimePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9998EEE0273E9DF200324E1B /* TimePickerCell.xib */; };
 		A60783F7E1929B4F2DA6B87C /* Pods_messageTodo_messageTodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58FF47784E10E3703E19C29 /* Pods_messageTodo_messageTodoUITests.framework */; };
 		ADC7C691B5BD80D1008CFB59 /* Pods_messageTodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DEFB1798620513323B4F33F /* Pods_messageTodo.framework */; };
 		C9F07E14F8DF82BEA6058851 /* Pods_messageTodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C1A0BAFCBBDC5263A74B059 /* Pods_messageTodoTests.framework */; };
@@ -113,10 +109,6 @@
 		998AB8CE271DBBA10042F371 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		998FA9712733D6FB0065DD63 /* MessagePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePopupViewController.swift; sourceTree = "<group>"; };
 		998FA9762733D7410065DD63 /* MessagePopupViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = MessagePopupViewController.storyboard; path = /Users/toshi/Desktop/iOSApp/myApp/messageTodo/messageTodo/Views/MessagePopupViewController.storyboard; sourceTree = "<absolute>"; };
-		9998EEDB273E9D8300324E1B /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
-		9998EEDC273E9D8300324E1B /* SwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
-		9998EEDF273E9DF200324E1B /* TimePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerCell.swift; sourceTree = "<group>"; };
-		9998EEE0273E9DF200324E1B /* TimePickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimePickerCell.xib; sourceTree = "<group>"; };
 		DE8BE26CF3001E7104A50856 /* Pods-messageTodo-messageTodoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-messageTodo-messageTodoUITests.debug.xcconfig"; path = "Target Support Files/Pods-messageTodo-messageTodoUITests/Pods-messageTodo-messageTodoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E58FF47784E10E3703E19C29 /* Pods_messageTodo_messageTodoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_messageTodo_messageTodoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -246,14 +238,10 @@
 				9946B4C3271BE57900AC1611 /* SettingVersionCell.swift */,
 				998AB8CE271DBBA10042F371 /* ColorCollectionViewCell.swift */,
 				993B2A3D2726EB14007A7C59 /* ImageMessageCell.swift */,
-				9998EEDF273E9DF200324E1B /* TimePickerCell.swift */,
-				9998EEDB273E9D8300324E1B /* SwitchCell.swift */,
 				993B2A3E2726EB14007A7C59 /* ImageMessageCell.xib */,
 				998FA9762733D7410065DD63 /* MessagePopupViewController.storyboard */,
 				998AAE49273DACB800089521 /* ColorCollectionViewController.storyboard */,
 				998AAE51273E5D1F00089521 /* SchedulerTableViewController.storyboard */,
-				9998EEE0273E9DF200324E1B /* TimePickerCell.xib */,
-				9998EEDC273E9D8300324E1B /* SwitchCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -403,9 +391,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9998EEE2273E9DF200324E1B /* TimePickerCell.xib in Resources */,
 				998AAE52273E5D3500089521 /* SchedulerTableViewController.storyboard in Resources */,
-				9998EEDE273E9D8300324E1B /* SwitchCell.xib in Resources */,
 				993B2A402726EB14007A7C59 /* ImageMessageCell.xib in Resources */,
 				9950FD0E2712DB2900E1B3AF /* LaunchScreen.storyboard in Resources */,
 				998FA98F2733E22C0065DD63 /* MessagePopupViewController.storyboard in Resources */,
@@ -557,14 +543,12 @@
 				998AAE4C273DAFB900089521 /* TabBarUtility.swift in Sources */,
 				998FA9722733D6FB0065DD63 /* MessagePopupViewController.swift in Sources */,
 				9950FD012712DB2800E1B3AF /* SceneDelegate.swift in Sources */,
-				9998EEE1273E9DF200324E1B /* TimePickerCell.swift in Sources */,
 				9950FD6B2713D50C00E1B3AF /* SwipeTableViewController.swift in Sources */,
 				994D396427242C28004C429F /* ChameleonUtility.swift in Sources */,
 				993B2A3F2726EB14007A7C59 /* ImageMessageCell.swift in Sources */,
 				998AB88A271C1F080042F371 /* ColorCollectionViewController.swift in Sources */,
 				998AAE58273E7EF200089521 /* TimeSettingViewController.swift in Sources */,
 				9950FD092712DB2800E1B3AF /* messageTodo.xcdatamodeld in Sources */,
-				9998EEDD273E9D8300324E1B /* SwitchCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
