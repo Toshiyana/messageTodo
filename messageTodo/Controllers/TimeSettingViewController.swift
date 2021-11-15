@@ -7,17 +7,17 @@
 
 import UIKit
 import ChameleonFramework
+import RealmSwift
 
 class TimeSettingViewController: UIViewController {
-    
     
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var popupLabel: UILabel!
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var repeatSwitch: UISwitch!
     
-    
     let defaults = UserDefaults.standard
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +48,17 @@ class TimeSettingViewController: UIViewController {
     }
     
     @IBAction func saveTimeButtonPressed(_ sender: UIButton) {
+        
+        let allItems = realm.objects(Item.self)
+        let itemCountText = String(allItems.count)
+        
+        let allMessages = realm.objects(Message.self)
+        let messageCount = allMessages.count
+        let randomIndex = Int.random(in: 0 ..< messageCount)
+        let randomMessage = allMessages[randomIndex].content
+        
+        
+    LocalNotificationManager.setNotification(5, of: .seconds, repeats: false, title: "残りのタスクは\(itemCountText)つです！", body: randomMessage, userInfo: ["aps": ["hello": "world"]])
         dismiss(animated: true, completion: nil)
     }
     

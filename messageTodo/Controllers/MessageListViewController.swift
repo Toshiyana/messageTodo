@@ -33,7 +33,7 @@ class MessageListViewController: SwipeTableViewController {
         tableView.register(UINib(nibName: K.messageImageCellIdentifier, bundle: nil), forCellReuseIdentifier: K.messageImageCellIdentifier)
 
         tableView.separatorStyle = .none
-        tableView.rowHeight = 100
+        tableView.rowHeight = 150
     }
     
     override func viewWillAppear(_ animated: Bool) {

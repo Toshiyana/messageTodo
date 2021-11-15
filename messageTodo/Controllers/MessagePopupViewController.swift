@@ -14,7 +14,8 @@ class MessagePopupViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var contentTextField: UITextField!
+    @IBOutlet weak var contentTextView: UITextView!
+    
     
     var showEditPopup: Bool = false
     var titleColor: UIColor?
@@ -28,9 +29,9 @@ class MessagePopupViewController: UIViewController {
         super.viewDidLoad()
         
         nameTextField.delegate = self
-        contentTextField.delegate = self
-                
-//        iconImageView.image = iconImageView.image?.withRenderingMode(.alwaysOriginal)
+        
+        contentTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
+        
         iconImageView.layer.cornerRadius = iconImageView.frame.height / 2
         
         popupView.layer.cornerRadius = 15
@@ -43,9 +44,13 @@ class MessagePopupViewController: UIViewController {
         if showEditPopup {
             titleLabel.text = "言葉の編集"
             nameTextField.text = name
-            contentTextField.text = content
+            contentTextView.text = content
             iconImageView.image = UIImage(data: imgData!) // default画像設定しているので必ず存在するが、!良くない？
         }
+    }
+    
+    @objc func tapDone(sender: Any) {
+        self.view.endEditing(true)
     }
     
     @IBAction func changeImageButtonPressed(_ sender: UIButton) {
@@ -55,7 +60,7 @@ class MessagePopupViewController: UIViewController {
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         let nameText = nameTextField.text!
-        let contentText = contentTextField.text!
+        let contentText = contentTextView.text!
         let imageData = iconImageView.image?.pngData()//default画像を設定しているので、それも毎回保存してしまうのは良くない？
         
         if showEditPopup {
@@ -70,8 +75,18 @@ class MessagePopupViewController: UIViewController {
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
         dismiss(animated: false)
     }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (contentTextView.isFirstResponder) {
+            contentTextView.resignFirstResponder()
+        }
+        else if (nameTextField.isFirstResponder) {
+            nameTextField.resignFirstResponder()
+        }
+    }
     
 }
+
 
 extension MessagePopupViewController: UITextFieldDelegate {
     
@@ -79,7 +94,7 @@ extension MessagePopupViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Returnを押した時にkeyboardを閉じる（Popup上の全てのtextFieldを対象）
         // 指定のtextFieldに対して行う場合は、IBOutletで命名した名前を利用（ex: nameTextField.endEditing(true)）
-        textField.endEditing(true)
+        nameTextField.endEditing(true)
         return true
     }
     
@@ -90,6 +105,15 @@ extension MessagePopupViewController: UITextFieldDelegate {
 //            textField.placeholder = "文字を入力してください"
 //            return false // keyboardを開いたまま
 //        }
+//    }
+    
+//    func dismissKeyboard() {
+//           let tap: UITapGestureRecognizer = UITapGestureRecognizer( target:     self, action:    #selector(MessagePopupViewController.dismissKeyboardTouchOutside))
+//           tap.cancelsTouchesInView = false
+//           view.addGestureRecognizer(tap)
+//    }
+//    @objc private func dismissKeyboardTouchOutside() {
+//       view.endEditing(true)
 //    }
 }
 
@@ -130,9 +154,9 @@ extension MessagePopupViewController: UIImagePickerControllerDelegate, UINavigat
             iconImageView.image = editedImage
 //            let data = editedImage.pngData()!
 //            iconImageView.image = UIImage(data: data)
-        
-//        else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-//            iconImageView.image = originalImage
+        }
+        else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            iconImageView.image = originalImage
         }
         
         picker.dismiss(animated: true, completion: nil)

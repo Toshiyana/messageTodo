@@ -17,9 +17,13 @@ class ImageMessageCell: SwipeTableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
         selectionStyle = .none
         messageView.layer.cornerRadius = messageView.frame.height / 4
+        messageView.layer.shadowColor = UIColor.black.cgColor
+        messageView.layer.shadowOpacity = 1
+        messageView.layer.shadowRadius = 8
+        messageView.layer.shadowOffset = CGSize(width: 2, height: 2)
         messageImgView.layer.cornerRadius = messageImgView.frame.height / 2
     }
 

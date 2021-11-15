@@ -12,10 +12,10 @@ class FloatingButton: NSObject {
     var floatButton: UIButton!
     private var parentView: UIView!
     
-    private let trailingPadding: CGFloat = 15.0
-    private let bottomPadding: CGFloat = -15.0
-    private let buttonHeight: CGFloat = 50.0
-    private let buttonWidth: CGFloat = 50.0
+    private let trailingPadding: CGFloat = 20.0
+    private let bottomPadding: CGFloat = -20.0
+    private let buttonHeight: CGFloat = 70.0
+    private let buttonWidth: CGFloat = 70.0
     
     init(attachedToView view: UIView) {
         super.init()

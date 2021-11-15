@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StoreKit
 import ChameleonFramework
 import RealmSwift
 
@@ -84,10 +85,14 @@ class SettingViewController: UITableViewController {
     private func configure() {
         models.append(Section(title: "ユーザー設定", options: [
             .iconCell(model: SettingIconOption(
-                        title: "通知時刻",
+                        title: "通知設定",
                         icon: UIImage(systemName: "clock"))
                         {
-                            self.performSegue(withIdentifier: K.settingToScheduler, sender: self)
+//                            self.performSegue(withIdentifier: K.settingToScheduler, sender: self)
+                            
+                            if let appSettings = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(appSettings) {
+                                UIApplication.shared.open(appSettings)
+                            }
                         }),
             .colorCell(model: SettingColorOption(
                         title: "テーマカラーの変更",
@@ -114,7 +119,11 @@ class SettingViewController: UITableViewController {
                         title: "アプリを評価",
                         icon: UIImage(systemName: "star"))
                         {
-                            //
+                            guard let scene = self.view.window?.windowScene else {
+                                print("No scene")
+                                return
+                            }
+                            SKStoreReviewController.requestReview(in: scene)
                         }),
         ]))
         

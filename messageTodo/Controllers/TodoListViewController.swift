@@ -24,6 +24,7 @@ class TodoListViewController: SwipeTableViewController {
         super.viewDidLoad()
         
         title = "タスク"
+        tableView.rowHeight = 50
         loadItems()
         addButton = FloatingButton(attachedToView: view)
         addButton.floatButton.addTarget(self, action: #selector(addButtonPressed(_:)), for: .touchUpInside)
