@@ -22,8 +22,8 @@ class ImageMessageCell: SwipeTableViewCell {
         messageView.layer.cornerRadius = messageView.frame.height / 4
         messageView.layer.shadowColor = UIColor.black.cgColor
         messageView.layer.shadowOpacity = 1
-        messageView.layer.shadowRadius = 8
-        messageView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        messageView.layer.shadowRadius = 4
+        messageView.layer.shadowOffset = CGSize(width: 1, height: 1)
         messageImgView.layer.cornerRadius = messageImgView.frame.height / 2
     }
 

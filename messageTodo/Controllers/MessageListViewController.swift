@@ -33,7 +33,6 @@ class MessageListViewController: SwipeTableViewController {
         tableView.register(UINib(nibName: K.messageImageCellIdentifier, bundle: nil), forCellReuseIdentifier: K.messageImageCellIdentifier)
 
         tableView.separatorStyle = .none
-        tableView.rowHeight = 150
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +58,11 @@ class MessageListViewController: SwipeTableViewController {
     }
 
     // MARK: - TableView Datasource Method
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        tableView.estimatedRowHeight = 150
+        return UITableView.automaticDimension
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages?.count ?? 1
     }
