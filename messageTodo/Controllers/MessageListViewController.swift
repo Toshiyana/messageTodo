@@ -20,7 +20,7 @@ class MessageListViewController: SwipeTableViewController {
     let defaults = UserDefaults.standard
     let realm = try! Realm()
     var messages: Results<Message>?
-    var showEditPopup = false
+    private var showEditPopup = false
     
     override func viewDidLoad() {
         super.viewDidLoad()

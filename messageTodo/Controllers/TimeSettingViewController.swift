@@ -44,7 +44,7 @@ class TimeSettingViewController: UIViewController {
     
     
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
     
     @IBAction func saveTimeButtonPressed(_ sender: UIButton) {
@@ -59,7 +59,7 @@ class TimeSettingViewController: UIViewController {
         
         
     LocalNotificationManager.setNotification(5, of: .seconds, repeats: false, title: "残りのタスクは\(itemCountText)つです！", body: randomMessage, userInfo: ["aps": ["hello": "world"]])
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
     
     

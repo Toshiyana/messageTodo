@@ -30,7 +30,7 @@ class MessagePopupViewController: UIViewController {
         
         nameTextField.delegate = self
         
-        contentTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
+        contentTextView.addDoneButton(title: "完了", target: self, selector: #selector(tapDone(sender:)))
         
         iconImageView.layer.cornerRadius = iconImageView.frame.height / 2
         
@@ -69,11 +69,11 @@ class MessagePopupViewController: UIViewController {
             delegate?.popupValueAdded(name: nameText, content: contentText, imageData: imageData)
         }
         
-        dismiss(animated: false)
+        dismiss(animated: false, completion: nil)
     }
     
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
-        dismiss(animated: false)
+        dismiss(animated: false, completion: nil)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

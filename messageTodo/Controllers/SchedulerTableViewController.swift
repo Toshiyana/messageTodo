@@ -60,4 +60,8 @@ class SchedulerTableViewController: UITableViewController {
         tableView.reloadData()
     }
   
+    @IBAction func saveBarButtonPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

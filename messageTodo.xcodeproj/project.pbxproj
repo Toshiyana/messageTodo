@@ -43,6 +43,8 @@
 		9998EEE4273ED2BF00324E1B /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */; };
 		9998EEE8273FF88F00324E1B /* ItemNumNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEE7273FF88F00324E1B /* ItemNumNotification.swift */; };
 		9998EEED27420BDD00324E1B /* UITextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEEC27420BDC00324E1B /* UITextView+Additions.swift */; };
+		9998EEEF27427D9B00324E1B /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEEE27427D9B00324E1B /* ItemViewController.swift */; };
+		9998EEF1274372B600324E1B /* ItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEF0274372B600324E1B /* ItemDelegate.swift */; };
 		A60783F7E1929B4F2DA6B87C /* Pods_messageTodo_messageTodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58FF47784E10E3703E19C29 /* Pods_messageTodo_messageTodoUITests.framework */; };
 		ADC7C691B5BD80D1008CFB59 /* Pods_messageTodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DEFB1798620513323B4F33F /* Pods_messageTodo.framework */; };
 		C9F07E14F8DF82BEA6058851 /* Pods_messageTodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C1A0BAFCBBDC5263A74B059 /* Pods_messageTodoTests.framework */; };
@@ -115,6 +117,8 @@
 		9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		9998EEE7273FF88F00324E1B /* ItemNumNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemNumNotification.swift; sourceTree = "<group>"; };
 		9998EEEC27420BDC00324E1B /* UITextView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Additions.swift"; sourceTree = "<group>"; };
+		9998EEEE27427D9B00324E1B /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		9998EEF0274372B600324E1B /* ItemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDelegate.swift; sourceTree = "<group>"; };
 		DE8BE26CF3001E7104A50856 /* Pods-messageTodo-messageTodoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-messageTodo-messageTodoUITests.debug.xcconfig"; path = "Target Support Files/Pods-messageTodo-messageTodoUITests/Pods-messageTodo-messageTodoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E58FF47784E10E3703E19C29 /* Pods_messageTodo_messageTodoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_messageTodo_messageTodoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -202,6 +206,7 @@
 			children = (
 				9950FCFE2712DB2800E1B3AF /* AppDelegate.swift */,
 				9950FD002712DB2800E1B3AF /* SceneDelegate.swift */,
+				9998EEF0274372B600324E1B /* ItemDelegate.swift */,
 				9967E5712735246200F80E28 /* MessagePopupDelegate.swift */,
 				9950FD8527142E1F00E1B3AF /* Constants.swift */,
 				994D396227242B81004C429F /* Commons */,
@@ -260,6 +265,7 @@
 				9950FD652713D2B600E1B3AF /* MessageListViewController.swift */,
 				9946B4B1271B0EE200AC1611 /* SettingViewController.swift */,
 				998AB889271C1F080042F371 /* ColorCollectionViewController.swift */,
+				9998EEEE27427D9B00324E1B /* ItemViewController.swift */,
 				998FA9712733D6FB0065DD63 /* MessagePopupViewController.swift */,
 				998AAE4F273E546A00089521 /* SchedulerTableViewController.swift */,
 				998AAE57273E7EF200089521 /* TimeSettingViewController.swift */,
@@ -561,8 +567,10 @@
 				998AAE4C273DAFB900089521 /* TabBarUtility.swift in Sources */,
 				998FA9722733D6FB0065DD63 /* MessagePopupViewController.swift in Sources */,
 				9950FD012712DB2800E1B3AF /* SceneDelegate.swift in Sources */,
+				9998EEF1274372B600324E1B /* ItemDelegate.swift in Sources */,
 				9950FD6B2713D50C00E1B3AF /* SwipeTableViewController.swift in Sources */,
 				994D396427242C28004C429F /* ChameleonUtility.swift in Sources */,
+				9998EEEF27427D9B00324E1B /* ItemViewController.swift in Sources */,
 				993B2A3F2726EB14007A7C59 /* ImageMessageCell.swift in Sources */,
 				998AB88A271C1F080042F371 /* ColorCollectionViewController.swift in Sources */,
 				9998EEE8273FF88F00324E1B /* ItemNumNotification.swift in Sources */,

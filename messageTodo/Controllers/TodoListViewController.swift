@@ -18,6 +18,7 @@ class TodoListViewController: SwipeTableViewController {
     let defaults = UserDefaults.standard
     let realm = try! Realm()
     var todoItems: Results<Item>?
+    var showEditItem = false
     
     override func viewDidLoad() {
         // 画面初期表示の時にのみ呼び出し
@@ -79,40 +80,60 @@ class TodoListViewController: SwipeTableViewController {
     //MARK: - TableView Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
         // タップしたセルの内容を編集
-        if let item = todoItems?[indexPath.row] {
-            var textField = UITextField()
-            
-            let alert = UIAlertController(title: "タスクの編集", message: "", preferredStyle: .alert)
-            
-            let editAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                do {
-                    try self.realm.write {
-                        item.title = textField.text!
-                    }
-                } catch {
-                    print("Error updating item. \(error)")
-                }
-                tableView.reloadData()
-            }
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            
-            alert.addAction(editAction)
-            alert.addAction(cancelAction)
-            
-            alert.addTextField { (field) in
-                field.placeholder = "タスク"
-                field.text = item.title
-                textField = field
-                textField.returnKeyType = .done
-            }
-            
-            present(alert, animated: true, completion: nil)
-        }
-
+        showEditItem = true
+        performSegue(withIdentifier: K.itemListToitem, sender: self)
+        
+//        if let item = todoItems?[indexPath.row] {
+//            var textField = UITextField()
+//
+//            let alert = UIAlertController(title: "タスクの編集", message: "", preferredStyle: .alert)
+//
+//            let editAction = UIAlertAction(title: "OK", style: .default) { (action) in
+//                do {
+//                    try self.realm.write {
+//                        item.title = textField.text!
+//                    }
+//                } catch {
+//                    print("Error updating item. \(error)")
+//                }
+//                tableView.reloadData()
+//            }
+//
+//            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//
+//            alert.addAction(editAction)
+//            alert.addAction(cancelAction)
+//
+//            alert.addTextField { (field) in
+//                field.placeholder = "タスク"
+//                field.text = item.title
+//                textField = field
+//                textField.returnKeyType = .done
+//            }
+//
+//            present(alert, animated: true, completion: nil)
+//        }
+//
         // セルが選択状態のままになるのを防ぐ
-        tableView.deselectRow(at: indexPath, animated: true)
+//        tableView.deselectRow(at: indexPath, animated: true)
 
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.itemListToitem {
+            let vc = segue.destination as! ItemViewController
+            vc.delegate = self
+            
+            if showEditItem {
+                if let indexPath = tableView.indexPathForSelectedRow,
+                   let item = todoItems?[indexPath.row] {
+                    
+                    vc.showEditItem = showEditItem
+                    vc.itemTitle = item.title
+                    vc.memo = item.memo
+                }
+            }
+        }
     }
     
     //MARK: - Load Data Method
@@ -149,29 +170,31 @@ class TodoListViewController: SwipeTableViewController {
     
     //MARK: - Add New Items
     @objc private func addButtonPressed(_ sender: FloatingButton) {
+        showEditItem = false
+        performSegue(withIdentifier: K.itemListToitem, sender: self)
         
-        var textField = UITextField()
-        
-        let alert = UIAlertController(title: "Add Todo Item", message: "", preferredStyle: .alert)
-        
-        let addAction = UIAlertAction(title: "Add Item", style: .default) { (action) in
-            let newItem = Item()
-            newItem.title = textField.text!
-            
-            self.save(item: newItem)
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        alert.addAction(addAction)
-        alert.addAction(cancelAction)
-        
-        alert.addTextField { (field) in
-            field.placeholder = "Create new item"
-            textField = field
-        }
-                
-        present(alert, animated: true, completion: nil)
+//        var textField = UITextField()
+//
+//        let alert = UIAlertController(title: "Add Todo Item", message: "", preferredStyle: .alert)
+//
+//        let addAction = UIAlertAction(title: "Add Item", style: .default) { (action) in
+//            let newItem = Item()
+//            newItem.title = textField.text!
+//
+//            self.save(item: newItem)
+//        }
+//
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//
+//        alert.addAction(addAction)
+//        alert.addAction(cancelAction)
+//
+//        alert.addTextField { (field) in
+//            field.placeholder = "Create new item"
+//            textField = field
+//        }
+//
+//        present(alert, animated: true, completion: nil)
     }
     
     //MARK: - EditButton Method
@@ -234,4 +257,32 @@ class TodoListViewController: SwipeTableViewController {
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+}
+
+extension TodoListViewController: ItemDelegate {
+    func itemValueAdded(title: String, memo: String) {
+        let newItem = Item()
+        newItem.title = title
+        newItem.memo = memo
+        save(item: newItem)
+    }
+    
+    func itemValueEdited(title: String, memo: String) {
+        
+        if let indexPath = tableView.indexPathForSelectedRow,
+           let item = todoItems?[indexPath.row] {
+            
+            do {
+                try realm.write {
+                    item.title = title
+                    item.memo = memo
+                }
+            } catch {
+                print("Error editing item. \(error)")
+            }
+            tableView.reloadData()
+        }
+    }
+    
+    
 }
