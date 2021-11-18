@@ -45,32 +45,70 @@
                     </navigationItem>
                     <connections>
                         <outlet property="editButton" destination="VIv-RJ-3dW" id="fWY-R3-FqK"/>
-                        <segue destination="gwB-D9-V8T" kind="presentation" identifier="goToItem" id="1Uf-YQ-R2r"/>
+                        <segue destination="IPM-xe-l9k" kind="show" id="smj-sL-RVB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kN-Gc-pHu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2497.1014492753625" y="77.678571428571431"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="iOh-yM-egz">
+            <objects>
+                <viewController id="IPM-xe-l9k" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6pj-Hq-Tdu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="c04-eT-BuF">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="upI-Jd-GMf">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="upI-Jd-GMf" id="f8v-Le-Qaq">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jin-t4-Oqa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="c04-eT-BuF" firstAttribute="leading" secondItem="jin-t4-Oqa" secondAttribute="leading" id="7kI-06-njS"/>
+                            <constraint firstItem="jin-t4-Oqa" firstAttribute="bottom" secondItem="c04-eT-BuF" secondAttribute="bottom" id="K89-5s-vJo"/>
+                            <constraint firstItem="jin-t4-Oqa" firstAttribute="trailing" secondItem="c04-eT-BuF" secondAttribute="trailing" id="Ntp-6K-Jvx"/>
+                            <constraint firstItem="c04-eT-BuF" firstAttribute="top" secondItem="jin-t4-Oqa" secondAttribute="top" id="agb-iE-wvY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jZw-LQ-7jz">
+                        <barButtonItem key="leftBarButtonItem" title="キャンセル" id="rpv-iu-kYK"/>
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="Cde-wB-xrv"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ae-Fq-JCE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3700" y="-188"/>
+        </scene>
         <!--Item View Controller-->
         <scene sceneID="E9e-fn-DRn">
             <objects>
                 <viewController id="gwB-D9-V8T" customClass="ItemViewController" customModule="messageTodo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8zL-ix-ECm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3n-ZY-fHp">
-                                <rect key="frame" x="20" y="275.5" width="156" height="33"/>
+                                <rect key="frame" x="20" y="319.5" width="156" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="リマインダー：なし"/>
-                                <connections>
-                                    <segue destination="I9D-a8-op3" kind="show" identifier="goToScheduler" id="xVa-dD-4Tf"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4W-kn-8t2">
-                                <rect key="frame" x="20" y="332.5" width="374" height="54"/>
+                                <rect key="frame" x="20" y="376.5" width="374" height="54"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="742-8N-qpa"/>
@@ -79,12 +117,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="保存"/>
-                                <connections>
-                                    <action selector="saveButtonPressed:" destination="gwB-D9-V8T" eventType="touchUpInside" id="5md-GW-sXa"/>
-                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7b0-Zx-ROP">
-                                <rect key="frame" x="20" y="32" width="374" height="46"/>
+                                <rect key="frame" x="20" y="76" width="374" height="46"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="sRw-Dl-Y4h"/>
@@ -93,13 +128,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メモ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CR-Ev-KRa">
-                                <rect key="frame" x="20" y="96" width="35" height="20.5"/>
+                                <rect key="frame" x="20" y="140" width="35" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vsc-Wq-PqQ">
-                                <rect key="frame" x="20" y="124.5" width="374" height="143"/>
+                                <rect key="frame" x="20" y="168.5" width="374" height="143"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="143" id="KPe-vV-gEv"/>
@@ -109,7 +144,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yed-hW-RPp">
-                                <rect key="frame" x="20" y="396.5" width="374" height="54"/>
+                                <rect key="frame" x="20" y="440.5" width="374" height="54"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="lsn-z3-DMn"/>
@@ -118,9 +153,6 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="キャンセル"/>
-                                <connections>
-                                    <action selector="cancelButtonPressed:" destination="gwB-D9-V8T" eventType="touchUpInside" id="t28-r4-44r"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mVv-1e-btI"/>
@@ -148,24 +180,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uLU-uk-kRd"/>
-                    <connections>
-                        <outlet property="itemTitleTextField" destination="7b0-Zx-ROP" id="r41-n4-IHD"/>
-                        <outlet property="memoTextView" destination="vsc-Wq-PqQ" id="mnb-1y-cOr"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gSo-2P-l2J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3469.5652173913045" y="-44.196428571428569"/>
-        </scene>
-        <!--SchedulerTableViewController-->
-        <scene sceneID="6Eb-Va-HD3">
-            <objects>
-                <viewControllerPlaceholder storyboardName="SchedulerTableViewController" id="I9D-a8-op3" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Jzo-4T-XHd"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XZW-3q-EgN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4246" y="-214"/>
+            <point key="canvasLocation" x="4543" y="-126"/>
         </scene>
         <!--Message List View Controller-->
         <scene sceneID="jr0-2Q-xVO">

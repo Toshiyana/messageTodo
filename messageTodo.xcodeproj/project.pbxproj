@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		991284BA2744A41000F7C7EE /* TimeSettingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991284B92744A41000F7C7EE /* TimeSettingDelegate.swift */; };
 		991284BC27451B4700F7C7EE /* ScheduleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991284BB27451B4700F7C7EE /* ScheduleDelegate.swift */; };
+		991285122746AC1300F7C7EE /* ItemContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991285112746AC1300F7C7EE /* ItemContentViewController.swift */; };
 		993B2A3F2726EB14007A7C59 /* ImageMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993B2A3D2726EB14007A7C59 /* ImageMessageCell.swift */; };
 		993B2A402726EB14007A7C59 /* ImageMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993B2A3E2726EB14007A7C59 /* ImageMessageCell.xib */; };
 		9946B4AA271ABC2D00AC1611 /* UserDefaults+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9946B4A9271ABC2D00AC1611 /* UserDefaults+UIColor.swift */; };
@@ -79,6 +80,7 @@
 		7F2057046A0090CD4679121E /* Pods-messageTodoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-messageTodoTests.release.xcconfig"; path = "Target Support Files/Pods-messageTodoTests/Pods-messageTodoTests.release.xcconfig"; sourceTree = "<group>"; };
 		991284B92744A41000F7C7EE /* TimeSettingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingDelegate.swift; sourceTree = "<group>"; };
 		991284BB27451B4700F7C7EE /* ScheduleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDelegate.swift; sourceTree = "<group>"; };
+		991285112746AC1300F7C7EE /* ItemContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemContentViewController.swift; sourceTree = "<group>"; };
 		993B2A3D2726EB14007A7C59 /* ImageMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMessageCell.swift; sourceTree = "<group>"; };
 		993B2A3E2726EB14007A7C59 /* ImageMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageMessageCell.xib; sourceTree = "<group>"; };
 		9946B4A9271ABC2D00AC1611 /* UserDefaults+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+UIColor.swift"; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				9950FD652713D2B600E1B3AF /* MessageListViewController.swift */,
 				9946B4B1271B0EE200AC1611 /* SettingViewController.swift */,
 				998AB889271C1F080042F371 /* ColorCollectionViewController.swift */,
+				991285112746AC1300F7C7EE /* ItemContentViewController.swift */,
 				9998EEEE27427D9B00324E1B /* ItemViewController.swift */,
 				998FA9712733D6FB0065DD63 /* MessagePopupViewController.swift */,
 				998AAE4F273E546A00089521 /* SchedulerTableViewController.swift */,
@@ -581,6 +584,7 @@
 				9967E5722735246200F80E28 /* MessagePopupDelegate.swift in Sources */,
 				9998EEED27420BDD00324E1B /* UITextView+Additions.swift in Sources */,
 				991284BC27451B4700F7C7EE /* ScheduleDelegate.swift in Sources */,
+				991285122746AC1300F7C7EE /* ItemContentViewController.swift in Sources */,
 				9946B4BF271BE51600AC1611 /* SettingColorCell.swift in Sources */,
 				9950FD522713D1E800E1B3AF /* TodoListViewController.swift in Sources */,
 				9950FD662713D2B600E1B3AF /* MessageListViewController.swift in Sources */,
