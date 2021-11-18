@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kd6-n7-LKg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t56-ig-uot">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--リマインダーの設定-->
+        <!--Scheduler Table View Controller-->
         <scene sceneID="PMZ-Jg-S6o">
             <objects>
                 <tableViewController id="t56-ig-uot" customClass="SchedulerTableViewController" customModule="messageTodo" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,7 +106,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Wtu-p5-H20" kind="presentation" animates="NO" modalPresentationStyle="overCurrentContext" id="aXC-RK-ogp"/>
+                                            <segue destination="Wtu-p5-H20" kind="presentation" identifier="goToTimeSetting" animates="NO" modalPresentationStyle="overCurrentContext" id="aXC-RK-ogp"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -118,13 +117,6 @@
                             <outlet property="delegate" destination="t56-ig-uot" id="3Gf-TS-JNY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="リマインダーの設定" id="eeI-Sv-fzk">
-                        <barButtonItem key="leftBarButtonItem" title="保存" id="fwi-5f-dOy">
-                            <connections>
-                                <action selector="saveBarButtonPressed:" destination="t56-ig-uot" id="z1I-rB-eKb"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="notificationSwitch" destination="4rY-7X-4NT" id="fHS-nb-6d5"/>
                         <outlet property="wordSwitch" destination="g48-xo-CyF" id="o9I-Td-SoM"/>
@@ -132,7 +124,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fNl-3y-ViB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5886.9565217391309" y="373.66071428571428"/>
+            <point key="canvasLocation" x="6797.1014492753629" y="373.66071428571428"/>
         </scene>
         <!--Time Setting View Controller-->
         <scene sceneID="9rE-4A-xAn">
@@ -239,29 +231,12 @@
                         <outlet property="popupView" destination="a5B-rK-Stk" id="N0j-c6-QpF"/>
                         <outlet property="repeatSwitch" destination="Kyh-Tm-en4" id="7vQ-yD-eXa"/>
                         <outlet property="timePicker" destination="Yjl-Wv-Piz" id="ONr-Ct-jjX"/>
+                        <outlet property="timeSegmentedControl" destination="fvK-OY-iVq" id="V6d-2a-gQr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZw-QP-q3o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6860.8695652173919" y="373.66071428571428"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="VLL-Gu-b5Q">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kd6-n7-LKg" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lvq-9Z-Inv">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="t56-ig-uot" kind="relationship" relationship="rootViewController" id="7VL-TP-9Kz"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yhN-4L-zmv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4976.811594202899" y="373.66071428571428"/>
+            <point key="canvasLocation" x="7771.0144927536239" y="373.66071428571428"/>
         </scene>
     </scenes>
     <resources>

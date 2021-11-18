@@ -8,6 +8,9 @@
 import Foundation
 
 protocol ItemDelegate {
-    func itemValueAdded(title: String, memo: String)
-    func itemValueEdited(title: String, memo: String)
+    func itemValueAdded(itemValue: Item?)
+    func itemValueEdited(itemValue: Item?)
+
+//    func itemValueAdded(title: String, memo: String, reminderEnabled: Bool, reminder: Reminder?)
+//    func itemValueEdited(title: String, memo: String, reminderEnabled: Bool, reminder: Reminder?)
 }

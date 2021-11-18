@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		991284BA2744A41000F7C7EE /* TimeSettingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991284B92744A41000F7C7EE /* TimeSettingDelegate.swift */; };
+		991284BC27451B4700F7C7EE /* ScheduleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991284BB27451B4700F7C7EE /* ScheduleDelegate.swift */; };
 		993B2A3F2726EB14007A7C59 /* ImageMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993B2A3D2726EB14007A7C59 /* ImageMessageCell.swift */; };
 		993B2A402726EB14007A7C59 /* ImageMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993B2A3E2726EB14007A7C59 /* ImageMessageCell.xib */; };
 		9946B4AA271ABC2D00AC1611 /* UserDefaults+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9946B4A9271ABC2D00AC1611 /* UserDefaults+UIColor.swift */; };
@@ -75,6 +77,8 @@
 		3DB284F45D2EA74C8AD3C589 /* Pods-messageTodo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-messageTodo.release.xcconfig"; path = "Target Support Files/Pods-messageTodo/Pods-messageTodo.release.xcconfig"; sourceTree = "<group>"; };
 		614D1A3E25BDF3C12518D135 /* Pods-messageTodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-messageTodo.debug.xcconfig"; path = "Target Support Files/Pods-messageTodo/Pods-messageTodo.debug.xcconfig"; sourceTree = "<group>"; };
 		7F2057046A0090CD4679121E /* Pods-messageTodoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-messageTodoTests.release.xcconfig"; path = "Target Support Files/Pods-messageTodoTests/Pods-messageTodoTests.release.xcconfig"; sourceTree = "<group>"; };
+		991284B92744A41000F7C7EE /* TimeSettingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingDelegate.swift; sourceTree = "<group>"; };
+		991284BB27451B4700F7C7EE /* ScheduleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDelegate.swift; sourceTree = "<group>"; };
 		993B2A3D2726EB14007A7C59 /* ImageMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMessageCell.swift; sourceTree = "<group>"; };
 		993B2A3E2726EB14007A7C59 /* ImageMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageMessageCell.xib; sourceTree = "<group>"; };
 		9946B4A9271ABC2D00AC1611 /* UserDefaults+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+UIColor.swift"; sourceTree = "<group>"; };
@@ -208,6 +212,8 @@
 				9950FD002712DB2800E1B3AF /* SceneDelegate.swift */,
 				9998EEF0274372B600324E1B /* ItemDelegate.swift */,
 				9967E5712735246200F80E28 /* MessagePopupDelegate.swift */,
+				991284BB27451B4700F7C7EE /* ScheduleDelegate.swift */,
+				991284B92744A41000F7C7EE /* TimeSettingDelegate.swift */,
 				9950FD8527142E1F00E1B3AF /* Constants.swift */,
 				994D396227242B81004C429F /* Commons */,
 				9946B4A8271ABBB700AC1611 /* Extensions */,
@@ -242,17 +248,10 @@
 		9950FD402713300600E1B3AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9998EEF4274410EA00324E1B /* Xibs */,
+				9998EEF32744103B00324E1B /* Code */,
+				9998EEF227440FFF00324E1B /* Storyboards */,
 				9950FD042712DB2800E1B3AF /* Main.storyboard */,
-				9950FD722713DF0000E1B3AF /* FloatingButton.swift */,
-				9946B4B6271BB4EA00AC1611 /* SettingIconCell.swift */,
-				9946B4BE271BE51600AC1611 /* SettingColorCell.swift */,
-				9946B4C3271BE57900AC1611 /* SettingVersionCell.swift */,
-				998AB8CE271DBBA10042F371 /* ColorCollectionViewCell.swift */,
-				993B2A3D2726EB14007A7C59 /* ImageMessageCell.swift */,
-				993B2A3E2726EB14007A7C59 /* ImageMessageCell.xib */,
-				998FA9762733D7410065DD63 /* MessagePopupViewController.storyboard */,
-				998AAE49273DACB800089521 /* ColorCollectionViewController.storyboard */,
-				998AAE51273E5D1F00089521 /* SchedulerTableViewController.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,6 +290,37 @@
 				9950FD0C2712DB2900E1B3AF /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		9998EEF227440FFF00324E1B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				998AAE51273E5D1F00089521 /* SchedulerTableViewController.storyboard */,
+				998AAE49273DACB800089521 /* ColorCollectionViewController.storyboard */,
+				998FA9762733D7410065DD63 /* MessagePopupViewController.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		9998EEF32744103B00324E1B /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				9950FD722713DF0000E1B3AF /* FloatingButton.swift */,
+				9946B4B6271BB4EA00AC1611 /* SettingIconCell.swift */,
+				9946B4BE271BE51600AC1611 /* SettingColorCell.swift */,
+				9946B4C3271BE57900AC1611 /* SettingVersionCell.swift */,
+				998AB8CE271DBBA10042F371 /* ColorCollectionViewCell.swift */,
+			);
+			path = Code;
+			sourceTree = "<group>";
+		};
+		9998EEF4274410EA00324E1B /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				993B2A3D2726EB14007A7C59 /* ImageMessageCell.swift */,
+				993B2A3E2726EB14007A7C59 /* ImageMessageCell.xib */,
+			);
+			path = Xibs;
 			sourceTree = "<group>";
 		};
 		B1C38B04DDBF7FEFE42B0DBA /* Pods */ = {
@@ -550,6 +580,7 @@
 			files = (
 				9967E5722735246200F80E28 /* MessagePopupDelegate.swift in Sources */,
 				9998EEED27420BDD00324E1B /* UITextView+Additions.swift in Sources */,
+				991284BC27451B4700F7C7EE /* ScheduleDelegate.swift in Sources */,
 				9946B4BF271BE51600AC1611 /* SettingColorCell.swift in Sources */,
 				9950FD522713D1E800E1B3AF /* TodoListViewController.swift in Sources */,
 				9950FD662713D2B600E1B3AF /* MessageListViewController.swift in Sources */,
@@ -570,6 +601,7 @@
 				9998EEF1274372B600324E1B /* ItemDelegate.swift in Sources */,
 				9950FD6B2713D50C00E1B3AF /* SwipeTableViewController.swift in Sources */,
 				994D396427242C28004C429F /* ChameleonUtility.swift in Sources */,
+				991284BA2744A41000F7C7EE /* TimeSettingDelegate.swift in Sources */,
 				9998EEEF27427D9B00324E1B /* ItemViewController.swift in Sources */,
 				993B2A3F2726EB14007A7C59 /* ImageMessageCell.swift in Sources */,
 				998AB88A271C1F080042F371 /* ColorCollectionViewController.swift in Sources */,

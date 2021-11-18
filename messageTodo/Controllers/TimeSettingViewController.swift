@@ -13,12 +13,27 @@ class TimeSettingViewController: UIViewController {
     
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var popupLabel: UILabel!
+    @IBOutlet weak var timeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var repeatSwitch: UISwitch!
     
-    let defaults = UserDefaults.standard
-    let realm = try! Realm()
+    var delegate: TimeSettingDelegate?
     
+    var item: Item?
+    var showEditItem: Bool = false
+    
+    let defaults = UserDefaults.standard
+    
+    var formattedTimeInterval: String {
+        return String(timePicker.countDownDuration)
+    }
+    
+    var formattedDate: String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter.string(from: timePicker.date)
+    }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,20 +63,24 @@ class TimeSettingViewController: UIViewController {
     }
     
     @IBAction func saveTimeButtonPressed(_ sender: UIButton) {
+        if timeSegmentedControl.selectedSegmentIndex == 0 {
+            print(formattedTimeInterval)
+        } else {
+            print(formattedDate)
+        }
         
-        let allItems = realm.objects(Item.self)
-        let itemCountText = String(allItems.count)
+        if showEditItem {
+            delegate?.timeSettingValueAdded(itemTimeSetting: item)
+        }
         
-        let allMessages = realm.objects(Message.self)
-        let messageCount = allMessages.count
-        let randomIndex = Int.random(in: 0 ..< messageCount)
-        let randomMessage = allMessages[randomIndex].content
+//        let isRepeatable = repeatSwitch.isOn
         
+//        delegate?.scheduleValueAdded(reminder: )
         
-    LocalNotificationManager.setNotification(5, of: .seconds, repeats: false, title: "残りのタスクは\(itemCountText)つです！", body: randomMessage, userInfo: ["aps": ["hello": "world"]])
         dismiss(animated: false, completion: nil)
     }
     
+
     
 
 }

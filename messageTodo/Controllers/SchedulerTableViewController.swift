@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SchedulerTableViewController: UITableViewController {
 
@@ -21,10 +22,34 @@ class SchedulerTableViewController: UITableViewController {
     
     
     @IBOutlet weak var repeatSwitch: UISwitch!
-        
+       
+    var delegate: ScheduleDelegate?
+    
+    let realm = try! Realm()
+    var item: Item?
+    var showEditItem: Bool = false
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let item = item {
+            notificationSwitch.isOn = item.reminderEnabled
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.schedulerToTimeSetting {
+            let vc = segue.destination as! TimeSettingViewController
+            vc.delegate = self
+            
+            if showEditItem {
+                if let item = item {
+                    vc.showEditItem = showEditItem
+                    vc.item = item
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -61,7 +86,25 @@ class SchedulerTableViewController: UITableViewController {
     }
   
     @IBAction func saveBarButtonPressed(_ sender: UIBarButtonItem) {
+
+        do {
+            try realm.write {
+                item?.reminderEnabled = notificationSwitch.isOn
+//                item?.reminder = itemSchedule?.reminder
+            }
+        } catch {
+            print("Error editing item. \(error)")
+        }
+
+//        delegate?.scheduleValueSaved(itemSchedule: item)
+        
         dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension SchedulerTableViewController: TimeSettingDelegate {
+    func timeSettingValueAdded(itemTimeSetting: Item?) {
+        item = itemTimeSetting
+    }
 }

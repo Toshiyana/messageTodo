@@ -129,8 +129,9 @@ class TodoListViewController: SwipeTableViewController {
                    let item = todoItems?[indexPath.row] {
                     
                     vc.showEditItem = showEditItem
-                    vc.itemTitle = item.title
-                    vc.memo = item.memo
+                    vc.item = item
+//                    vc.itemTitle = item.title
+//                    vc.memo = item.memo
                 }
             }
         }
@@ -260,29 +261,75 @@ class TodoListViewController: SwipeTableViewController {
 }
 
 extension TodoListViewController: ItemDelegate {
-    func itemValueAdded(title: String, memo: String) {
+    
+    func itemValueAdded(itemValue: Item?) {
         let newItem = Item()
-        newItem.title = title
-        newItem.memo = memo
+        newItem.title = itemValue?.title ?? ""
+        newItem.memo = itemValue?.memo ?? ""
+        newItem.reminderEnabled = itemValue?.reminderEnabled ?? false
+        newItem.reminder = itemValue?.reminder
         save(item: newItem)
+
+//        LocalNotificationManager.shared.scheduleNotification(item: newItem)
     }
     
-    func itemValueEdited(title: String, memo: String) {
+    func itemValueEdited(itemValue: Item?) {
         
         if let indexPath = tableView.indexPathForSelectedRow,
            let item = todoItems?[indexPath.row] {
-            
+        
             do {
                 try realm.write {
-                    item.title = title
-                    item.memo = memo
+                    item.title = itemValue?.title ?? ""
+                    item.memo = itemValue?.memo ?? ""
+                    item.reminderEnabled = itemValue?.reminderEnabled ?? false
+                    item.reminder = itemValue?.reminder
                 }
             } catch {
                 print("Error editing item. \(error)")
             }
             tableView.reloadData()
+
+            // 通知内容の更新
+//            LocalNotificationManager.shared.removeScheduledNotification(item: item)
+//            LocalNotificationManager.shared.scheduleNotification(item: item)
         }
     }
+
+    
+//    func itemValueAdded(title: String, memo: String, reminderEnabled: Bool, reminder: Reminder?) {
+//        let newItem = Item()
+//        newItem.title = title
+//        newItem.memo = memo
+//        newItem.reminderEnabled = reminderEnabled
+//        newItem.reminder = reminder
+//        save(item: newItem)
+//
+////        LocalNotificationManager.shared.scheduleNotification(item: newItem)
+//    }
+//
+//    func itemValueEdited(title: String, memo: String, reminderEnabled: Bool, reminder: Reminder?) {
+//
+//        if let indexPath = tableView.indexPathForSelectedRow,
+//           let item = todoItems?[indexPath.row] {
+//
+//            do {
+//                try realm.write {
+//                    item.title = title
+//                    item.memo = memo
+//                    item.reminderEnabled = reminderEnabled
+//                    item.reminder = reminder
+//                }
+//            } catch {
+//                print("Error editing item. \(error)")
+//            }
+//            tableView.reloadData()
+//
+//            // 通知内容の更新
+////            LocalNotificationManager.shared.removeScheduledNotification(item: item)
+////            LocalNotificationManager.shared.scheduleNotification(item: item)
+//        }
+//    }
     
     
 }
