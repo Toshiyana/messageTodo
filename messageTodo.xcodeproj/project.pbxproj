@@ -14,7 +14,6 @@
 		99128516274754B400F7C7EE /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99128514274754B300F7C7EE /* TextFieldCell.xib */; };
 		99128519274759C400F7C7EE /* TextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99128517274759C400F7C7EE /* TextViewCell.swift */; };
 		9912851A274759C400F7C7EE /* TextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99128518274759C400F7C7EE /* TextViewCell.xib */; };
-		9912851C2747686400F7C7EE /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9912851B2747686400F7C7EE /* ItemManager.swift */; };
 		9912851E2747A44700F7C7EE /* SchedulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9912851D2747A44700F7C7EE /* SchedulerViewController.swift */; };
 		991285202747F06A00F7C7EE /* TimeSettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9912851F2747F06A00F7C7EE /* TimeSettingViewController.storyboard */; };
 		993B2A3F2726EB14007A7C59 /* ImageMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993B2A3D2726EB14007A7C59 /* ImageMessageCell.swift */; };
@@ -53,7 +52,6 @@
 		998FA9812733E0E90065DD63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9950FD042712DB2800E1B3AF /* Main.storyboard */; };
 		998FA98F2733E22C0065DD63 /* MessagePopupViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 998FA9762733D7410065DD63 /* MessagePopupViewController.storyboard */; };
 		9998EEE4273ED2BF00324E1B /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */; };
-		9998EEE8273FF88F00324E1B /* ItemNumNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEE7273FF88F00324E1B /* ItemNumNotification.swift */; };
 		9998EEED27420BDD00324E1B /* UITextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEEC27420BDC00324E1B /* UITextView+Additions.swift */; };
 		9998EEEF27427D9B00324E1B /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEEE27427D9B00324E1B /* ItemViewController.swift */; };
 		9998EEF1274372B600324E1B /* ItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEF0274372B600324E1B /* ItemDelegate.swift */; };
@@ -94,7 +92,6 @@
 		99128514274754B300F7C7EE /* TextFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
 		99128517274759C400F7C7EE /* TextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewCell.swift; sourceTree = "<group>"; };
 		99128518274759C400F7C7EE /* TextViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewCell.xib; sourceTree = "<group>"; };
-		9912851B2747686400F7C7EE /* ItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManager.swift; sourceTree = "<group>"; };
 		9912851D2747A44700F7C7EE /* SchedulerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulerViewController.swift; sourceTree = "<group>"; };
 		9912851F2747F06A00F7C7EE /* TimeSettingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = TimeSettingViewController.storyboard; path = messageTodo/Views/TimeSettingViewController.storyboard; sourceTree = SOURCE_ROOT; };
 		993B2A3D2726EB14007A7C59 /* ImageMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMessageCell.swift; sourceTree = "<group>"; };
@@ -139,7 +136,6 @@
 		998FA9712733D6FB0065DD63 /* MessagePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePopupViewController.swift; sourceTree = "<group>"; };
 		998FA9762733D7410065DD63 /* MessagePopupViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = MessagePopupViewController.storyboard; path = /Users/toshi/Desktop/iOSApp/myApp/messageTodo/messageTodo/Views/MessagePopupViewController.storyboard; sourceTree = "<absolute>"; };
 		9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
-		9998EEE7273FF88F00324E1B /* ItemNumNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemNumNotification.swift; sourceTree = "<group>"; };
 		9998EEEC27420BDC00324E1B /* UITextView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Additions.swift"; sourceTree = "<group>"; };
 		9998EEEE27427D9B00324E1B /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		9998EEF0274372B600324E1B /* ItemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDelegate.swift; sourceTree = "<group>"; };
@@ -232,8 +228,8 @@
 				9950FD002712DB2800E1B3AF /* SceneDelegate.swift */,
 				9998EEF0274372B600324E1B /* ItemDelegate.swift */,
 				9967E5712735246200F80E28 /* MessagePopupDelegate.swift */,
-				991284BB27451B4700F7C7EE /* ScheduleDelegate.swift */,
 				991284B92744A41000F7C7EE /* TimeSettingDelegate.swift */,
+				991284BB27451B4700F7C7EE /* ScheduleDelegate.swift */,
 				9950FD8527142E1F00E1B3AF /* Constants.swift */,
 				994D396227242B81004C429F /* Commons */,
 				9946B4A8271ABBB700AC1611 /* Extensions */,
@@ -299,9 +295,7 @@
 			children = (
 				9950FD7B27142B4A00E1B3AF /* Item.swift */,
 				9950FD8027142C2800E1B3AF /* Message.swift */,
-				9998EEE7273FF88F00324E1B /* ItemNumNotification.swift */,
 				9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */,
-				9912851B2747686400F7C7EE /* ItemManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -629,7 +623,6 @@
 				9946B4C4271BE57900AC1611 /* SettingVersionCell.swift in Sources */,
 				9950FCFF2712DB2800E1B3AF /* AppDelegate.swift in Sources */,
 				99128519274759C400F7C7EE /* TextViewCell.swift in Sources */,
-				9912851C2747686400F7C7EE /* ItemManager.swift in Sources */,
 				9946B4B7271BB4EA00AC1611 /* SettingIconCell.swift in Sources */,
 				9950FD8627142E1F00E1B3AF /* Constants.swift in Sources */,
 				9950FD7C27142B4A00E1B3AF /* Item.swift in Sources */,
@@ -645,7 +638,6 @@
 				9998EEEF27427D9B00324E1B /* ItemViewController.swift in Sources */,
 				993B2A3F2726EB14007A7C59 /* ImageMessageCell.swift in Sources */,
 				998AB88A271C1F080042F371 /* ColorCollectionViewController.swift in Sources */,
-				9998EEE8273FF88F00324E1B /* ItemNumNotification.swift in Sources */,
 				9998EEE4273ED2BF00324E1B /* LocalNotificationManager.swift in Sources */,
 				998AAE58273E7EF200089521 /* TimeSettingViewController.swift in Sources */,
 				9950FD092712DB2800E1B3AF /* messageTodo.xcdatamodeld in Sources */,

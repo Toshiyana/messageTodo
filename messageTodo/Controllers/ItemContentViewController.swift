@@ -23,14 +23,7 @@ class ItemContentViewController: UIViewController {
     var itemTitle: String = ""
     var itemMemo: String = ""
     var reminderEnabled: Bool = false
-   
-//    var reminder: Reminder?
-    
-//    var wordEnabled: Bool = false
-    
-//    var itemTimeInterval: TimeInterval?
-//    var itemDate: Date?
-    
+       
     // About reminder
     var wordEnabled: Bool = false
     var wordBody: String = ""
@@ -46,7 +39,6 @@ class ItemContentViewController: UIViewController {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .full
         formatter.allowedUnits = [.hour, .minute]
-//        return formatter.string(from: timeInterval)!
         return formatter.string(from: timeInterval)!
     }
 
@@ -82,25 +74,11 @@ class ItemContentViewController: UIViewController {
 
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
 
-//        print(reminderEnabled)
-//        print(reminder?.date)
-//        print(reminder?.timeInterval)
-
         if reminderEnabled && date == nil && timeInterval == 0 {
             // リマインダーがonだが、通知時間を設定していない場合はアラートを表示。
             showTimeAlert()
         }
         
-//        if reminderEnabled && reminder?.date == nil && reminder?.timeInterval == 0 {
-//            // リマインダーがonだが、通知時間を設定していない場合はアラートを表示。
-//            showTimeAlert()
-//        }
-//        if reminderEnabled && reminder?.date == nil {
-//            // リマインダーがonだが、通知時間を設定していない場合はアラートを表示。
-//            if reminder?.timeInterval == nil || reminder?.timeInterval != 0 {
-//                showTimeAlert()
-//            }
-//        }
         else {
             if wordEnabled {
                 let allMessages = realm.objects(Message.self)
@@ -118,12 +96,12 @@ class ItemContentViewController: UIViewController {
             if showEditItem {
                 print(itemTitle)
                 delegate?.itemValueEdited(title: itemTitle, memo: itemMemo, reminderEnabled: reminderEnabled, wordEnabled: wordEnabled, wordBody: wordBody, timeInterval: timeInterval, date: date, repeats: repeats, reminderType: reminderType)
-//                delegate?.itemValueEdited(title: itemTitle, memo: itemMemo, reminderEnabled: reminderEnabled, reminder: reminder)
+
             }
             else {
                 print(itemTitle)
                 delegate?.itemValueAdded(title: itemTitle, memo: itemMemo, reminderEnabled: reminderEnabled, wordEnabled: wordEnabled, wordBody: wordBody, timeInterval: timeInterval, date: date, repeats: repeats, reminderType: reminderType)
-//                delegate?.itemValueAdded(title: itemTitle, memo: itemMemo, reminderEnabled: reminderEnabled, reminder: reminder)
+
             }
             dismiss(animated: true, completion: nil)
         }
@@ -143,13 +121,6 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
         }
         else if section == 1 {
             return 1
-//            print(reminderEnabled)
-//            if reminderEnabled {
-//                return 3
-//            }
-//            else {
-//                return 1
-//            }
         }
         else if section == 2 {
             if reminderEnabled {
@@ -170,12 +141,11 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
                 let fieldCell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.identifier, for: indexPath) as! TextFieldCell
 
                 if showEditItem {
-//                    itemTitle = item?.title ?? ""
                     fieldCell.field.text = itemTitle
                 }
 
-                fieldCell.field.addTarget(self, action: #selector(didChangedField(_:)), for: .editingChanged)
-//                fieldCell.field.addTarget(self, action: #selector(didChangedField(_:)), for: .editingDidEnd)
+                fieldCell.field.addTarget(self, action: #selector(didChangedField(_:)), for: .editingChanged) // .editingDidEndにするとうまく保存されない
+
                 return fieldCell
             }
             
@@ -184,7 +154,6 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
                 textViewCell.textViewInCell.delegate = self
                 
                 if showEditItem {
-//                    itemMemo = item?.memo ?? ""
                     textViewCell.textViewInCell.text = itemMemo
                 }
 
@@ -220,18 +189,6 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
             else if indexPath.row == 1 {
                 let timeCell = tableView.dequeueReusableCell(withIdentifier: TimeSettingCell.identifier, for: indexPath) as! TimeSettingCell
 
-//                if let time = timeLabel {
-//                    timeCell.timeLabel.text = time
-//                }
-//                if let type = reminder?.reminderTypeEnum, type != .none{
-//                    if type == .time {
-//                        timeCell.timeLabel.text = formattedTimeInterval
-//                    }
-//                    else if type == .calender {
-//                        timeCell.timeLabel.text = formattedDate
-//                    }
-//                }
-//                print(reminderType)
                 if reminderType != ReminderType.none.rawValue {
                     if reminderType == ReminderType.time.rawValue {
                         timeCell.timeLabel.text = formattedTimeInterval
@@ -269,24 +226,18 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
     
     @objc func didChangedField(_ sender: UITextField) {
         itemTitle = sender.text!
-//        print(itemTitle)
-//        print(sender.text ?? "")
     }
     
     
     
     @objc func didChangedReminderSwitch(_ sender: UISwitch) {
         reminderEnabled = sender.isOn
-        if sender.isOn {
-//            reminder = Reminder()
-            print("Reminder Switch on")
-        } else {
-//            reminder = nil
-//            timeLabel = nil
-            print("Reminder Switch off")
-        }
-        
         table.reloadData()
+//        if sender.isOn {
+//            print("Reminder Switch on")
+//        } else {
+//            print("Reminder Switch off")
+//        }
     }
 
     @objc func didChangedWordSwitch(_ sender: UISwitch) {
@@ -302,7 +253,6 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
         else {
             wordEnabled = sender.isOn
         }
-//        reminder?.wordEnabled = sender.isOn
         
         if sender.isOn {
             print("Word Switch on")
@@ -337,75 +287,19 @@ extension ItemContentViewController: TimeSettingDelegate {
         timeInterval = timeInv
         reminderType = timeType.rawValue
         repeats = timeRepeats
-//        reminder?.timeInterval = timeInterval
-//        reminder?.date = nil
-//
-//        reminder?.reminderTypeEnum = timeType
-//
-//        print(reminder?.date)
-//        print(reminder?.timeInterval)
-//        print(reminder?.reminderTypeEnum)
-//        print(reminder?.reminderType)
         table.reloadData()
     }
     
     func setDate(timeDate: Date, timeType: ReminderType) {
         date = timeDate
         reminderType = timeType.rawValue
-//        reminder?.date = date
-//        reminder?.timeInterval = 0
-//
-//        reminder?.reminderTypeEnum = timeType
-//
-//        print(reminder?.date)
-//        print(reminder?.timeInterval)
-//        print(reminder?.reminderTypeEnum)
-//        print(reminder?.reminderType)
         table.reloadData()
     }
     
-//    func setTimeInterval(timeInterval: TimeInterval, timeText: String) {
-//        reminder?.timeInterval = timeInterval
-////        reminder?.date = nil
-//        print(reminder?.timeInterval)
-////        print(reminder?.date)
-//        //        itemTimeInterval = timeInterval
-//        timeLabel = timeText
-//        table.reloadData()
-//    }
-//
-//    func setDate(date: Date, dateText: String) {
-//        reminder?.date = date
-////        reminder?.timeInterval = 0
-////        print(reminder?.timeInterval)
-//        print(reminder?.date)
-////        itemDate = date
-//        timeLabel = dateText
-//        table.reloadData()
-//    }
-    
-    
-//    func setTimeInterval(timeInterval: TimeInterval) {
-//        itemTimeInterval = timeInterval
-//    }
-//
-//    func setDate(date: Date) {
-//        itemDate = date
-//    }
-    
-//    func setTimeLabel(time: String) {
-//        timeLabel = time
-//    }
 }
 
 extension ItemContentViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         itemMemo = textView.text
     }
-    
-//    func textViewDidEndEditing(_ textView: UITextView) {
-//        itemMemo = textView.text
-//        print(itemMemo!)
-////        print(textView.text ?? "")
-//    }
 }
