@@ -39,7 +39,13 @@ class ItemContentViewController: UIViewController {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .full
         formatter.allowedUnits = [.hour, .minute]
-        return formatter.string(from: timeInterval)!
+        
+        if repeats == true {
+            return formatter.string(from: timeInterval)! + "（繰り返し）"
+        }
+        else{
+            return formatter.string(from: timeInterval)!
+        }
     }
 
     var formattedDate: String {
