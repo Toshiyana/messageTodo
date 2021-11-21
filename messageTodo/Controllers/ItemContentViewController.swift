@@ -7,11 +7,14 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
 class ItemContentViewController: UIViewController {
 
     @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var navbar: UINavigationBar!
     
+    let defaults = UserDefaults.standard
     let realm = try! Realm()
     
     var delegate: ItemDelegate?
@@ -69,6 +72,8 @@ class ItemContentViewController: UIViewController {
         table.delegate = self
         table.dataSource = self
         
+        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
+        ChameleonUtility.changeNabBarColor(navBar: navbar, color: themeColor)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -78,7 +78,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yRe-aU-8ca">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
-                                    <navigationItem title="Title" id="L7E-uP-Ozp">
+                                    <navigationItem title="タスクの編集" id="L7E-uP-Ozp">
                                         <barButtonItem key="leftBarButtonItem" title="キャンセル" id="idj-Zf-aY0">
                                             <connections>
                                                 <action selector="cancelButtonPressed:" destination="IPM-xe-l9k" id="RNy-4E-IYA"/>
@@ -110,6 +110,7 @@
                         <barButtonItem key="rightBarButtonItem" title="保存" id="Cde-wB-xrv"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="navbar" destination="yRe-aU-8ca" id="9Kc-zs-S5S"/>
                         <outlet property="table" destination="c04-eT-BuF" id="Fbu-TF-QXh"/>
                         <segue destination="nAz-RP-JYR" kind="presentation" identifier="goToTimeSetting" animates="NO" id="C6w-S9-K6Z"/>
                     </connections>
