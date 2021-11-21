@@ -39,17 +39,17 @@ class SchedulerTableViewController: UITableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.schedulerToTimeSetting {
-            let vc = segue.destination as! TimeSettingViewController
-            vc.delegate = self
-            
-            if showEditItem {
-                if let item = item {
-                    vc.showEditItem = showEditItem
-                    vc.item = item
-                }
-            }
-        }
+//        if segue.identifier == K.schedulerToTimeSetting {
+//            let vc = segue.destination as! TimeSettingViewController
+//            vc.delegate = self
+//            
+//            if showEditItem {
+//                if let item = item {
+//                    vc.showEditItem = showEditItem
+//                    vc.item = item
+//                }
+//            }
+//        }
     }
 
     // MARK: - Table view data source
@@ -103,8 +103,8 @@ class SchedulerTableViewController: UITableViewController {
     
 }
 
-extension SchedulerTableViewController: TimeSettingDelegate {
-    func timeSettingValueAdded(itemTimeSetting: Item?) {
-        item = itemTimeSetting
-    }
-}
+//extension SchedulerTableViewController: TimeSettingDelegate {
+//    func timeSettingValueAdded(itemTimeSetting: Item?) {
+//        item = itemTimeSetting
+//    }
+//}

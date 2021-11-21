@@ -124,6 +124,10 @@ class LocalNotificationManager: ObservableObject {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [item.id])
     }
     
+    func removeScheduleAllNotification() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    }
+    
     // 1: 通知スケジュールの作成
     func scheduleNotification(item: Item) {
         guard let itemReminder = item.reminder else {
@@ -133,6 +137,8 @@ class LocalNotificationManager: ObservableObject {
         let content = UNMutableNotificationContent()
         content.title = item.title
         content.body = itemReminder.wordBody
+        content.sound = UNNotificationSound.default
+//        content.badge = NSNumber(value: UIApplication.shared.applicationIconBadgeNumber + 1)
         content.userInfo = ["itemID": item.id] // 通知を識別するID
 
         // 通知の配信をトリガーする抽象クラス
@@ -149,6 +155,8 @@ class LocalNotificationManager: ObservableObject {
                 trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.day, .month, .year, .hour, .minute], from: date), repeats: itemReminder.repeats)
             }
             content.threadIdentifier = LocalNotificationManagerConstants.calendarBasedNotificationThreadId
+        case .none:
+            return
         }
         
         if let trigger = trigger {

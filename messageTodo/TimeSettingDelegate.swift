@@ -8,5 +8,13 @@
 import Foundation
 
 protocol TimeSettingDelegate {
-    func timeSettingValueAdded(itemTimeSetting: Item?)
+    func setTimeInterval(timeInv: TimeInterval, timeType: ReminderType, timeRepeats: Bool)
+    func setDate(timeDate: Date, timeType: ReminderType)
+    
+//    func setTimeInterval(timeInterval: TimeInterval, timeText: String)
+//    func setDate(date: Date, dateText: String)
+
+    //    func setTimeLabel(time: String)
+    
+//    func timeSettingValueAdded(itemTimeSetting: Item?)
 }

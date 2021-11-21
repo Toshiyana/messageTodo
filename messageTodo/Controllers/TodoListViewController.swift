@@ -81,7 +81,7 @@ class TodoListViewController: SwipeTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
         // タップしたセルの内容を編集
         showEditItem = true
-        performSegue(withIdentifier: K.itemListToitem, sender: self)
+        performSegue(withIdentifier: K.itemListToItemContent, sender: self)
         
 //        if let item = todoItems?[indexPath.row] {
 //            var textField = UITextField()
@@ -120,21 +120,51 @@ class TodoListViewController: SwipeTableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.itemListToitem {
-            let vc = segue.destination as! ItemViewController
+        if segue.identifier == K.itemListToItemContent {
+            let vc = segue.destination as! ItemContentViewController
             vc.delegate = self
-            
+
             if showEditItem {
                 if let indexPath = tableView.indexPathForSelectedRow,
                    let item = todoItems?[indexPath.row] {
-                    
+
                     vc.showEditItem = showEditItem
-                    vc.item = item
+                    vc.itemTitle = item.title
+                    vc.itemMemo = item.memo
+                    vc.reminderEnabled = item.reminderEnabled
+                    
+                    vc.wordEnabled = item.reminder?.wordEnabled ?? false
+                    vc.wordBody = item.reminder?.wordBody ?? ""
+                    vc.timeInterval = item.reminder?.timeInterval ?? 0
+                    vc.date = item.reminder?.date
+                    vc.repeats = item.reminder?.repeats ?? false
+                    vc.reminderType = item.reminder?.reminderType ?? ReminderType.none.rawValue
+                    
+//                    vc.reminder = item.reminder
+//                    vc.item = item
+                    
 //                    vc.itemTitle = item.title
 //                    vc.memo = item.memo
                 }
             }
         }
+
+
+//        if segue.identifier == K.itemListToitem {
+//            let vc = segue.destination as! ItemViewController
+//            vc.delegate = self
+//
+//            if showEditItem {
+//                if let indexPath = tableView.indexPathForSelectedRow,
+//                   let item = todoItems?[indexPath.row] {
+//
+//                    vc.showEditItem = showEditItem
+//                    vc.item = item
+////                    vc.itemTitle = item.title
+////                    vc.memo = item.memo
+//                }
+//            }
+//        }
     }
     
     //MARK: - Load Data Method
@@ -159,6 +189,10 @@ class TodoListViewController: SwipeTableViewController {
     //MARK: - Delete Data Method
     override func updateModel(at indexPath: IndexPath) {
         if let item = todoItems?[indexPath.row] {
+            
+            // item削除前に、設定された通知も削除
+            LocalNotificationManager.shared.removeScheduledNotification(item: item)
+            
             do {
                 try realm.write {
                     realm.delete(item)
@@ -172,7 +206,7 @@ class TodoListViewController: SwipeTableViewController {
     //MARK: - Add New Items
     @objc private func addButtonPressed(_ sender: FloatingButton) {
         showEditItem = false
-        performSegue(withIdentifier: K.itemListToitem, sender: self)
+        performSegue(withIdentifier: K.itemListToItemContent, sender: self)
         
 //        var textField = UITextField()
 //
@@ -261,29 +295,55 @@ class TodoListViewController: SwipeTableViewController {
 }
 
 extension TodoListViewController: ItemDelegate {
-    
-    func itemValueAdded(itemValue: Item?) {
+    func itemValueAdded(title: String, memo: String, reminderEnabled: Bool, wordEnabled: Bool, wordBody: String, timeInterval: TimeInterval, date: Date?, repeats: Bool, reminderType: String) {
         let newItem = Item()
-        newItem.title = itemValue?.title ?? ""
-        newItem.memo = itemValue?.memo ?? ""
-        newItem.reminderEnabled = itemValue?.reminderEnabled ?? false
-        newItem.reminder = itemValue?.reminder
+        newItem.title = title
+        newItem.memo = memo
+        newItem.reminderEnabled = reminderEnabled
+        
+//        print(newItem.reminder)
+        // About reminder
+//        let newReminder = Reminder()
+//        newReminder.wordEnabled = wordEnabled
+//        newReminder.wordBody = wordBody
+//        newReminder.timeInterval = timeInterval
+//        newReminder.date = date
+//        newReminder.repeats = repeats
+//        newReminder.reminderType = reminderType
+//
+//        newItem.reminder = newReminder
+        
+        newItem.reminder = Reminder()
+        newItem.reminder?.wordEnabled = wordEnabled
+        newItem.reminder?.wordBody = wordBody
+        newItem.reminder?.timeInterval = timeInterval
+        newItem.reminder?.date = date
+        newItem.reminder?.repeats = repeats
+        newItem.reminder?.reminderType = reminderType
+        
+//        print(newItem.reminder)
         save(item: newItem)
-
-//        LocalNotificationManager.shared.scheduleNotification(item: newItem)
+        
+        LocalNotificationManager.shared.scheduleNotification(item: newItem)
     }
     
-    func itemValueEdited(itemValue: Item?) {
-        
+    func itemValueEdited(title: String, memo: String, reminderEnabled: Bool, wordEnabled: Bool, wordBody: String, timeInterval: TimeInterval, date: Date?, repeats: Bool, reminderType: String) {
         if let indexPath = tableView.indexPathForSelectedRow,
            let item = todoItems?[indexPath.row] {
-        
+
             do {
                 try realm.write {
-                    item.title = itemValue?.title ?? ""
-                    item.memo = itemValue?.memo ?? ""
-                    item.reminderEnabled = itemValue?.reminderEnabled ?? false
-                    item.reminder = itemValue?.reminder
+                    item.title = title
+                    item.memo = memo
+                    item.reminderEnabled = reminderEnabled
+                    // About reminder
+                    item.reminder?.wordEnabled = wordEnabled
+                    item.reminder?.wordBody = wordBody
+                    item.reminder?.timeInterval = timeInterval
+                    item.reminder?.date = date
+                    item.reminder?.repeats = repeats
+                    item.reminder?.reminderType = reminderType
+
                 }
             } catch {
                 print("Error editing item. \(error)")
@@ -291,10 +351,85 @@ extension TodoListViewController: ItemDelegate {
             tableView.reloadData()
 
             // 通知内容の更新
-//            LocalNotificationManager.shared.removeScheduledNotification(item: item)
-//            LocalNotificationManager.shared.scheduleNotification(item: item)
+            LocalNotificationManager.shared.removeScheduledNotification(item: item)
+            LocalNotificationManager.shared.scheduleNotification(item: item)
         }
     }
+    
+    
+//    func itemValueAdded(title: String, memo: String, reminderEnabled: Bool, reminder: Reminder?) {
+//        let newItem = Item()
+//        newItem.title = title
+//        newItem.memo = memo
+//        newItem.reminderEnabled = reminderEnabled
+//        newItem.reminder = reminder
+//        save(item: newItem)
+//
+////        LocalNotificationManager.shared.scheduleNotification(item: newItem)
+//    }
+//
+//    func itemValueEdited(title: String, memo: String, reminderEnabled: Bool, reminder: Reminder?) {
+//
+//        if let indexPath = tableView.indexPathForSelectedRow,
+//           let item = todoItems?[indexPath.row] {
+//
+//            do {
+//                try realm.write {
+//                    item.title = title
+//                    item.memo = memo
+//                    item.reminderEnabled = reminderEnabled
+//                    item.reminder = reminder
+//                }
+//            } catch {
+//                print("Error editing item. \(error)")
+//            }
+//            tableView.reloadData()
+//
+//            // 通知内容の更新
+////            LocalNotificationManager.shared.removeScheduledNotification(item: item)
+////            LocalNotificationManager.shared.scheduleNotification(item: item)
+//        }
+//    }
+
+    
+//    func itemTableRelod() {
+//        tableView.reloadData()
+//    }
+    
+//    func itemValueAdded(itemValue: Item?) {
+//
+////        let newItem = Item()
+////        newItem.title = itemValue?.title ?? ""
+////        newItem.memo = itemValue?.memo ?? ""
+////        newItem.reminderEnabled = itemValue?.reminderEnabled ?? false
+////        newItem.reminder = itemValue?.reminder
+////        save(item: newItem)
+//
+////        LocalNotificationManager.shared.scheduleNotification(item: newItem)
+//    }
+//
+//    func itemValueEdited(itemValue: Item?) {
+//
+////        if let indexPath = tableView.indexPathForSelectedRow,
+////           let item = todoItems?[indexPath.row] {
+////
+////            do {
+////                try realm.write {
+////                    item.title = itemValue?.title ?? ""
+////                    item.memo = itemValue?.memo ?? ""
+////                    item.reminderEnabled = itemValue?.reminderEnabled ?? false
+////                    item.reminder = itemValue?.reminder
+////                }
+////            } catch {
+////                print("Error editing item. \(error)")
+////            }
+////            tableView.reloadData()
+////
+////            // 通知内容の更新
+//////            LocalNotificationManager.shared.removeScheduledNotification(item: item)
+//////            LocalNotificationManager.shared.scheduleNotification(item: item)
+////        }
+//    }
 
     
 //    func itemValueAdded(title: String, memo: String, reminderEnabled: Bool, reminder: Reminder?) {

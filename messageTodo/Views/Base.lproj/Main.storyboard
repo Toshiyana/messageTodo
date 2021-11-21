@@ -45,53 +45,86 @@
                     </navigationItem>
                     <connections>
                         <outlet property="editButton" destination="VIv-RJ-3dW" id="fWY-R3-FqK"/>
-                        <segue destination="IPM-xe-l9k" kind="show" id="smj-sL-RVB"/>
+                        <segue destination="IPM-xe-l9k" kind="presentation" identifier="goToItemContent" id="77l-GN-rIF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kN-Gc-pHu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2497.1014492753625" y="77.678571428571431"/>
         </scene>
-        <!--View Controller-->
+        <!--Item Content View Controller-->
         <scene sceneID="iOh-yM-egz">
             <objects>
-                <viewController id="IPM-xe-l9k" sceneMemberID="viewController">
+                <viewController id="IPM-xe-l9k" customClass="ItemContentViewController" customModule="messageTodo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6pj-Hq-Tdu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="c04-eT-BuF">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="c04-eT-BuF">
+                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="upI-Jd-GMf">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="upI-Jd-GMf">
+                                        <rect key="frame" x="20" y="49.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="upI-Jd-GMf" id="f8v-Le-Qaq">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <sections/>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yRe-aU-8ca">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <items>
+                                    <navigationItem title="Title" id="L7E-uP-Ozp">
+                                        <barButtonItem key="leftBarButtonItem" title="キャンセル" id="idj-Zf-aY0">
+                                            <connections>
+                                                <action selector="cancelButtonPressed:" destination="IPM-xe-l9k" id="RNy-4E-IYA"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="保存" id="Yew-QE-bA5">
+                                            <connections>
+                                                <action selector="saveButtonPressed:" destination="IPM-xe-l9k" id="f4h-JM-Jep"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jin-t4-Oqa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="c04-eT-BuF" firstAttribute="leading" secondItem="jin-t4-Oqa" secondAttribute="leading" id="7kI-06-njS"/>
-                            <constraint firstItem="jin-t4-Oqa" firstAttribute="bottom" secondItem="c04-eT-BuF" secondAttribute="bottom" id="K89-5s-vJo"/>
-                            <constraint firstItem="jin-t4-Oqa" firstAttribute="trailing" secondItem="c04-eT-BuF" secondAttribute="trailing" id="Ntp-6K-Jvx"/>
-                            <constraint firstItem="c04-eT-BuF" firstAttribute="top" secondItem="jin-t4-Oqa" secondAttribute="top" id="agb-iE-wvY"/>
+                            <constraint firstItem="yRe-aU-8ca" firstAttribute="leading" secondItem="jin-t4-Oqa" secondAttribute="leading" id="Hf9-9d-eJK"/>
+                            <constraint firstItem="c04-eT-BuF" firstAttribute="trailing" secondItem="jin-t4-Oqa" secondAttribute="trailing" id="Mle-a6-dXc"/>
+                            <constraint firstItem="yRe-aU-8ca" firstAttribute="trailing" secondItem="jin-t4-Oqa" secondAttribute="trailing" id="P2a-7L-hgW"/>
+                            <constraint firstItem="c04-eT-BuF" firstAttribute="bottom" secondItem="jin-t4-Oqa" secondAttribute="bottom" id="dxq-O4-bf4"/>
+                            <constraint firstItem="c04-eT-BuF" firstAttribute="top" secondItem="yRe-aU-8ca" secondAttribute="bottom" symbolic="YES" id="n6q-jp-CRk"/>
+                            <constraint firstItem="yRe-aU-8ca" firstAttribute="top" secondItem="jin-t4-Oqa" secondAttribute="top" id="u2h-Vn-VBl"/>
+                            <constraint firstItem="c04-eT-BuF" firstAttribute="leading" secondItem="jin-t4-Oqa" secondAttribute="leading" id="yCd-Eg-vFj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jZw-LQ-7jz">
                         <barButtonItem key="leftBarButtonItem" title="キャンセル" id="rpv-iu-kYK"/>
                         <barButtonItem key="rightBarButtonItem" title="保存" id="Cde-wB-xrv"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="table" destination="c04-eT-BuF" id="Fbu-TF-QXh"/>
+                        <segue destination="nAz-RP-JYR" kind="presentation" identifier="goToTimeSetting" animates="NO" id="C6w-S9-K6Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ae-Fq-JCE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3700" y="-188"/>
+            <point key="canvasLocation" x="3461" y="-516"/>
+        </scene>
+        <!--TimeSettingViewController-->
+        <scene sceneID="hnf-sU-vFM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TimeSettingViewController" id="nAz-RP-JYR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YdA-8p-l1u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4275" y="-661"/>
         </scene>
         <!--Item View Controller-->
         <scene sceneID="E9e-fn-DRn">
@@ -106,6 +139,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="リマインダー：なし"/>
+                                <connections>
+                                    <segue destination="iXw-r7-7tw" kind="presentation" identifier="goToScheduler" id="IL3-lu-AIq"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4W-kn-8t2">
                                 <rect key="frame" x="20" y="376.5" width="374" height="54"/>
@@ -117,6 +153,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="保存"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="gwB-D9-V8T" eventType="touchUpInside" id="rqy-YV-8wn"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7b0-Zx-ROP">
                                 <rect key="frame" x="20" y="76" width="374" height="46"/>
@@ -153,6 +192,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="キャンセル"/>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="gwB-D9-V8T" eventType="touchUpInside" id="i8G-yd-OLJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mVv-1e-btI"/>
@@ -180,10 +222,25 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uLU-uk-kRd"/>
+                    <connections>
+                        <outlet property="itemTitleTextField" destination="7b0-Zx-ROP" id="lpp-7d-BV0"/>
+                        <outlet property="memoTextView" destination="vsc-Wq-PqQ" id="eGH-ja-nqx"/>
+                        <outlet property="reminderButton" destination="D3n-ZY-fHp" id="ycY-HR-4lq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gSo-2P-l2J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4543" y="-126"/>
+        </scene>
+        <!--SchedulerTableViewController-->
+        <scene sceneID="9Pz-Mp-zFS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SchedulerTableViewController" id="iXw-r7-7tw" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="rea-WH-ZF0"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AqY-mz-o4k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5220" y="-189"/>
         </scene>
         <!--Message List View Controller-->
         <scene sceneID="jr0-2Q-xVO">

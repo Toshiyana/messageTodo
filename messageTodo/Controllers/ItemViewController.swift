@@ -12,6 +12,7 @@ class ItemViewController: UIViewController {
     
     @IBOutlet weak var itemTitleTextField: UITextField!
     @IBOutlet weak var memoTextView: UITextView!
+    @IBOutlet weak var reminderButton: UIButton!
     
     let realm = try! Realm()
     
@@ -36,6 +37,15 @@ class ItemViewController: UIViewController {
 //            itemTitleTextField.text = itemTitle
 //            memoTextView.text = memo
         }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+//        if item?.reminderEnabled ?? false {
+//            reminderButton.setTitle("リマインダーあり", for: .normal)
+//        }
     }
     
 //    @IBAction func reminderButtonPressed(_ sender: UIButton) {
@@ -44,17 +54,19 @@ class ItemViewController: UIViewController {
     
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.itemToScheduler {
-            let vc = segue.destination as! SchedulerTableViewController
-            vc.delegate = self
-            
-            if showEditItem {
-                if let item = item {
-                    vc.showEditItem = showEditItem
-                    vc.item = item
-                }
-            }
-        }
+//        if segue.identifier == K.itemToScheduler {
+//            let vc = segue.destination as! SchedulerViewController
+////            let vc = segue.destination as! SchedulerTableViewController
+////            vc.delegate = self
+//            
+//            if showEditItem {
+//                if let item = item {
+//                    vc.showEditItem = showEditItem
+//                    vc.item = item
+//
+//                }
+//            }
+//        }
     }
 
     
@@ -85,12 +97,28 @@ class ItemViewController: UIViewController {
             } catch {
                 print("Error editing item. \(error)")
             }
-            
+
 //            delegate?.itemValueEdited(itemValue: item)
-        } else {
+        }
+        else {
             
+            let newItem = Item()
+            newItem.title = itemTitleTextField.text!
+            newItem.memo = memoTextView.text!
+//            newItem.reminderEnabled = itemValue?.reminderEnabled ?? false
+//            newItem.reminder = itemValue?.reminder
+
+            do {
+                try realm.write {
+                    realm.add(newItem)
+                }
+            } catch {
+                print("Error saving item. \(error)")
+            }
+
 //            delegate?.itemValueAdded(itemValue: item)
         }
+//        delegate?.itemTableRelod()
         
 //        if showEditItem {
 //            delegate?.itemValueEdited(title: itemTitleText, memo: memoText, reminderEnabled: true, reminder: nil)
@@ -115,6 +143,7 @@ class ItemViewController: UIViewController {
     }
     
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
+                
         dismiss(animated: true, completion: nil)
     }
  

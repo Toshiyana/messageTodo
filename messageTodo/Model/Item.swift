@@ -24,16 +24,18 @@ class Item: Object {
 }
 
 enum ReminderType: String {
+    case none
     case time
     case calender
 }
 
 class Reminder: Object {
+    @objc dynamic var wordEnabled: Bool = false
     @objc dynamic var wordBody: String = ""
     @objc dynamic var timeInterval: TimeInterval = 0
     @objc dynamic var date: Date?
     @objc dynamic var repeats: Bool = false
-    @objc dynamic var reminderType = ReminderType.time.rawValue
+    @objc dynamic var reminderType = ReminderType.none.rawValue
     var reminderTypeEnum: ReminderType {
         get {
             return ReminderType(rawValue: reminderType)!

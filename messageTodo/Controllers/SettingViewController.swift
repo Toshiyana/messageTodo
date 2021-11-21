@@ -234,6 +234,7 @@ class SettingViewController: UITableViewController {
             } catch {
                 print("Error deleting All item, \(error)")
             }
+            LocalNotificationManager.shared.removeScheduleAllNotification()
         }
         let deleteMessageAction = UIAlertAction(title: "Delete All Messages", style: .default) { (action) in
             do {

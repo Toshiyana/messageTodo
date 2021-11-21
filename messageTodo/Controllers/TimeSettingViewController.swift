@@ -15,22 +15,34 @@ class TimeSettingViewController: UIViewController {
     @IBOutlet weak var popupLabel: UILabel!
     @IBOutlet weak var timeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var timePicker: UIDatePicker!
+    @IBOutlet weak var repeatLabel: UILabel!
     @IBOutlet weak var repeatSwitch: UISwitch!
     
     var delegate: TimeSettingDelegate?
     
-    var item: Item?
+//    var item: Item?
     var showEditItem: Bool = false
     
     let defaults = UserDefaults.standard
     
+//    var formattedTimeInterval: String {
+//        return String(timePicker.countDownDuration)
+//    }
+
     var formattedTimeInterval: String {
-        return String(timePicker.countDownDuration)
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .short
+        formatter.allowedUnits = [.hour, .minute]
+
+        return formatter.string(from: timePicker.countDownDuration) ?? ""
     }
-    
+
     var formattedDate: String {
         let formatter = DateFormatter()
-        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        formatter.dateStyle = .short
+        formatter.doesRelativeDateFormatting = true
+        formatter.locale = Locale(identifier: "ja_JP")
         return formatter.string(from: timePicker.date)
     }
         
@@ -52,8 +64,12 @@ class TimeSettingViewController: UIViewController {
     @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             timePicker.datePickerMode = .countDownTimer
+            repeatLabel.isHidden = false
+            repeatSwitch.isHidden = false
         } else {
             timePicker.datePickerMode = .dateAndTime
+            repeatLabel.isHidden = true
+            repeatSwitch.isHidden = true
         }
     }
     
@@ -64,13 +80,19 @@ class TimeSettingViewController: UIViewController {
     
     @IBAction func saveTimeButtonPressed(_ sender: UIButton) {
         if timeSegmentedControl.selectedSegmentIndex == 0 {
-            print(formattedTimeInterval)
+            delegate?.setTimeInterval(timeInv: timePicker.countDownDuration, timeType: .time, timeRepeats: repeatSwitch.isOn)
+            
+//            delegate?.setTimeInterval(timeInterval: timePicker.countDownDuration, timeText: formattedTimeInterval)
+//            print(formattedTimeInterval)
         } else {
-            print(formattedDate)
+            delegate?.setDate(timeDate: timePicker.date, timeType: .calender)
+//            delegate?.setDate(date: timePicker.date, dateText: formattedDate)
+//            print(formattedDate)
         }
         
+        
         if showEditItem {
-            delegate?.timeSettingValueAdded(itemTimeSetting: item)
+//            delegate?.timeSettingValueAdded(itemTimeSetting: item)
         }
         
 //        let isRepeatable = repeatSwitch.isOn
@@ -80,7 +102,5 @@ class TimeSettingViewController: UIViewController {
         dismiss(animated: false, completion: nil)
     }
     
-
-    
-
 }
+
