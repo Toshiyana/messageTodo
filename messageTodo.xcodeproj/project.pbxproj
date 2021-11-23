@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		991284BA2744A41000F7C7EE /* TimeSettingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991284B92744A41000F7C7EE /* TimeSettingDelegate.swift */; };
-		991284BC27451B4700F7C7EE /* ScheduleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991284BB27451B4700F7C7EE /* ScheduleDelegate.swift */; };
 		991285122746AC1300F7C7EE /* ItemContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991285112746AC1300F7C7EE /* ItemContentViewController.swift */; };
 		99128515274754B300F7C7EE /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99128513274754B300F7C7EE /* TextFieldCell.swift */; };
 		99128516274754B400F7C7EE /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99128514274754B300F7C7EE /* TextFieldCell.xib */; };
@@ -82,7 +81,6 @@
 		614D1A3E25BDF3C12518D135 /* Pods-messageTodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-messageTodo.debug.xcconfig"; path = "Target Support Files/Pods-messageTodo/Pods-messageTodo.debug.xcconfig"; sourceTree = "<group>"; };
 		7F2057046A0090CD4679121E /* Pods-messageTodoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-messageTodoTests.release.xcconfig"; path = "Target Support Files/Pods-messageTodoTests/Pods-messageTodoTests.release.xcconfig"; sourceTree = "<group>"; };
 		991284B92744A41000F7C7EE /* TimeSettingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingDelegate.swift; sourceTree = "<group>"; };
-		991284BB27451B4700F7C7EE /* ScheduleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDelegate.swift; sourceTree = "<group>"; };
 		991285112746AC1300F7C7EE /* ItemContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemContentViewController.swift; sourceTree = "<group>"; };
 		99128513274754B300F7C7EE /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 		99128514274754B300F7C7EE /* TextFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
@@ -221,7 +219,6 @@
 				9998EEF0274372B600324E1B /* ItemDelegate.swift */,
 				9967E5712735246200F80E28 /* MessagePopupDelegate.swift */,
 				991284B92744A41000F7C7EE /* TimeSettingDelegate.swift */,
-				991284BB27451B4700F7C7EE /* ScheduleDelegate.swift */,
 				9950FD8527142E1F00E1B3AF /* Constants.swift */,
 				994D396227242B81004C429F /* Commons */,
 				9946B4A8271ABBB700AC1611 /* Extensions */,
@@ -596,7 +593,6 @@
 				9967E5722735246200F80E28 /* MessagePopupDelegate.swift in Sources */,
 				9998EEED27420BDD00324E1B /* UITextView+Additions.swift in Sources */,
 				99128515274754B300F7C7EE /* TextFieldCell.swift in Sources */,
-				991284BC27451B4700F7C7EE /* ScheduleDelegate.swift in Sources */,
 				991285122746AC1300F7C7EE /* ItemContentViewController.swift in Sources */,
 				9946B4BF271BE51600AC1611 /* SettingColorCell.swift in Sources */,
 				9950FD522713D1E800E1B3AF /* TodoListViewController.swift in Sources */,

@@ -187,7 +187,7 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
         else if indexPath.section == 2 {
             if indexPath.row == 0 {
                 let switchCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-                switchCell.textLabel?.text = "言葉を添えて通知"
+                switchCell.textLabel?.text = "ランダムな言葉を添えて通知"
                 
                 let reminderSwitch = UISwitch()
                 reminderSwitch.addTarget(self, action: #selector(didChangedWordSwitch(_:)), for: .valueChanged)
@@ -221,9 +221,11 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if indexPath.section == 2 && indexPath.row == 1 {
             performSegue(withIdentifier: K.itemContentToTimeSetting, sender: self)
         }
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
