@@ -43,7 +43,7 @@ class TodoListViewController: SwipeTableViewController {
         }
 
         // change color
-        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
+        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
         ChameleonUtility.changeNabBarColor(navBar: navBar, color: themeColor)
         addButton.floatButton.layer.backgroundColor = themeColor.cgColor
 

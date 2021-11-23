@@ -15,13 +15,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
-        do {
-            //let realm = try Realm()
-            _ = try Realm()
-        } catch {
-            print("Error initialising new realm, \(error)")
+        let defaultRealmPath = Realm.Configuration.defaultConfiguration.fileURL!
+        
+        let bundleRealmPath = Bundle.main.url(forResource: "default", withExtension: "realm")
+        
+        if !FileManager.default.fileExists(atPath: defaultRealmPath.path) {
+            do {
+                try FileManager.default.copyItem(at: bundleRealmPath!, to: defaultRealmPath)
+            } catch let error {
+                print("Error reading default.realm. \(error)")
+            }
         }
-        //print(Realm.Configuration.defaultConfiguration.fileURL)//realmのdataが保存されているファイルまでのpath
+
+        
+//        do {
+//            //let realm = try Realm()
+//            _ = try Realm()
+//        } catch {
+//            print("Error initialising new realm, \(error)")
+//        }
+            
+//        print(Realm.Configuration.defaultConfiguration.fileURL)//realmのdataが保存されているファイルまでのpath
         
         setupNotifications(on: application)
         

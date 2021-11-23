@@ -30,7 +30,7 @@ class ColorCollectionViewController: UICollectionViewController {
             fatalError("NavigationController does not exist.")
         }
         
-        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
+        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
         ChameleonUtility.changeNabBarColor(navBar: navBar, color: themeColor)
     }
     

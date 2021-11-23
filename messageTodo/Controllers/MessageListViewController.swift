@@ -47,7 +47,7 @@ class MessageListViewController: SwipeTableViewController {
 
 
         // change color
-        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
+        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
         ChameleonUtility.changeNabBarColor(navBar: navBar, color: themeColor)
         addButton.floatButton.layer.backgroundColor = themeColor.cgColor
         searchBar.tintColor = themeColor
@@ -92,7 +92,7 @@ class MessageListViewController: SwipeTableViewController {
 
             let popup = segue.destination as! MessagePopupViewController
             popup.delegate = self
-            popup.titleColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
+            popup.titleColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
             
             if showEditPopup {
                 if let indexPath = tableView.indexPathForSelectedRow,

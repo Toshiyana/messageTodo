@@ -35,7 +35,7 @@ class TimeSettingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
+        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
         popupLabel.backgroundColor = themeColor
     }
 

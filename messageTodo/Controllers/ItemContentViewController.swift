@@ -72,7 +72,7 @@ class ItemContentViewController: UIViewController {
         table.delegate = self
         table.dataSource = self
         
-        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
+        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
         ChameleonUtility.changeNabBarColor(navBar: navbar, color: themeColor)
     }
     
