@@ -10,5 +10,4 @@ import Foundation
 protocol TimeSettingDelegate {
     func setTimeInterval(timeInv: TimeInterval, timeType: ReminderType, timeRepeats: Bool)
     func setDate(timeDate: Date, timeType: ReminderType)
-    
 }

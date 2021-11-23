@@ -14,7 +14,6 @@
 		99128516274754B400F7C7EE /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99128514274754B300F7C7EE /* TextFieldCell.xib */; };
 		99128519274759C400F7C7EE /* TextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99128517274759C400F7C7EE /* TextViewCell.swift */; };
 		9912851A274759C400F7C7EE /* TextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99128518274759C400F7C7EE /* TextViewCell.xib */; };
-		9912851E2747A44700F7C7EE /* SchedulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9912851D2747A44700F7C7EE /* SchedulerViewController.swift */; };
 		991285202747F06A00F7C7EE /* TimeSettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9912851F2747F06A00F7C7EE /* TimeSettingViewController.storyboard */; };
 		993B2A3F2726EB14007A7C59 /* ImageMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993B2A3D2726EB14007A7C59 /* ImageMessageCell.swift */; };
 		993B2A402726EB14007A7C59 /* ImageMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993B2A3E2726EB14007A7C59 /* ImageMessageCell.xib */; };
@@ -43,8 +42,6 @@
 		9974537B274823F000749828 /* TimeSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99745379274823F000749828 /* TimeSettingCell.xib */; };
 		998AAE4A273DAD1C00089521 /* ColorCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 998AAE49273DACB800089521 /* ColorCollectionViewController.storyboard */; };
 		998AAE4C273DAFB900089521 /* TabBarUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998AAE4B273DAFB900089521 /* TabBarUtility.swift */; };
-		998AAE50273E546A00089521 /* SchedulerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998AAE4F273E546A00089521 /* SchedulerTableViewController.swift */; };
-		998AAE52273E5D3500089521 /* SchedulerTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 998AAE51273E5D1F00089521 /* SchedulerTableViewController.storyboard */; };
 		998AAE58273E7EF200089521 /* TimeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998AAE57273E7EF200089521 /* TimeSettingViewController.swift */; };
 		998AB88A271C1F080042F371 /* ColorCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998AB889271C1F080042F371 /* ColorCollectionViewController.swift */; };
 		998AB8CF271DBBA10042F371 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998AB8CE271DBBA10042F371 /* ColorCollectionViewCell.swift */; };
@@ -53,7 +50,6 @@
 		998FA98F2733E22C0065DD63 /* MessagePopupViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 998FA9762733D7410065DD63 /* MessagePopupViewController.storyboard */; };
 		9998EEE4273ED2BF00324E1B /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */; };
 		9998EEED27420BDD00324E1B /* UITextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEEC27420BDC00324E1B /* UITextView+Additions.swift */; };
-		9998EEEF27427D9B00324E1B /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEEE27427D9B00324E1B /* ItemViewController.swift */; };
 		9998EEF1274372B600324E1B /* ItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEF0274372B600324E1B /* ItemDelegate.swift */; };
 		A60783F7E1929B4F2DA6B87C /* Pods_messageTodo_messageTodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58FF47784E10E3703E19C29 /* Pods_messageTodo_messageTodoUITests.framework */; };
 		ADC7C691B5BD80D1008CFB59 /* Pods_messageTodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DEFB1798620513323B4F33F /* Pods_messageTodo.framework */; };
@@ -92,7 +88,6 @@
 		99128514274754B300F7C7EE /* TextFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
 		99128517274759C400F7C7EE /* TextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewCell.swift; sourceTree = "<group>"; };
 		99128518274759C400F7C7EE /* TextViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewCell.xib; sourceTree = "<group>"; };
-		9912851D2747A44700F7C7EE /* SchedulerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulerViewController.swift; sourceTree = "<group>"; };
 		9912851F2747F06A00F7C7EE /* TimeSettingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = TimeSettingViewController.storyboard; path = messageTodo/Views/TimeSettingViewController.storyboard; sourceTree = SOURCE_ROOT; };
 		993B2A3D2726EB14007A7C59 /* ImageMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMessageCell.swift; sourceTree = "<group>"; };
 		993B2A3E2726EB14007A7C59 /* ImageMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageMessageCell.xib; sourceTree = "<group>"; };
@@ -128,8 +123,6 @@
 		99745379274823F000749828 /* TimeSettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeSettingCell.xib; sourceTree = "<group>"; };
 		998AAE49273DACB800089521 /* ColorCollectionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ColorCollectionViewController.storyboard; path = /Users/toshi/Desktop/iOSApp/myApp/messageTodo/messageTodo/Views/ColorCollectionViewController.storyboard; sourceTree = "<absolute>"; };
 		998AAE4B273DAFB900089521 /* TabBarUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarUtility.swift; sourceTree = "<group>"; };
-		998AAE4F273E546A00089521 /* SchedulerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulerTableViewController.swift; sourceTree = "<group>"; };
-		998AAE51273E5D1F00089521 /* SchedulerTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = SchedulerTableViewController.storyboard; path = /Users/toshi/Desktop/iOSApp/myApp/messageTodo/messageTodo/Views/SchedulerTableViewController.storyboard; sourceTree = "<absolute>"; };
 		998AAE57273E7EF200089521 /* TimeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingViewController.swift; sourceTree = "<group>"; };
 		998AB889271C1F080042F371 /* ColorCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewController.swift; sourceTree = "<group>"; };
 		998AB8CE271DBBA10042F371 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -137,7 +130,6 @@
 		998FA9762733D7410065DD63 /* MessagePopupViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = MessagePopupViewController.storyboard; path = /Users/toshi/Desktop/iOSApp/myApp/messageTodo/messageTodo/Views/MessagePopupViewController.storyboard; sourceTree = "<absolute>"; };
 		9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		9998EEEC27420BDC00324E1B /* UITextView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Additions.swift"; sourceTree = "<group>"; };
-		9998EEEE27427D9B00324E1B /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		9998EEF0274372B600324E1B /* ItemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDelegate.swift; sourceTree = "<group>"; };
 		DE8BE26CF3001E7104A50856 /* Pods-messageTodo-messageTodoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-messageTodo-messageTodoUITests.debug.xcconfig"; path = "Target Support Files/Pods-messageTodo-messageTodoUITests/Pods-messageTodo-messageTodoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E58FF47784E10E3703E19C29 /* Pods_messageTodo_messageTodoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_messageTodo_messageTodoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -277,15 +269,12 @@
 			children = (
 				9950FD6A2713D50C00E1B3AF /* SwipeTableViewController.swift */,
 				9950FD512713D1E800E1B3AF /* TodoListViewController.swift */,
-				9950FD652713D2B600E1B3AF /* MessageListViewController.swift */,
-				9946B4B1271B0EE200AC1611 /* SettingViewController.swift */,
-				998AB889271C1F080042F371 /* ColorCollectionViewController.swift */,
-				998FA9712733D6FB0065DD63 /* MessagePopupViewController.swift */,
 				991285112746AC1300F7C7EE /* ItemContentViewController.swift */,
 				998AAE57273E7EF200089521 /* TimeSettingViewController.swift */,
-				9998EEEE27427D9B00324E1B /* ItemViewController.swift */,
-				9912851D2747A44700F7C7EE /* SchedulerViewController.swift */,
-				998AAE4F273E546A00089521 /* SchedulerTableViewController.swift */,
+				9950FD652713D2B600E1B3AF /* MessageListViewController.swift */,
+				998FA9712733D6FB0065DD63 /* MessagePopupViewController.swift */,
+				9946B4B1271B0EE200AC1611 /* SettingViewController.swift */,
+				998AB889271C1F080042F371 /* ColorCollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -312,7 +301,6 @@
 		9998EEF227440FFF00324E1B /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				998AAE51273E5D1F00089521 /* SchedulerTableViewController.storyboard */,
 				9912851F2747F06A00F7C7EE /* TimeSettingViewController.storyboard */,
 				998AAE49273DACB800089521 /* ColorCollectionViewController.storyboard */,
 				998FA9762733D7410065DD63 /* MessagePopupViewController.storyboard */,
@@ -469,7 +457,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				991285202747F06A00F7C7EE /* TimeSettingViewController.storyboard in Resources */,
-				998AAE52273E5D3500089521 /* SchedulerTableViewController.storyboard in Resources */,
 				993B2A402726EB14007A7C59 /* ImageMessageCell.xib in Resources */,
 				9950FD0E2712DB2900E1B3AF /* LaunchScreen.storyboard in Resources */,
 				99128516274754B400F7C7EE /* TextFieldCell.xib in Resources */,
@@ -608,7 +595,6 @@
 			files = (
 				9967E5722735246200F80E28 /* MessagePopupDelegate.swift in Sources */,
 				9998EEED27420BDD00324E1B /* UITextView+Additions.swift in Sources */,
-				9912851E2747A44700F7C7EE /* SchedulerViewController.swift in Sources */,
 				99128515274754B300F7C7EE /* TextFieldCell.swift in Sources */,
 				991284BC27451B4700F7C7EE /* ScheduleDelegate.swift in Sources */,
 				991285122746AC1300F7C7EE /* ItemContentViewController.swift in Sources */,
@@ -618,7 +604,6 @@
 				9946B4B2271B0EE200AC1611 /* SettingViewController.swift in Sources */,
 				9950FD732713DF0000E1B3AF /* FloatingButton.swift in Sources */,
 				998AB8CF271DBBA10042F371 /* ColorCollectionViewCell.swift in Sources */,
-				998AAE50273E546A00089521 /* SchedulerTableViewController.swift in Sources */,
 				9950FD8127142C2800E1B3AF /* Message.swift in Sources */,
 				9946B4C4271BE57900AC1611 /* SettingVersionCell.swift in Sources */,
 				9950FCFF2712DB2800E1B3AF /* AppDelegate.swift in Sources */,
@@ -635,7 +620,6 @@
 				9950FD6B2713D50C00E1B3AF /* SwipeTableViewController.swift in Sources */,
 				994D396427242C28004C429F /* ChameleonUtility.swift in Sources */,
 				991284BA2744A41000F7C7EE /* TimeSettingDelegate.swift in Sources */,
-				9998EEEF27427D9B00324E1B /* ItemViewController.swift in Sources */,
 				993B2A3F2726EB14007A7C59 /* ImageMessageCell.swift in Sources */,
 				998AB88A271C1F080042F371 /* ColorCollectionViewController.swift in Sources */,
 				9998EEE4273ED2BF00324E1B /* LocalNotificationManager.swift in Sources */,

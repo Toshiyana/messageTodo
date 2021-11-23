@@ -35,14 +35,9 @@ struct K {
     
     // Segue
     static let settingToColorSegue = "goToColor"
-//    static let settingToScheduler = "goToScheduler"
     static let messageListTomessagePopup = "goToMessagePopup"
     static let itemListToItemContent = "goToItemContent"
     static let itemContentToTimeSetting = "goToTimeSetting"
-
-//    static let itemListToitem = "goToItem"
-//    static let itemToScheduler = "goToScheduler"
-//    static let schedulerToTimeSetting = "goToTimeSetting"
     
     // UserDefault
     static let messagesOrder = "MessagesOrder"
