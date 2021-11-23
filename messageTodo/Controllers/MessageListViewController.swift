@@ -25,7 +25,7 @@ class MessageListViewController: SwipeTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        title = "思い出の言葉"
+        title = "心に残る言葉"
         loadMessages()
         addButton = FloatingButton(attachedToView: self.view)
         addButton.floatButton.addTarget(self, action: #selector(addButtonPressed(_:)), for: .touchUpInside)

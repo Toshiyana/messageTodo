@@ -86,7 +86,7 @@ class SettingViewController: UITableViewController {
         models.append(Section(title: "ユーザー設定", options: [
             .iconCell(model: SettingIconOption(
                         title: "通知設定",
-                        icon: UIImage(systemName: "clock"))
+                        icon: UIImage(systemName: "megaphone"))
                         {
 //                            self.performSegue(withIdentifier: K.settingToScheduler, sender: self)
                             
@@ -107,13 +107,17 @@ class SettingViewController: UITableViewController {
                         title: "アプリの使い方",
                         icon: UIImage(systemName: "text.book.closed"))
                         {
-                            //
+                            if let url = URL(string: K.Url.appMaunual), UIApplication.shared.canOpenURL(url) {
+                                UIApplication.shared.open(url)
+                            }
                         }),
             .iconCell(model: SettingIconOption(
-                        title: "不具合を報告",
-                        icon: UIImage(systemName: "exclamationmark.triangle"))
+                        title: "お問い合わせ",
+                        icon: UIImage(systemName: "questionmark.diamond"))
                         {
-                            //
+                            if let url = URL(string: K.Url.requestForm), UIApplication.shared.canOpenURL(url) {
+                                UIApplication.shared.open(url)
+                            }
                         }),
             .iconCell(model: SettingIconOption(
                         title: "アプリを評価",
@@ -124,6 +128,12 @@ class SettingViewController: UITableViewController {
                                 return
                             }
                             SKStoreReviewController.requestReview(in: scene)
+                        }),
+            .iconCell(model: SettingIconOption(
+                        title: "アプリをシェア",
+                        icon: UIImage(systemName: "person.2"))
+                        {
+                            self.presentShareSheet()
                         }),
         ]))
         
@@ -253,4 +263,30 @@ class SettingViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
 
     }
+    
+    private func presentShareSheet() {
+        guard UIDevice.current.userInterfaceIdiom == .phone else {
+            // iponeのみ対応。ipadまだ未対応。
+            return
+        }
+        
+        // iPhoneのみ対応（iPad未対応）
+        guard let url = URL(string: K.Url.appStore) else {
+            return
+        }
+
+        let shareSheetVC = UIActivityViewController(
+            activityItems: [
+                url // リンクのコピーを選択すると、urlがコピーされる
+            ],
+            applicationActivities: nil
+        )
+        
+        // iPad Support
+//        shareSheetVC.popoverPresentationController?.sourceView = sender
+//        shareSheetVC.popoverPresentationController?.sourceRect = sender.frame
+        
+        present(shareSheetVC, animated: true, completion: nil)
+    }
+
 }

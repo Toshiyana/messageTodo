@@ -60,15 +60,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="c04-eT-BuF">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="c04-eT-BuF">
                                 <rect key="frame" x="0.0" y="56" width="414" height="752"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="upI-Jd-GMf">
-                                        <rect key="frame" x="20" y="49.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="20" y="49.5" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="upI-Jd-GMf" id="f8v-Le-Qaq">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -329,11 +329,11 @@
             </objects>
             <point key="canvasLocation" x="3608.6956521739135" y="638.83928571428567"/>
         </scene>
-        <!--Message-->
+        <!--心に残る言葉-->
         <scene sceneID="b7n-Bj-dWs">
             <objects>
                 <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="fBd-b4-9zn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Message" image="megaphone.fill" catalog="system" selectedImage="megaphone.fill" id="Wl1-oM-2BP"/>
+                    <tabBarItem key="tabBarItem" title="心に残る言葉" image="person.fill" catalog="system" selectedImage="person.fill" id="Wl1-oM-2BP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PCf-hR-M1V">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -371,7 +371,7 @@
         <scene sceneID="EFr-kf-tsp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a4f-zk-htW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Todo" image="pencil" catalog="system" selectedImage="pencil" id="rJr-5u-wU6"/>
+                    <tabBarItem key="tabBarItem" title="Todo" image="doc.plaintext.fill" catalog="system" selectedImage="doc.plaintext.fill" id="rJr-5u-wU6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="U2d-1b-kzz">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -416,12 +416,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="M8u-9B-g3z"/>
+        <segue reference="jyz-n7-fhc"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="doc.plaintext.fill" catalog="system" width="115" height="128"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
-        <image name="megaphone.fill" catalog="system" width="128" height="114"/>
-        <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

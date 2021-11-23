@@ -24,25 +24,25 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ColorCollectionCell" id="Yls-61-CYn" customClass="ColorCollectionViewCell" customModule="messageTodo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
+                                <rect key="frame" x="0.0" y="0.0" width="96" height="95.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HFH-Um-qnF">
-                                    <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="96" height="95.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nhj-sD-gsS">
-                                            <rect key="frame" x="23" y="8" width="70" height="70"/>
+                                            <rect key="frame" x="23" y="8" width="50" height="50"/>
                                             <color key="backgroundColor" systemColor="systemBlueColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="70" id="VHj-9U-1Z0"/>
-                                                <constraint firstAttribute="height" constant="70" id="tN4-WE-d7s"/>
+                                                <constraint firstAttribute="width" constant="50" id="VHj-9U-1Z0"/>
+                                                <constraint firstAttribute="height" constant="50" id="tN4-WE-d7s"/>
                                             </constraints>
                                             <connections>
                                                 <action selector="colorButtonPressed:" destination="lv3-E7-Tui" eventType="touchUpInside" id="O3a-dd-s3l"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ge7-Of-DMh">
-                                            <rect key="frame" x="16" y="86" width="84" height="21"/>
+                                            <rect key="frame" x="16" y="66" width="64" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>

@@ -24,7 +24,7 @@ class TodoListViewController: SwipeTableViewController {
         // 画面初期表示の時にのみ呼び出し
         super.viewDidLoad()
         
-        title = "タスク"
+        title = "Todo"
         tableView.rowHeight = 50
         loadItems()
         addButton = FloatingButton(attachedToView: view)

@@ -21,6 +21,9 @@ class TextFieldCell: UITableViewCell {
         super.awakeFromNib()
         field.delegate = self
         field.placeholder = "タイトルを入力してください"
+        field.layer.borderColor = UIColor.lightGray.cgColor
+        field.layer.borderWidth = 1.0
+        field.layer.cornerRadius = 5
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

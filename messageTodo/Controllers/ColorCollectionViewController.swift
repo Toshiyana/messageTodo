@@ -12,9 +12,9 @@ class ColorCollectionViewController: UICollectionViewController {
 
     let defaults = UserDefaults.standard
     
-    private let colors: [UIColor] = [FlatBlue(), FlatRed(), FlatOrange(), FlatYellow(), FlatSand(), FlatNavyBlue(), FlatBlack(), FlatMagenta(), FlatTeal(), FlatSkyBlue(), FlatGreen(), FlatMint(), FlatGray(), FlatForestGreen(), FlatPurple(), FlatBrown(), FlatPlum(), FlatWatermelon(), FlatLime(), FlatPink(), FlatMaroon(), FlatCoffee(), FlatPowderBlue()]
+    private let colors: [UIColor] = [FlatOrange(), FlatYellow(), FlatRed(), FlatBlue(), FlatSand(), FlatNavyBlue(), FlatBlack(), FlatMagenta(), FlatTeal(), FlatSkyBlue(), FlatGreen(), FlatMint(), FlatGray(), FlatForestGreen(), FlatPurple(), FlatBrown(), FlatPlum(), FlatWatermelon(), FlatLime(), FlatPink(), FlatMaroon(), FlatCoffee(), FlatPowderBlue()]
     
-    private let colorNames: [String] = ["Blue", "Red", "Orange", "Yellow", "Sand", "NavyBlue", "Black", "Magenta", "Teal", "SkyBlue", "Green", "Mint", "Gray", "ForestGreen", "Purple", "Brown", "Plum", "Watermelon", "Lime", "Pink", "Maroon", "Coffee", "PowderBlue"]
+//    private let colorNames: [String] = ["Blue", "Red", "Orange", "Yellow", "Sand", "NavyBlue", "Black", "Magenta", "Teal", "SkyBlue", "Green", "Mint", "Gray", "ForestGreen", "Purple", "Brown", "Plum", "Watermelon", "Lime", "Pink", "Maroon", "Coffee", "PowderBlue"]
 
     
     override func viewDidLoad() {
@@ -43,7 +43,8 @@ class ColorCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.colorCollectionCellIdentifier, for: indexPath) as! ColorCollectionViewCell
         
         cell.colorButton.backgroundColor = colors[indexPath.row]
-        cell.colorName.text = colorNames[indexPath.row]
+        cell.colorName.text = ""
+//        cell.colorName.text = colorNames[indexPath.row]
         
         // make the border with selected color button
         if cell.colorButton.backgroundColor == defaults.getColorForKey(key: "NavBarColor") {
