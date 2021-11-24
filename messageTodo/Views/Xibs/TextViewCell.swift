@@ -20,6 +20,8 @@ class TextViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        selectionStyle = .none
+        
 //        textViewInCell.layer.borderColor = UIColor.lightGray.cgColor
 //        textViewInCell.layer.borderWidth = 1.0
 //        textViewInCell.layer.cornerRadius = 5

@@ -39,7 +39,7 @@
 		9967E5722735246200F80E28 /* MessagePopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967E5712735246200F80E28 /* MessagePopupDelegate.swift */; };
 		9974537A274823F000749828 /* TimeSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745378274823F000749828 /* TimeSettingCell.swift */; };
 		9974537B274823F000749828 /* TimeSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99745379274823F000749828 /* TimeSettingCell.xib */; };
-		997453A0274D708700749828 /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 9974539F274D708700749828 /* default.realm */; };
+		997453C8274EA2CB00749828 /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 997453C7274EA2CB00749828 /* default.realm */; };
 		998AAE4A273DAD1C00089521 /* ColorCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 998AAE49273DACB800089521 /* ColorCollectionViewController.storyboard */; };
 		998AAE4C273DAFB900089521 /* TabBarUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998AAE4B273DAFB900089521 /* TabBarUtility.swift */; };
 		998AAE58273E7EF200089521 /* TimeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998AAE57273E7EF200089521 /* TimeSettingViewController.swift */; };
@@ -120,7 +120,7 @@
 		9967E5712735246200F80E28 /* MessagePopupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePopupDelegate.swift; sourceTree = "<group>"; };
 		99745378274823F000749828 /* TimeSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingCell.swift; sourceTree = "<group>"; };
 		99745379274823F000749828 /* TimeSettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeSettingCell.xib; sourceTree = "<group>"; };
-		9974539F274D708700749828 /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
+		997453C7274EA2CB00749828 /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
 		998AAE49273DACB800089521 /* ColorCollectionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ColorCollectionViewController.storyboard; path = /Users/toshi/Desktop/iOSApp/myApp/messageTodo/messageTodo/Views/ColorCollectionViewController.storyboard; sourceTree = "<absolute>"; };
 		998AAE4B273DAFB900089521 /* TabBarUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarUtility.swift; sourceTree = "<group>"; };
 		998AAE57273E7EF200089521 /* TimeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +216,7 @@
 		9950FCFD2712DB2800E1B3AF /* messageTodo */ = {
 			isa = PBXGroup;
 			children = (
+				997453C6274EA17A00749828 /* Seed */,
 				9950FCFE2712DB2800E1B3AF /* AppDelegate.swift */,
 				9950FD002712DB2800E1B3AF /* SceneDelegate.swift */,
 				9998EEF0274372B600324E1B /* ItemDelegate.swift */,
@@ -227,7 +228,6 @@
 				9950FD422713304200E1B3AF /* Model */,
 				9950FD402713300600E1B3AF /* Views */,
 				9950FD412713302F00E1B3AF /* Controllers */,
-				9974539E274D6E0200749828 /* Seed */,
 				9998EEE9273FFEC600324E1B /* SupportingFiles */,
 				9950FD0F2712DB2900E1B3AF /* Info.plist */,
 				9950FD072712DB2800E1B3AF /* messageTodo.xcdatamodeld */,
@@ -289,10 +289,10 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		9974539E274D6E0200749828 /* Seed */ = {
+		997453C6274EA17A00749828 /* Seed */ = {
 			isa = PBXGroup;
 			children = (
-				9974539F274D708700749828 /* default.realm */,
+				997453C7274EA2CB00749828 /* default.realm */,
 			);
 			path = Seed;
 			sourceTree = "<group>";
@@ -471,7 +471,7 @@
 				998FA98F2733E22C0065DD63 /* MessagePopupViewController.storyboard in Resources */,
 				998FA9812733E0E90065DD63 /* Main.storyboard in Resources */,
 				9950FD0B2712DB2900E1B3AF /* Assets.xcassets in Resources */,
-				997453A0274D708700749828 /* default.realm in Resources */,
+				997453C8274EA2CB00749828 /* default.realm in Resources */,
 				9974537B274823F000749828 /* TimeSettingCell.xib in Resources */,
 				998AAE4A273DAD1C00089521 /* ColorCollectionViewController.storyboard in Resources */,
 				9912851A274759C400F7C7EE /* TextViewCell.xib in Resources */,

@@ -105,12 +105,10 @@ class ItemContentViewController: UIViewController {
             
             // リマインダーがoffの場合
             if showEditItem {
-                print(itemTitle)
                 delegate?.itemValueEdited(title: itemTitle, memo: itemMemo, reminderEnabled: reminderEnabled, wordEnabled: wordEnabled, wordBody: wordBody, timeInterval: timeInterval, date: date, repeats: repeats, reminderType: reminderType)
 
             }
             else {
-                print(itemTitle)
                 delegate?.itemValueAdded(title: itemTitle, memo: itemMemo, reminderEnabled: reminderEnabled, wordEnabled: wordEnabled, wordBody: wordBody, timeInterval: timeInterval, date: date, repeats: repeats, reminderType: reminderType)
 
             }
@@ -175,6 +173,7 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
         else if indexPath.section == 1 {
             let switchCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             switchCell.textLabel?.text = "リマインダーを送る"
+            switchCell.selectionStyle = .none
             
             let reminderSwitch = UISwitch()
             reminderSwitch.addTarget(self, action: #selector(didChangedReminderSwitch(_:)), for: .valueChanged)
@@ -188,10 +187,10 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
             if indexPath.row == 0 {
                 let switchCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
                 switchCell.textLabel?.text = "ランダムな言葉を添えて通知"
+                switchCell.selectionStyle = .none
                 
                 let reminderSwitch = UISwitch()
                 reminderSwitch.addTarget(self, action: #selector(didChangedWordSwitch(_:)), for: .valueChanged)
-//                reminderSwitch.isOn = reminder?.wordEnabled ?? false
                 reminderSwitch.isOn = wordEnabled
                 switchCell.accessoryView = reminderSwitch
                 
@@ -226,6 +225,7 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
             performSegue(withIdentifier: K.itemContentToTimeSetting, sender: self)
         }
         
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -246,11 +246,6 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
     @objc func didChangedReminderSwitch(_ sender: UISwitch) {
         reminderEnabled = sender.isOn
         table.reloadData()
-//        if sender.isOn {
-//            print("Reminder Switch on")
-//        } else {
-//            print("Reminder Switch off")
-//        }
     }
 
     @objc func didChangedWordSwitch(_ sender: UISwitch) {
@@ -265,12 +260,6 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
         }
         else {
             wordEnabled = sender.isOn
-        }
-        
-        if sender.isOn {
-            print("Word Switch on")
-        } else {
-            print("Word Switch off")
         }
     }
 

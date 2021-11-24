@@ -19,6 +19,9 @@ class TextFieldCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        selectionStyle = .none
+        
         field.delegate = self
         field.placeholder = "タイトルを入力してください"
         field.layer.borderColor = UIColor.lightGray.cgColor

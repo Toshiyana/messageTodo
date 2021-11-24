@@ -29,7 +29,13 @@ class FloatingButton: NSObject {
         floatButton.layer.shadowRadius = 5
         floatButton.layer.shadowOffset = CGSize(width: 0, height: 10)
         floatButton.setImage(UIImage(named: "icons8-plus"), for: .normal)
-        floatButton.imageEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        
+        if #available(iOS 15.0, *) {
+            var configuration = UIButton.Configuration.filled()
+            configuration.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15)
+        } else {
+            floatButton.imageEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        }
         floatButton.translatesAutoresizingMaskIntoConstraints = false
         
         floatButton.addTarget(self, action: #selector(buttonTouchDown(_:)), for: .touchDown)
