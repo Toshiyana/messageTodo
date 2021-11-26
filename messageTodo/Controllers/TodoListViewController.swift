@@ -20,12 +20,16 @@ class TodoListViewController: SwipeTableViewController {
     var todoItems: Results<Item>?
     var showEditItem = false
     
+    var themeColor: UIColor?
+    
     override func viewDidLoad() {
         // 画面初期表示の時にのみ呼び出し
         super.viewDidLoad()
         
+        tableView.register(CheckmarkCell.nib(), forCellReuseIdentifier: CheckmarkCell.identifier)
+        
         title = "Todo"
-        tableView.rowHeight = 50
+//        tableView.rowHeight = 50
         loadItems()
         addButton = FloatingButton(attachedToView: view)
         addButton.floatButton.addTarget(self, action: #selector(addButtonPressed(_:)), for: .touchUpInside)
@@ -43,9 +47,10 @@ class TodoListViewController: SwipeTableViewController {
         }
 
         // change color
-        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
-        ChameleonUtility.changeNabBarColor(navBar: navBar, color: themeColor)
-        addButton.floatButton.layer.backgroundColor = themeColor.cgColor
+//        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
+        themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
+        ChameleonUtility.changeNabBarColor(navBar: navBar, color: themeColor!)
+        addButton.floatButton.layer.backgroundColor = themeColor!.cgColor
 
         guard let tabBar = tabBarController?.tabBar else {
             fatalError("NavigationController does not exist.")
@@ -64,14 +69,24 @@ class TodoListViewController: SwipeTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.todoCellIdentifier, for: indexPath) as! SwipeTableViewCell
-        
+//        let cell = tableView.dequeueReusableCell(withIdentifier: K.todoCellIdentifier, for: indexPath) as! SwipeTableViewCell
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: CheckmarkCell.identifier, for: indexPath) as! CheckmarkCell
         cell.delegate = self
                 
         if let item = todoItems?[indexPath.row] {
-            cell.textLabel?.text = item.title
-        } else {
-            cell.textLabel?.text = "タスクが追加されていません"
+            cell.label.text = item.title
+            cell.checkButton.isSelected = item.isDone
+            if cell.checkButton.isSelected {
+                cell.checkButton.tintColor = themeColor
+            } else {
+                cell.checkButton.tintColor = .lightGray
+            }
+            cell.checkButton.tag = indexPath.row // tagをつけて、どのcellのbuttonが押されたかを識別
+            cell.checkButton.addTarget(self, action: #selector(checkButtonPressed(_:)), for: .touchUpInside)
+            
+            
+
         }
         
         return cell
@@ -107,6 +122,10 @@ class TodoListViewController: SwipeTableViewController {
                 }
             }
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
     
     //MARK: - Load Data Method
@@ -164,6 +183,34 @@ class TodoListViewController: SwipeTableViewController {
             editButton.title = "完了"
             addButton.floatButton.isHidden = true
         }
+    }
+    
+    //MARK: - CheckButton Method
+    @objc func checkButtonPressed(_ sender: UIButton) {
+
+        print(sender.tag)
+
+        if sender.isSelected {
+            sender.isSelected = false
+            sender.tintColor = .lightGray
+
+        } else {
+            sender.isSelected = true
+            sender.tintColor = themeColor
+        }
+        
+        if let item = todoItems?[sender.tag] {
+            do {
+                try realm.write {
+                    //realm.delete(item)//tapした時にitemの除去
+                    item.isDone = !item.isDone
+                }
+            } catch {
+                print("Error saving done status, \(error)")
+            }
+        }
+
+//        tableView.reloadData()
     }
     
     //MARK: - Editing Cell Method in Realm
@@ -235,9 +282,10 @@ extension TodoListViewController: ItemDelegate {
     }
     
     func itemValueEdited(title: String, memo: String, reminderEnabled: Bool, wordEnabled: Bool, wordBody: String, timeInterval: TimeInterval, date: Date?, repeats: Bool, reminderType: String) {
+        
+        // didSelectRowAtで、tableView.deselectRow()を実行すると、tableView.indexPathForSelectedRowがnilになるので注意
         if let indexPath = tableView.indexPathForSelectedRow,
            let item = todoItems?[indexPath.row] {
-
             do {
                 try realm.write {
                     item.title = title

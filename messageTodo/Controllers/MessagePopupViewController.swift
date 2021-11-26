@@ -29,6 +29,7 @@ class MessagePopupViewController: UIViewController {
         super.viewDidLoad()
         
         nameTextField.delegate = self
+        nameTextField.setLeftPaddingPoints(5)
         
         contentTextView.addDoneButton(title: "完了", target: self, selector: #selector(tapDone(sender:)))
         

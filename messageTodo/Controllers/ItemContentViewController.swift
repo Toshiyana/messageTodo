@@ -105,6 +105,7 @@ class ItemContentViewController: UIViewController {
             
             // リマインダーがoffの場合
             if showEditItem {
+//                print(itemTitle)
                 delegate?.itemValueEdited(title: itemTitle, memo: itemMemo, reminderEnabled: reminderEnabled, wordEnabled: wordEnabled, wordBody: wordBody, timeInterval: timeInterval, date: date, repeats: repeats, reminderType: reminderType)
 
             }

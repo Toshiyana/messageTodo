@@ -16,9 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         let defaultRealmPath = Realm.Configuration.defaultConfiguration.fileURL!
-        
+
         let bundleRealmPath = Bundle.main.url(forResource: "default", withExtension: "realm")
-        
+
         if !FileManager.default.fileExists(atPath: defaultRealmPath.path) {
             do {
                 try FileManager.default.copyItem(at: bundleRealmPath!, to: defaultRealmPath)

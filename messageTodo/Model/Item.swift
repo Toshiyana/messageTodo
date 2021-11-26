@@ -12,6 +12,7 @@ class Item: Object {
     @objc dynamic var id: String = UUID().uuidString
     @objc dynamic var title: String = ""
     @objc dynamic var memo: String = ""
+    @objc dynamic var isDone: Bool = false
     @objc dynamic var orderOfItem: Int = 0
     @objc dynamic var reminderEnabled: Bool = false
     @objc dynamic var reminder: Reminder?
