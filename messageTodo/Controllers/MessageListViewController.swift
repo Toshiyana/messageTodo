@@ -164,20 +164,20 @@ class MessageListViewController: SwipeTableViewController {
     @IBAction func sortButtonPressed(_ sender: UIBarButtonItem) {
         if messages?.count != 0 {
             let sheet = UIAlertController(title: "Sort Messages", message: "", preferredStyle: .alert)
-            let dateSortAction = UIAlertAction(title: "Date Order", style: .default) { (action) in
-                self.messages = self.realm.objects(Message.self).sorted(byKeyPath: "dateCreated", ascending: true)
-                self.defaults.set("DateOrder", forKey: K.messagesOrder)
-                self.tableView.reloadData()
+            let dateSortAction = UIAlertAction(title: "作成日順", style: .default) { [weak self] (action) in
+                self?.messages = self?.realm.objects(Message.self).sorted(byKeyPath: "dateCreated", ascending: true)
+                self?.defaults.set("DateOrder", forKey: K.messagesOrder)
+                self?.tableView.reloadData()
             }
-            let contentSortAction = UIAlertAction(title: "Title Order", style: .default) { (action) in
-                self.messages = self.realm.objects(Message.self).sorted(byKeyPath: "content", ascending: true)
-                self.defaults.set("TitleOrder", forKey: K.messagesOrder)
-                self.tableView.reloadData()
+            let contentSortAction = UIAlertAction(title: "言葉の内容順", style: .default) { [weak self] (action) in
+                self?.messages = self?.realm.objects(Message.self).sorted(byKeyPath: "content", ascending: true)
+                self?.defaults.set("TitleOrder", forKey: K.messagesOrder)
+                self?.tableView.reloadData()
             }
-            let nameSortAction = UIAlertAction(title: "Name Order", style: .default) { (action) in
-                self.messages = self.realm.objects(Message.self).sorted(byKeyPath: "name", ascending: true)
-                self.defaults.set("NameOrder", forKey: K.messagesOrder)
-                self.tableView.reloadData()
+            let nameSortAction = UIAlertAction(title: "発言者順", style: .default) { [weak self] (action) in
+                self?.messages = self?.realm.objects(Message.self).sorted(byKeyPath: "name", ascending: true)
+                self?.defaults.set("NameOrder", forKey: K.messagesOrder)
+                self?.tableView.reloadData()
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
             

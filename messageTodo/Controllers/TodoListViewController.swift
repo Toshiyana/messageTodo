@@ -69,19 +69,13 @@ class TodoListViewController: SwipeTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        let cell = tableView.dequeueReusableCell(withIdentifier: K.todoCellIdentifier, for: indexPath) as! SwipeTableViewCell
-
         let cell = tableView.dequeueReusableCell(withIdentifier: CheckmarkCell.identifier, for: indexPath) as! CheckmarkCell
         cell.delegate = self
                 
         if let item = todoItems?[indexPath.row] {
             cell.label.text = item.title
             cell.checkButton.isSelected = item.isDone
-            if cell.checkButton.isSelected {
-                cell.checkButton.tintColor = themeColor
-            } else {
-                cell.checkButton.tintColor = .lightGray
-            }
+            cell.checkButton.tintColor = cell.checkButton.isSelected ? themeColor : .lightGray
             cell.checkButton.tag = indexPath.row // tagをつけて、どのcellのbuttonが押されたかを識別
             cell.checkButton.addTarget(self, action: #selector(checkButtonPressed(_:)), for: .touchUpInside)
             
@@ -168,7 +162,6 @@ class TodoListViewController: SwipeTableViewController {
     @objc private func addButtonPressed(_ sender: FloatingButton) {
         showEditItem = false
         performSegue(withIdentifier: K.itemListToItemContent, sender: self)
-        
     }
     
     //MARK: - EditButton Method
@@ -188,7 +181,7 @@ class TodoListViewController: SwipeTableViewController {
     //MARK: - CheckButton Method
     @objc func checkButtonPressed(_ sender: UIButton) {
 
-        print(sender.tag)
+//        print(sender.tag)
 
         if sender.isSelected {
             sender.isSelected = false
@@ -209,8 +202,6 @@ class TodoListViewController: SwipeTableViewController {
                 print("Error saving done status, \(error)")
             }
         }
-
-//        tableView.reloadData()
     }
     
     //MARK: - Editing Cell Method in Realm

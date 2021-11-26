@@ -124,11 +124,11 @@ extension MessagePopupViewController: UIImagePickerControllerDelegate, UINavigat
         
         let sheet = UIAlertController(title: "画像の選択", message: nil, preferredStyle: .alert)
         
-        let photoLibraryAction = UIAlertAction(title: "アルバムから選択", style: .default) { (action) in
-            self.showImagePickerController(sourceType: .photoLibrary)
+        let photoLibraryAction = UIAlertAction(title: "アルバムから選択", style: .default) { [weak self] (action) in
+            self?.showImagePickerController(sourceType: .photoLibrary)
         }
-        let cameraAction = UIAlertAction(title: "カメラで撮影", style: .default) { (action) in
-            self.showImagePickerController(sourceType: .camera)
+        let cameraAction = UIAlertAction(title: "カメラで撮影", style: .default) { [weak self] (action) in
+            self?.showImagePickerController(sourceType: .camera)
         }
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         

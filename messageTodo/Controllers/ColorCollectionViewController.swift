@@ -75,6 +75,5 @@ class ColorCollectionViewController: UICollectionViewController {
         // reload the border with selected color button
         collectionView.reloadData()
     }
-    
 
 }

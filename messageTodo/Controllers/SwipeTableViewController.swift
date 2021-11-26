@@ -19,9 +19,9 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
         
         guard orientation == .right else { return nil }//swipeの始まりが右の場合
         
-        let deleteAction = SwipeAction(style: .destructive, title: "削除") { (action, indexPath) in
+        let deleteAction = SwipeAction(style: .destructive, title: "削除") { [weak self] (action, indexPath) in
             // handle action by updating model with deletion
-            self.updateModel(at: indexPath) // 継承先でoverrideしたものが呼び出される
+            self?.updateModel(at: indexPath) // 継承先でoverrideしたものが呼び出される
         }
         return [deleteAction]
     }

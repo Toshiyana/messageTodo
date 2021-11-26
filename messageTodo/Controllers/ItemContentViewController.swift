@@ -43,10 +43,9 @@ class ItemContentViewController: UIViewController {
         formatter.unitsStyle = .full
         formatter.allowedUnits = [.hour, .minute]
         
-        if repeats == true {
+        if repeats {
             return formatter.string(from: timeInterval)! + "（繰り返し）"
-        }
-        else{
+        } else{
             return formatter.string(from: timeInterval)!
         }
     }
@@ -104,12 +103,10 @@ class ItemContentViewController: UIViewController {
             }
             
             // リマインダーがoffの場合
-            if showEditItem {
-//                print(itemTitle)
+            if showEditItem { // showEditItemはここでしか使っていない
                 delegate?.itemValueEdited(title: itemTitle, memo: itemMemo, reminderEnabled: reminderEnabled, wordEnabled: wordEnabled, wordBody: wordBody, timeInterval: timeInterval, date: date, repeats: repeats, reminderType: reminderType)
 
-            }
-            else {
+            } else {
                 delegate?.itemValueAdded(title: itemTitle, memo: itemMemo, reminderEnabled: reminderEnabled, wordEnabled: wordEnabled, wordBody: wordBody, timeInterval: timeInterval, date: date, repeats: repeats, reminderType: reminderType)
 
             }
@@ -149,11 +146,8 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
         if indexPath.section == 0 {
             if indexPath.row == 0 {
                 let fieldCell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.identifier, for: indexPath) as! TextFieldCell
-
-                if showEditItem {
-                    fieldCell.field.text = itemTitle
-                }
-
+                
+                fieldCell.field.text = itemTitle // itemTitleは、Addのときに初期値の""で、showEditItemがtrueのときにTodoListVCから渡された値が入る
                 fieldCell.field.addTarget(self, action: #selector(didChangedField(_:)), for: .editingChanged) // .editingDidEndにするとうまく保存されない
 
                 return fieldCell
@@ -161,11 +155,9 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
             
             else if indexPath.row == 1 {
                 let textViewCell = tableView.dequeueReusableCell(withIdentifier: TextViewCell.identifier, for: indexPath) as! TextViewCell
-                textViewCell.textViewInCell.delegate = self
                 
-                if showEditItem {
-                    textViewCell.textViewInCell.text = itemMemo
-                }
+                textViewCell.textViewInCell.delegate = self
+                textViewCell.textViewInCell.text = itemMemo // itemMemoは、Addのときに初期値の""で、showEditItemがtrueのときにTodoListVCから渡された値が入る
 
                 return textViewCell
             }
@@ -200,18 +192,15 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
             else if indexPath.row == 1 {
                 let timeCell = tableView.dequeueReusableCell(withIdentifier: TimeSettingCell.identifier, for: indexPath) as! TimeSettingCell
 
-                if reminderType != ReminderType.none.rawValue {
-                    if reminderType == ReminderType.time.rawValue {
-                        timeCell.timeLabel.text = formattedTimeInterval
-                    }
-                    else if reminderType == ReminderType.calender.rawValue {
-                        timeCell.timeLabel.text = formattedDate
-                    }
-                }
-                else {
+                switch reminderType {
+                case ReminderType.time.rawValue:
+                    timeCell.timeLabel.text = formattedTimeInterval
+                case ReminderType.calender.rawValue:
+                    timeCell.timeLabel.text = formattedDate
+                default: // ReminderType.none.rawValue
                     timeCell.timeLabel.text = "指定なし"
                 }
-
+                
                 return timeCell
             }
         }
@@ -246,6 +235,13 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
     
     @objc func didChangedReminderSwitch(_ sender: UISwitch) {
         reminderEnabled = sender.isOn
+        
+        if sender.isOn == false {
+            // Reset Reminder Setting
+            wordEnabled = false
+            reminderType = ReminderType.none.rawValue
+        }
+                
         table.reloadData()
     }
 
@@ -258,16 +254,15 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
         if messageCount == 0 {
             sender.setOn(false, animated: true)
             showMessageAlert()
-        }
-        else {
+        } else {
             wordEnabled = sender.isOn
         }
     }
 
     func showTimeAlert() {
         let alert = UIAlertController(title: "リマインダーの入力不足", message: "通時時間を設定してください", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { action in
-            self.performSegue(withIdentifier: K.itemContentToTimeSetting, sender: self)
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] action in
+            self?.performSegue(withIdentifier: K.itemContentToTimeSetting, sender: self)
         }
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         alert.addAction(okAction)

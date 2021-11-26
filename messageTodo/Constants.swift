@@ -16,7 +16,6 @@ struct K {
     }
     
     // Cell
-    static let todoCellIdentifier = "TodoCell"
     static let messageImageCellIdentifier = "ImageMessageCell"
     static let colorCollectionCellIdentifier = "ColorCollectionCell"
     

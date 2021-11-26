@@ -142,7 +142,7 @@ class SettingViewController: UITableViewController {
                         title: "データの削除",
                         icon: UIImage(systemName: "trash"))
                         {
-                self.deleteDataAction()
+                            self.deleteDataAction()
                         }),
             
             .versionCell(model: SettingVersionOption(
@@ -234,22 +234,22 @@ class SettingViewController: UITableViewController {
         let allItems = self.realm.objects(Item.self)
         let allMessages = self.realm.objects(Message.self)
         
-        let alert = UIAlertController(title: "Delet data", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "データの削除", message: "", preferredStyle: .alert)
         
-        let deleteItemAction = UIAlertAction(title: "Delete All Items", style: .default) { (action) in
+        let deleteItemAction = UIAlertAction(title: "全てのTodoを削除", style: .default) { [weak self] (action) in
             do {
-                try self.realm.write {
-                    self.realm.delete(allItems)
+                try self?.realm.write {
+                    self?.realm.delete(allItems)
                 }
             } catch {
                 print("Error deleting All item, \(error)")
             }
             LocalNotificationManager.shared.removeScheduleAllNotification()
         }
-        let deleteMessageAction = UIAlertAction(title: "Delete All Messages", style: .default) { (action) in
+        let deleteMessageAction = UIAlertAction(title: "全ての言葉を削除", style: .default) { [weak self] (action) in
             do {
-                try self.realm.write {
-                    self.realm.delete(allMessages)
+                try self?.realm.write {
+                    self?.realm.delete(allMessages)
                 }
             } catch {
                 print("Error deleting All Messages, \(error)")
