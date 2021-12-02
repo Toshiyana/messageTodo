@@ -32,9 +32,13 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="wMu-Q6-4fb" secondAttribute="trailing" constant="15" id="3nu-eG-gTv"/>
+                    <constraint firstItem="t5w-Y5-S5I" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11.5" id="CeV-ko-3Rr"/>
                     <constraint firstItem="wMu-Q6-4fb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="MBR-OL-zs4"/>
                     <constraint firstItem="t5w-Y5-S5I" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VPD-Na-Pib"/>
                     <constraint firstItem="t5w-Y5-S5I" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Vq6-Je-RDa"/>
+                    <constraint firstAttribute="bottom" secondItem="t5w-Y5-S5I" secondAttribute="bottom" constant="11.5" id="ZKZ-9S-vR8"/>
+                    <constraint firstItem="wMu-Q6-4fb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11.5" id="apg-Ke-ESB"/>
+                    <constraint firstAttribute="bottom" secondItem="wMu-Q6-4fb" secondAttribute="bottom" constant="11.5" id="gIU-hp-o20"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
