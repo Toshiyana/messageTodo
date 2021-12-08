@@ -203,7 +203,6 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
                 return timeCell
             }
         }
-
         
         return UITableViewCell()
     }
