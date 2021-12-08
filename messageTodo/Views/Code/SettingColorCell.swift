@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ChameleonFramework
 
 class SettingColorCell: UITableViewCell {
 
@@ -72,7 +71,7 @@ class SettingColorCell: UITableViewCell {
         //modelからcolorを取得すると、なぜかテーマカラー選択後に設定画面に戻ってもcolorViewの色が更新されない（tableView.reload()しても）
         //対して、ColorTableViewCellでdefaultsから色を読み込んで、設定画面でtableView.reload()をしたら色が更新されたのでそれでやった
         //できれば、再利用可能度を高めるために、defaultsをこのファイルに入れたくなかった
-        colorView.backgroundColor = defaults.getColorForKey(key: "NavBarColor") ?? FlatOrange()
+        colorView.backgroundColor = defaults.getColorForKey(key: "NavBarColor") ?? ColorUtility.defaultColor
     }
 
 }

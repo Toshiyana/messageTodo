@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ChameleonFramework
 
 class MessagePopupViewController: UIViewController {
     
@@ -40,7 +39,7 @@ class MessagePopupViewController: UIViewController {
         popupView.layer.masksToBounds = true
         
         titleLabel.backgroundColor = titleColor
-        titleLabel.textColor = ContrastColorOf(titleColor!, returnFlat: true)
+        titleLabel.textColor = UIColor.white
 
         if showEditPopup {
             titleLabel.text = "言葉の編集"

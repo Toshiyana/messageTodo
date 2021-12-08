@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ChameleonFramework
 import RealmSwift
 
 class TimeSettingViewController: UIViewController {
@@ -35,7 +34,7 @@ class TimeSettingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
+        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? ColorUtility.defaultColor
         popupLabel.backgroundColor = themeColor
     }
 

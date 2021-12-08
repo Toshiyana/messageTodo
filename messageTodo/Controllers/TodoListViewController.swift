@@ -8,7 +8,6 @@
 import UIKit
 import SwipeCellKit
 import RealmSwift
-import ChameleonFramework
 
 class TodoListViewController: SwipeTableViewController {
 
@@ -48,8 +47,8 @@ class TodoListViewController: SwipeTableViewController {
 
         // change color
 //        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
-        themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
-        ChameleonUtility.changeNabBarColor(navBar: navBar, color: themeColor!)
+        themeColor = defaults.getColorForKey(key: K.navbarColor) ?? ColorUtility.defaultColor
+        ColorUtility.changeNabBarColor(navBar: navBar, color: themeColor!)
         addButton.floatButton.layer.backgroundColor = themeColor!.cgColor
 
         guard let tabBar = tabBarController?.tabBar else {

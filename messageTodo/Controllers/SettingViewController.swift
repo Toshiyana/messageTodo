@@ -7,7 +7,6 @@
 
 import UIKit
 import StoreKit
-import ChameleonFramework
 import RealmSwift
 
 //MARK: - Section Type
@@ -74,8 +73,8 @@ class SettingViewController: UITableViewController {
         guard let navBar = navigationController?.navigationBar else {
             fatalError("NavigationController does not exist.")
         }
-        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
-        ChameleonUtility.changeNabBarColor(navBar: navBar, color: themeColor)
+        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? ColorUtility.defaultColor
+        ColorUtility.changeNabBarColor(navBar: navBar, color: themeColor)
 
         tableView.reloadData()
         
