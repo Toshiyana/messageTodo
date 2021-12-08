@@ -193,11 +193,11 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
 
                 switch reminderType {
                 case ReminderType.time.rawValue:
-                    timeCell.timeLabel.text = formattedTimeInterval
+                    timeCell.configure(timeText: formattedTimeInterval)
                 case ReminderType.calender.rawValue:
-                    timeCell.timeLabel.text = formattedDate
+                    timeCell.configure(timeText: formattedDate)
                 default: // ReminderType.none.rawValue
-                    timeCell.timeLabel.text = "指定なし"
+                    timeCell.configure(timeText: "指定なし")
                 }
                 
                 return timeCell
