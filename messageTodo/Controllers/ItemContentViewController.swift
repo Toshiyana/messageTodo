@@ -66,6 +66,7 @@ class ItemContentViewController: UIViewController {
         table.register(TextFieldCell.nib(), forCellReuseIdentifier: TextFieldCell.identifier)
         table.register(TextViewCell.nib(), forCellReuseIdentifier: TextViewCell.identifier)
         table.register(TimeSettingCell.nib(), forCellReuseIdentifier: TimeSettingCell.identifier)
+        table.register(SwitchCell.nib(), forCellReuseIdentifier: SwitchCell.identifier)
         
         table.delegate = self
         table.dataSource = self
@@ -163,30 +164,22 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
         }
 
         else if indexPath.section == 1 {
-            let switchCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            switchCell.textLabel?.text = "リマインダーを送る"
-            switchCell.selectionStyle = .none
+            let reminderSwitchCell = tableView.dequeueReusableCell(withIdentifier: SwitchCell.identifier, for: indexPath) as! SwitchCell
             
-            let reminderSwitch = UISwitch()
-            reminderSwitch.addTarget(self, action: #selector(didChangedReminderSwitch(_:)), for: .valueChanged)
-            reminderSwitch.isOn = reminderEnabled
-            switchCell.accessoryView = reminderSwitch
+            reminderSwitchCell.mySwitch.addTarget(self, action: #selector(didChangedReminderSwitch(_:)), for: .valueChanged) // reminderEnabledを取得するため、configure()の前に実行
+            reminderSwitchCell.configure(text: "リマインダーを送る", isOn: reminderEnabled)
             
-            return switchCell
+            return reminderSwitchCell
         }
 
         else if indexPath.section == 2 {
             if indexPath.row == 0 {
-                let switchCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-                switchCell.textLabel?.text = "ランダムな言葉を添えて通知"
-                switchCell.selectionStyle = .none
+                let wordSwitchCell = tableView.dequeueReusableCell(withIdentifier: SwitchCell.identifier, for: indexPath) as! SwitchCell
                 
-                let reminderSwitch = UISwitch()
-                reminderSwitch.addTarget(self, action: #selector(didChangedWordSwitch(_:)), for: .valueChanged)
-                reminderSwitch.isOn = wordEnabled
-                switchCell.accessoryView = reminderSwitch
+                wordSwitchCell.mySwitch.addTarget(self, action: #selector(didChangedWordSwitch(_:)), for: .valueChanged) // reminderEnabledを取得するため、configure()の前に実行
+                wordSwitchCell.configure(text: "ランダムな言葉を添えて通知", isOn: wordEnabled)
                 
-                return switchCell
+                return wordSwitchCell                
             }
             else if indexPath.row == 1 {
                 let timeCell = tableView.dequeueReusableCell(withIdentifier: TimeSettingCell.identifier, for: indexPath) as! TimeSettingCell
