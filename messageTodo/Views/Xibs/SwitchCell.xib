@@ -27,7 +27,9 @@
                     </switch>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="YXd-8f-xsc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6.5" id="QDO-fV-nVv"/>
                     <constraint firstAttribute="trailing" secondItem="YXd-8f-xsc" secondAttribute="trailing" constant="18" id="lE0-us-7Rg"/>
+                    <constraint firstItem="NQd-lq-JF4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11.5" id="pNp-Ei-sZq"/>
                     <constraint firstItem="NQd-lq-JF4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="s68-Ms-kHf"/>
                     <constraint firstItem="NQd-lq-JF4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="v1U-eV-fDA"/>
                     <constraint firstItem="YXd-8f-xsc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zdf-WJ-ey5"/>
