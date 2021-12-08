@@ -146,7 +146,7 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
             if indexPath.row == 0 {
                 let fieldCell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.identifier, for: indexPath) as! TextFieldCell
                 
-                fieldCell.field.text = itemTitle // itemTitleは、Addのときに初期値の""で、showEditItemがtrueのときにTodoListVCから渡された値が入る
+                fieldCell.configure(text: itemTitle) // itemTitleは、Addのときに初期値の""で、showEditItemがtrueのときにTodoListVCから渡された値が入る
                 fieldCell.field.addTarget(self, action: #selector(didChangedField(_:)), for: .editingChanged) // .editingDidEndにするとうまく保存されない
 
                 return fieldCell
