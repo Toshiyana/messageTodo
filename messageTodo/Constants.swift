@@ -10,7 +10,7 @@ import Foundation
 struct K {
     // URL
     struct Url {
-        static let appStore = "https://www.google.com"
+        static let appStore = "https://apps.apple.com/app/wordstodo/id1598603193"
         static let requestForm = "https://forms.gle/ngjNFq8cLZw9xCaV9"
         static let appMaunual = "https://lightning-lan-4b9.notion.site/3f3fd3c9ea95424ab33b83403db9aa80"
     }
