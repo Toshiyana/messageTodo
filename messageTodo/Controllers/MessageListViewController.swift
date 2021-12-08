@@ -72,9 +72,11 @@ class MessageListViewController: SwipeTableViewController {
         cell.delegate = self
         
         if let message = messages?[indexPath.row] {
-            cell.messageLabel.text = message.content
-            cell.nameLabel.text = message.name
-            cell.messageImgView.image = UIImage(data: message.imageData!)//!は良くない
+            cell.configure(
+                image: UIImage(data: message.imageData!),//!は良くない?
+                message: message.content,
+                name: message.name
+            )            
         }
         
         return cell

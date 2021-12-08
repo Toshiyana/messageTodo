@@ -27,10 +27,10 @@ class ImageMessageCell: SwipeTableViewCell {
         messageImgView.layer.cornerRadius = messageImgView.frame.height / 2
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configure(image: UIImage?, message: String, name: String) {
+        messageImgView.image = image
+        messageLabel.text = message
+        nameLabel.text = name
     }
     
 }
