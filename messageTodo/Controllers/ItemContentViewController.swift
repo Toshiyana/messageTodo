@@ -155,8 +155,8 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
             else if indexPath.row == 1 {
                 let textViewCell = tableView.dequeueReusableCell(withIdentifier: TextViewCell.identifier, for: indexPath) as! TextViewCell
                 
-                textViewCell.textViewInCell.delegate = self
-                textViewCell.textViewInCell.text = itemMemo // itemMemoは、Addのときに初期値の""で、showEditItemがtrueのときにTodoListVCから渡された値が入る
+                textViewCell.textView.delegate = self
+                textViewCell.configure(text: itemMemo) // itemMemoは、Addのときに初期値の""で、showEditItemがtrueのときにTodoListVCから渡された値が入る
 
                 return textViewCell
             }
