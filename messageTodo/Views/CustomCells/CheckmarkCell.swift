@@ -31,9 +31,12 @@ class CheckmarkCell: SwipeTableViewCell {
         checkButton.setImage(largeBoldDoc, for: .normal)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
+    func configure(text: String, isDone: Bool, buttonColor: UIColor, buttonTag: Int) {
+        
+        label.text = text
+        checkButton.isSelected = isDone
+        checkButton.tintColor = checkButton.isSelected ? buttonColor : UIColor.lightGray
+        checkButton.tag = buttonTag // tagをつけて、どのcellのbuttonが押されたかを識別        
     }
     
 }

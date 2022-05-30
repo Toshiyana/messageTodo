@@ -15,20 +15,16 @@ class TextViewCell: UITableViewCell {
         return UINib(nibName: "TextViewCell", bundle: nil)
     }
 
-    @IBOutlet weak var textViewInCell: UITextView!
+    @IBOutlet weak var textView: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         selectionStyle = .none
-        
-//        textViewInCell.layer.borderColor = UIColor.lightGray.cgColor
-//        textViewInCell.layer.borderWidth = 1.0
-//        textViewInCell.layer.cornerRadius = 5
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    func configure(text: String) {
+        textView.text = text
     }
     
 }

@@ -7,7 +7,6 @@
 
 import UIKit
 import RealmSwift
-import ChameleonFramework
 
 class ItemContentViewController: UIViewController {
 
@@ -67,12 +66,13 @@ class ItemContentViewController: UIViewController {
         table.register(TextFieldCell.nib(), forCellReuseIdentifier: TextFieldCell.identifier)
         table.register(TextViewCell.nib(), forCellReuseIdentifier: TextViewCell.identifier)
         table.register(TimeSettingCell.nib(), forCellReuseIdentifier: TimeSettingCell.identifier)
+        table.register(SwitchCell.nib(), forCellReuseIdentifier: SwitchCell.identifier)
         
         table.delegate = self
         table.dataSource = self
         
-        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
-        ChameleonUtility.changeNabBarColor(navBar: navbar, color: themeColor)
+        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? ColorUtility.defaultColor
+        ColorUtility.changeNabBarColor(navBar: navbar, color: themeColor)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -147,7 +147,7 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
             if indexPath.row == 0 {
                 let fieldCell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.identifier, for: indexPath) as! TextFieldCell
                 
-                fieldCell.field.text = itemTitle // itemTitleは、Addのときに初期値の""で、showEditItemがtrueのときにTodoListVCから渡された値が入る
+                fieldCell.configure(text: itemTitle) // itemTitleは、Addのときに初期値の""で、showEditItemがtrueのときにTodoListVCから渡された値が入る
                 fieldCell.field.addTarget(self, action: #selector(didChangedField(_:)), for: .editingChanged) // .editingDidEndにするとうまく保存されない
 
                 return fieldCell
@@ -156,55 +156,46 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
             else if indexPath.row == 1 {
                 let textViewCell = tableView.dequeueReusableCell(withIdentifier: TextViewCell.identifier, for: indexPath) as! TextViewCell
                 
-                textViewCell.textViewInCell.delegate = self
-                textViewCell.textViewInCell.text = itemMemo // itemMemoは、Addのときに初期値の""で、showEditItemがtrueのときにTodoListVCから渡された値が入る
+                textViewCell.textView.delegate = self
+                textViewCell.configure(text: itemMemo) // itemMemoは、Addのときに初期値の""で、showEditItemがtrueのときにTodoListVCから渡された値が入る
 
                 return textViewCell
             }
         }
 
         else if indexPath.section == 1 {
-            let switchCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            switchCell.textLabel?.text = "リマインダーを送る"
-            switchCell.selectionStyle = .none
+            let reminderSwitchCell = tableView.dequeueReusableCell(withIdentifier: SwitchCell.identifier, for: indexPath) as! SwitchCell
             
-            let reminderSwitch = UISwitch()
-            reminderSwitch.addTarget(self, action: #selector(didChangedReminderSwitch(_:)), for: .valueChanged)
-            reminderSwitch.isOn = reminderEnabled
-            switchCell.accessoryView = reminderSwitch
+            reminderSwitchCell.mySwitch.addTarget(self, action: #selector(didChangedReminderSwitch(_:)), for: .valueChanged) // reminderEnabledを取得するため、configure()の前に実行
+            reminderSwitchCell.configure(text: "リマインダーを送る", isOn: reminderEnabled)
             
-            return switchCell
+            return reminderSwitchCell
         }
 
         else if indexPath.section == 2 {
             if indexPath.row == 0 {
-                let switchCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-                switchCell.textLabel?.text = "ランダムな言葉を添えて通知"
-                switchCell.selectionStyle = .none
+                let wordSwitchCell = tableView.dequeueReusableCell(withIdentifier: SwitchCell.identifier, for: indexPath) as! SwitchCell
                 
-                let reminderSwitch = UISwitch()
-                reminderSwitch.addTarget(self, action: #selector(didChangedWordSwitch(_:)), for: .valueChanged)
-                reminderSwitch.isOn = wordEnabled
-                switchCell.accessoryView = reminderSwitch
+                wordSwitchCell.mySwitch.addTarget(self, action: #selector(didChangedWordSwitch(_:)), for: .valueChanged) // reminderEnabledを取得するため、configure()の前に実行
+                wordSwitchCell.configure(text: "ランダムな言葉を添えて通知", isOn: wordEnabled)
                 
-                return switchCell
+                return wordSwitchCell                
             }
             else if indexPath.row == 1 {
                 let timeCell = tableView.dequeueReusableCell(withIdentifier: TimeSettingCell.identifier, for: indexPath) as! TimeSettingCell
 
                 switch reminderType {
                 case ReminderType.time.rawValue:
-                    timeCell.timeLabel.text = formattedTimeInterval
+                    timeCell.configure(timeText: formattedTimeInterval)
                 case ReminderType.calender.rawValue:
-                    timeCell.timeLabel.text = formattedDate
+                    timeCell.configure(timeText: formattedDate)
                 default: // ReminderType.none.rawValue
-                    timeCell.timeLabel.text = "指定なし"
+                    timeCell.configure(timeText: "指定なし")
                 }
                 
                 return timeCell
             }
         }
-
         
         return UITableViewCell()
     }

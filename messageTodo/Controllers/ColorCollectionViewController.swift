@@ -6,16 +6,12 @@
 //
 
 import UIKit
-import ChameleonFramework
 
 class ColorCollectionViewController: UICollectionViewController {
 
     let defaults = UserDefaults.standard
     
-    private let colors: [UIColor] = [FlatOrange(), FlatYellow(), FlatRed(), FlatBlue(), FlatSand(), FlatNavyBlue(), FlatBlack(), FlatMagenta(), FlatTeal(), FlatSkyBlue(), FlatGreen(), FlatMint(), FlatGray(), FlatForestGreen(), FlatPurple(), FlatBrown(), FlatPlum(), FlatWatermelon(), FlatLime(), FlatPink(), FlatMaroon(), FlatCoffee(), FlatPowderBlue()]
-    
-//    private let colorNames: [String] = ["Blue", "Red", "Orange", "Yellow", "Sand", "NavyBlue", "Black", "Magenta", "Teal", "SkyBlue", "Green", "Mint", "Gray", "ForestGreen", "Purple", "Brown", "Plum", "Watermelon", "Lime", "Pink", "Maroon", "Coffee", "PowderBlue"]
-
+    private let colors: [UIColor] = ColorUtility.colors
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +26,8 @@ class ColorCollectionViewController: UICollectionViewController {
             fatalError("NavigationController does not exist.")
         }
         
-        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
-        ChameleonUtility.changeNabBarColor(navBar: navBar, color: themeColor)
+        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? ColorUtility.defaultColor
+        ColorUtility.changeNabBarColor(navBar: navBar, color: themeColor)
     }
     
     // MARK: UICollectionViewDataSource
@@ -69,8 +65,8 @@ class ColorCollectionViewController: UICollectionViewController {
         guard let navBar = navigationController?.navigationBar else {
             fatalError("NavigationController does not exist.")
         }
-        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatBlue()
-        ChameleonUtility.changeNabBarColor(navBar: navBar, color: themeColor)
+        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? ColorUtility.defaultColor
+        ColorUtility.changeNabBarColor(navBar: navBar, color: themeColor)
 
         // reload the border with selected color button
         collectionView.reloadData()

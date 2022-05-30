@@ -8,7 +8,6 @@
 import UIKit
 import RealmSwift
 import SwipeCellKit
-import ChameleonFramework
 
 class MessageListViewController: SwipeTableViewController {
 
@@ -47,8 +46,8 @@ class MessageListViewController: SwipeTableViewController {
 
 
         // change color
-        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
-        ChameleonUtility.changeNabBarColor(navBar: navBar, color: themeColor)
+        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? ColorUtility.defaultColor
+        ColorUtility.changeNabBarColor(navBar: navBar, color: themeColor)
         addButton.floatButton.layer.backgroundColor = themeColor.cgColor
         searchBar.tintColor = themeColor
         searchBar.barTintColor = themeColor
@@ -73,9 +72,11 @@ class MessageListViewController: SwipeTableViewController {
         cell.delegate = self
         
         if let message = messages?[indexPath.row] {
-            cell.messageLabel.text = message.content
-            cell.nameLabel.text = message.name
-            cell.messageImgView.image = UIImage(data: message.imageData!)//!は良くない
+            cell.configure(
+                image: UIImage(data: message.imageData!),//!は良くない?
+                message: message.content,
+                name: message.name
+            )            
         }
         
         return cell
@@ -92,7 +93,7 @@ class MessageListViewController: SwipeTableViewController {
 
             let popup = segue.destination as! MessagePopupViewController
             popup.delegate = self
-            popup.titleColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
+            popup.titleColor = defaults.getColorForKey(key: K.navbarColor) ?? ColorUtility.defaultColor
             
             if showEditPopup {
                 if let indexPath = tableView.indexPathForSelectedRow,

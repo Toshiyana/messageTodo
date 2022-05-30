@@ -8,7 +8,6 @@
 import UIKit
 import SwipeCellKit
 import RealmSwift
-import ChameleonFramework
 
 class TodoListViewController: SwipeTableViewController {
 
@@ -48,8 +47,8 @@ class TodoListViewController: SwipeTableViewController {
 
         // change color
 //        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
-        themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
-        ChameleonUtility.changeNabBarColor(navBar: navBar, color: themeColor!)
+        themeColor = defaults.getColorForKey(key: K.navbarColor) ?? ColorUtility.defaultColor
+        ColorUtility.changeNabBarColor(navBar: navBar, color: themeColor!)
         addButton.floatButton.layer.backgroundColor = themeColor!.cgColor
 
         guard let tabBar = tabBarController?.tabBar else {
@@ -73,16 +72,16 @@ class TodoListViewController: SwipeTableViewController {
         cell.delegate = self
                 
         if let item = todoItems?[indexPath.row] {
-            cell.label.text = item.title
-            cell.checkButton.isSelected = item.isDone
-            cell.checkButton.tintColor = cell.checkButton.isSelected ? themeColor : .lightGray
-            cell.checkButton.tag = indexPath.row // tagをつけて、どのcellのbuttonが押されたかを識別
+            
+            cell.configure(
+                text: item.title,
+                isDone: item.isDone,
+                buttonColor: themeColor!,
+                buttonTag: indexPath.row) // tagをつけて、どのcellのbuttonが押されたかを識別
+            
             cell.checkButton.addTarget(self, action: #selector(checkButtonPressed(_:)), for: .touchUpInside)
-            
-            
-
-        }
         
+        }
         return cell
     }
 
