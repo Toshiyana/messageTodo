@@ -16,7 +16,6 @@
 		99128516274754B400F7C7EE /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99128514274754B300F7C7EE /* TextFieldCell.xib */; };
 		99128519274759C400F7C7EE /* TextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99128517274759C400F7C7EE /* TextViewCell.swift */; };
 		9912851A274759C400F7C7EE /* TextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99128518274759C400F7C7EE /* TextViewCell.xib */; };
-		991285202747F06A00F7C7EE /* TimeSettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9912851F2747F06A00F7C7EE /* TimeSettingViewController.storyboard */; };
 		993B2A3F2726EB14007A7C59 /* ImageMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993B2A3D2726EB14007A7C59 /* ImageMessageCell.swift */; };
 		993B2A402726EB14007A7C59 /* ImageMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993B2A3E2726EB14007A7C59 /* ImageMessageCell.xib */; };
 		9946B4AA271ABC2D00AC1611 /* UserDefaults+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9946B4A9271ABC2D00AC1611 /* UserDefaults+UIColor.swift */; };
@@ -43,17 +42,18 @@
 		9974537B274823F000749828 /* TimeSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99745379274823F000749828 /* TimeSettingCell.xib */; };
 		997453CB274EB5E400749828 /* CheckmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997453C9274EB5E400749828 /* CheckmarkCell.swift */; };
 		997453CC274EB5E400749828 /* CheckmarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 997453CA274EB5E400749828 /* CheckmarkCell.xib */; };
-		998AAE4A273DAD1C00089521 /* ColorCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 998AAE49273DACB800089521 /* ColorCollectionViewController.storyboard */; };
 		998AAE4C273DAFB900089521 /* TabBarUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998AAE4B273DAFB900089521 /* TabBarUtility.swift */; };
 		998AAE58273E7EF200089521 /* TimeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998AAE57273E7EF200089521 /* TimeSettingViewController.swift */; };
 		998AB88A271C1F080042F371 /* ColorCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998AB889271C1F080042F371 /* ColorCollectionViewController.swift */; };
 		998AB8CF271DBBA10042F371 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998AB8CE271DBBA10042F371 /* ColorCollectionViewCell.swift */; };
 		998FA9722733D6FB0065DD63 /* MessagePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998FA9712733D6FB0065DD63 /* MessagePopupViewController.swift */; };
 		998FA9812733E0E90065DD63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9950FD042712DB2800E1B3AF /* Main.storyboard */; };
-		998FA98F2733E22C0065DD63 /* MessagePopupViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 998FA9762733D7410065DD63 /* MessagePopupViewController.storyboard */; };
 		9998EEE4273ED2BF00324E1B /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */; };
 		9998EEED27420BDD00324E1B /* UITextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEEC27420BDC00324E1B /* UITextView+Additions.swift */; };
 		9998EEF1274372B600324E1B /* ItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEF0274372B600324E1B /* ItemDelegate.swift */; };
+		99A0D77528454D7C007009D1 /* TimeSettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77428454D7C007009D1 /* TimeSettingViewController.storyboard */; };
+		99A0D77828454D95007009D1 /* ColorCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77628454D95007009D1 /* ColorCollectionViewController.storyboard */; };
+		99A0D77928454D95007009D1 /* MessagePopupViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77728454D95007009D1 /* MessagePopupViewController.storyboard */; };
 		99F04A40274FA7700063D376 /* UITextField+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F04A3F274FA7700063D376 /* UITextField+Additions.swift */; };
 		99F04A42274FAA340063D376 /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 99F04A41274FAA340063D376 /* default.realm */; };
 		A60783F7E1929B4F2DA6B87C /* Pods_messageTodo_messageTodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58FF47784E10E3703E19C29 /* Pods_messageTodo_messageTodoUITests.framework */; };
@@ -95,7 +95,6 @@
 		99128514274754B300F7C7EE /* TextFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
 		99128517274759C400F7C7EE /* TextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewCell.swift; sourceTree = "<group>"; };
 		99128518274759C400F7C7EE /* TextViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewCell.xib; sourceTree = "<group>"; };
-		9912851F2747F06A00F7C7EE /* TimeSettingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = TimeSettingViewController.storyboard; path = messageTodo/Views/TimeSettingViewController.storyboard; sourceTree = SOURCE_ROOT; };
 		993B2A3D2726EB14007A7C59 /* ImageMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMessageCell.swift; sourceTree = "<group>"; };
 		993B2A3E2726EB14007A7C59 /* ImageMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageMessageCell.xib; sourceTree = "<group>"; };
 		9946B4A9271ABC2D00AC1611 /* UserDefaults+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+UIColor.swift"; sourceTree = "<group>"; };
@@ -129,16 +128,17 @@
 		99745379274823F000749828 /* TimeSettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeSettingCell.xib; sourceTree = "<group>"; };
 		997453C9274EB5E400749828 /* CheckmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkCell.swift; sourceTree = "<group>"; };
 		997453CA274EB5E400749828 /* CheckmarkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckmarkCell.xib; sourceTree = "<group>"; };
-		998AAE49273DACB800089521 /* ColorCollectionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ColorCollectionViewController.storyboard; path = /Users/toshi/Desktop/iOSApp/myApp/messageTodo/messageTodo/Views/ColorCollectionViewController.storyboard; sourceTree = "<absolute>"; };
 		998AAE4B273DAFB900089521 /* TabBarUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarUtility.swift; sourceTree = "<group>"; };
 		998AAE57273E7EF200089521 /* TimeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingViewController.swift; sourceTree = "<group>"; };
 		998AB889271C1F080042F371 /* ColorCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewController.swift; sourceTree = "<group>"; };
 		998AB8CE271DBBA10042F371 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		998FA9712733D6FB0065DD63 /* MessagePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePopupViewController.swift; sourceTree = "<group>"; };
-		998FA9762733D7410065DD63 /* MessagePopupViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = MessagePopupViewController.storyboard; path = /Users/toshi/Desktop/iOSApp/myApp/messageTodo/messageTodo/Views/MessagePopupViewController.storyboard; sourceTree = "<absolute>"; };
 		9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		9998EEEC27420BDC00324E1B /* UITextView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Additions.swift"; sourceTree = "<group>"; };
 		9998EEF0274372B600324E1B /* ItemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDelegate.swift; sourceTree = "<group>"; };
+		99A0D77428454D7C007009D1 /* TimeSettingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TimeSettingViewController.storyboard; sourceTree = "<group>"; };
+		99A0D77628454D95007009D1 /* ColorCollectionViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ColorCollectionViewController.storyboard; sourceTree = "<group>"; };
+		99A0D77728454D95007009D1 /* MessagePopupViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessagePopupViewController.storyboard; sourceTree = "<group>"; };
 		99F04A3F274FA7700063D376 /* UITextField+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Additions.swift"; sourceTree = "<group>"; };
 		99F04A41274FAA340063D376 /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
 		DE8BE26CF3001E7104A50856 /* Pods-messageTodo-messageTodoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-messageTodo-messageTodoUITests.debug.xcconfig"; path = "Target Support Files/Pods-messageTodo-messageTodoUITests/Pods-messageTodo-messageTodoUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,13 +193,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		994D396227242B81004C429F /* Commons */ = {
+		994D396227242B81004C429F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				998AAE4B273DAFB900089521 /* TabBarUtility.swift */,
 				99059C52276070F90044957C /* ColorUtility.swift */,
 			);
-			path = Commons;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		9950FCF22712DB2800E1B3AF = {
@@ -227,18 +227,16 @@
 		9950FCFD2712DB2800E1B3AF /* messageTodo */ = {
 			isa = PBXGroup;
 			children = (
-				997453C6274EA17A00749828 /* Seed */,
 				9950FCFE2712DB2800E1B3AF /* AppDelegate.swift */,
 				9950FD002712DB2800E1B3AF /* SceneDelegate.swift */,
-				9998EEF0274372B600324E1B /* ItemDelegate.swift */,
-				9967E5712735246200F80E28 /* MessagePopupDelegate.swift */,
-				991284B92744A41000F7C7EE /* TimeSettingDelegate.swift */,
 				9950FD8527142E1F00E1B3AF /* Constants.swift */,
-				994D396227242B81004C429F /* Commons */,
-				9946B4A8271ABBB700AC1611 /* Extensions */,
+				99A0D77328454CC4007009D1 /* Delegate */,
 				9950FD422713304200E1B3AF /* Model */,
 				9950FD402713300600E1B3AF /* Views */,
 				9950FD412713302F00E1B3AF /* Controllers */,
+				994D396227242B81004C429F /* Utils */,
+				9946B4A8271ABBB700AC1611 /* Extensions */,
+				997453C6274EA17A00749828 /* Seed */,
 				9998EEE9273FFEC600324E1B /* SupportingFiles */,
 				9950FD0F2712DB2900E1B3AF /* Info.plist */,
 				9950FD072712DB2800E1B3AF /* messageTodo.xcdatamodeld */,
@@ -267,8 +265,8 @@
 		9950FD402713300600E1B3AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9998EEF4274410EA00324E1B /* Xibs */,
-				9998EEF32744103B00324E1B /* Code */,
+				9998EEF4274410EA00324E1B /* CustomCells */,
+				9998EEF32744103B00324E1B /* CustomButton */,
 				9998EEF227440FFF00324E1B /* Storyboards */,
 				9950FD042712DB2800E1B3AF /* Main.storyboard */,
 			);
@@ -320,26 +318,22 @@
 		9998EEF227440FFF00324E1B /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				9912851F2747F06A00F7C7EE /* TimeSettingViewController.storyboard */,
-				998AAE49273DACB800089521 /* ColorCollectionViewController.storyboard */,
-				998FA9762733D7410065DD63 /* MessagePopupViewController.storyboard */,
+				99A0D77628454D95007009D1 /* ColorCollectionViewController.storyboard */,
+				99A0D77728454D95007009D1 /* MessagePopupViewController.storyboard */,
+				99A0D77428454D7C007009D1 /* TimeSettingViewController.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		9998EEF32744103B00324E1B /* Code */ = {
+		9998EEF32744103B00324E1B /* CustomButton */ = {
 			isa = PBXGroup;
 			children = (
 				9950FD722713DF0000E1B3AF /* FloatingButton.swift */,
-				9946B4B6271BB4EA00AC1611 /* SettingIconCell.swift */,
-				9946B4BE271BE51600AC1611 /* SettingColorCell.swift */,
-				9946B4C3271BE57900AC1611 /* SettingVersionCell.swift */,
-				998AB8CE271DBBA10042F371 /* ColorCollectionViewCell.swift */,
 			);
-			path = Code;
+			path = CustomButton;
 			sourceTree = "<group>";
 		};
-		9998EEF4274410EA00324E1B /* Xibs */ = {
+		9998EEF4274410EA00324E1B /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
 				993B2A3D2726EB14007A7C59 /* ImageMessageCell.swift */,
@@ -354,8 +348,22 @@
 				997453CA274EB5E400749828 /* CheckmarkCell.xib */,
 				99059C542760893C0044957C /* SwitchCell.swift */,
 				99059C552760893C0044957C /* SwitchCell.xib */,
+				9946B4B6271BB4EA00AC1611 /* SettingIconCell.swift */,
+				9946B4BE271BE51600AC1611 /* SettingColorCell.swift */,
+				9946B4C3271BE57900AC1611 /* SettingVersionCell.swift */,
+				998AB8CE271DBBA10042F371 /* ColorCollectionViewCell.swift */,
 			);
-			path = Xibs;
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		99A0D77328454CC4007009D1 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				9998EEF0274372B600324E1B /* ItemDelegate.swift */,
+				9967E5712735246200F80E28 /* MessagePopupDelegate.swift */,
+				991284B92744A41000F7C7EE /* TimeSettingDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 		B1C38B04DDBF7FEFE42B0DBA /* Pods */ = {
@@ -480,18 +488,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				99059C572760893C0044957C /* SwitchCell.xib in Resources */,
-				991285202747F06A00F7C7EE /* TimeSettingViewController.storyboard in Resources */,
+				99A0D77528454D7C007009D1 /* TimeSettingViewController.storyboard in Resources */,
 				993B2A402726EB14007A7C59 /* ImageMessageCell.xib in Resources */,
 				9950FD0E2712DB2900E1B3AF /* LaunchScreen.storyboard in Resources */,
 				99128516274754B400F7C7EE /* TextFieldCell.xib in Resources */,
-				998FA98F2733E22C0065DD63 /* MessagePopupViewController.storyboard in Resources */,
+				99A0D77828454D95007009D1 /* ColorCollectionViewController.storyboard in Resources */,
 				99F04A42274FAA340063D376 /* default.realm in Resources */,
 				998FA9812733E0E90065DD63 /* Main.storyboard in Resources */,
 				9950FD0B2712DB2900E1B3AF /* Assets.xcassets in Resources */,
 				997453CC274EB5E400749828 /* CheckmarkCell.xib in Resources */,
 				9974537B274823F000749828 /* TimeSettingCell.xib in Resources */,
-				998AAE4A273DAD1C00089521 /* ColorCollectionViewController.storyboard in Resources */,
 				9912851A274759C400F7C7EE /* TextViewCell.xib in Resources */,
+				99A0D77928454D95007009D1 /* MessagePopupViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,7 +766,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -813,7 +821,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -832,7 +840,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4KX39VZ9JG;
 				INFOPLIST_FILE = messageTodo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -854,7 +862,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4KX39VZ9JG;
 				INFOPLIST_FILE = messageTodo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
