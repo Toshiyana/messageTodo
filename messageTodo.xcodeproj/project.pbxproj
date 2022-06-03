@@ -54,8 +54,6 @@
 		99A0D77528454D7C007009D1 /* TimeSettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77428454D7C007009D1 /* TimeSettingViewController.storyboard */; };
 		99A0D77828454D95007009D1 /* ColorCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77628454D95007009D1 /* ColorCollectionViewController.storyboard */; };
 		99A0D77928454D95007009D1 /* MessagePopupViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77728454D95007009D1 /* MessagePopupViewController.storyboard */; };
-		99A0D7932847B70B007009D1 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0D7922847B70B007009D1 /* TaskManager.swift */; };
-		99A0D7952847B743007009D1 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0D7942847B743007009D1 /* MessageManager.swift */; };
 		99F04A40274FA7700063D376 /* UITextField+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F04A3F274FA7700063D376 /* UITextField+Additions.swift */; };
 		99F04A42274FAA340063D376 /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 99F04A41274FAA340063D376 /* default.realm */; };
 		A60783F7E1929B4F2DA6B87C /* Pods_messageTodo_messageTodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58FF47784E10E3703E19C29 /* Pods_messageTodo_messageTodoUITests.framework */; };
@@ -141,8 +139,6 @@
 		99A0D77428454D7C007009D1 /* TimeSettingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TimeSettingViewController.storyboard; sourceTree = "<group>"; };
 		99A0D77628454D95007009D1 /* ColorCollectionViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ColorCollectionViewController.storyboard; sourceTree = "<group>"; };
 		99A0D77728454D95007009D1 /* MessagePopupViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessagePopupViewController.storyboard; sourceTree = "<group>"; };
-		99A0D7922847B70B007009D1 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
-		99A0D7942847B743007009D1 /* MessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
 		99F04A3F274FA7700063D376 /* UITextField+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Additions.swift"; sourceTree = "<group>"; };
 		99F04A41274FAA340063D376 /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
 		DE8BE26CF3001E7104A50856 /* Pods-messageTodo-messageTodoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-messageTodo-messageTodoUITests.debug.xcconfig"; path = "Target Support Files/Pods-messageTodo-messageTodoUITests/Pods-messageTodo-messageTodoUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -297,8 +293,6 @@
 			children = (
 				9950FD7B27142B4A00E1B3AF /* Item.swift */,
 				9950FD8027142C2800E1B3AF /* Message.swift */,
-				99A0D7922847B70B007009D1 /* TaskManager.swift */,
-				99A0D7942847B743007009D1 /* MessageManager.swift */,
 				9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */,
 			);
 			path = Model;
@@ -645,7 +639,6 @@
 				9950FD732713DF0000E1B3AF /* FloatingButton.swift in Sources */,
 				998AB8CF271DBBA10042F371 /* ColorCollectionViewCell.swift in Sources */,
 				9950FD8127142C2800E1B3AF /* Message.swift in Sources */,
-				99A0D7932847B70B007009D1 /* TaskManager.swift in Sources */,
 				99059C53276070F90044957C /* ColorUtility.swift in Sources */,
 				9946B4C4271BE57900AC1611 /* SettingVersionCell.swift in Sources */,
 				9950FCFF2712DB2800E1B3AF /* AppDelegate.swift in Sources */,
@@ -660,7 +653,6 @@
 				9974537A274823F000749828 /* TimeSettingCell.swift in Sources */,
 				9950FD012712DB2800E1B3AF /* SceneDelegate.swift in Sources */,
 				9998EEF1274372B600324E1B /* ItemDelegate.swift in Sources */,
-				99A0D7952847B743007009D1 /* MessageManager.swift in Sources */,
 				997453CB274EB5E400749828 /* CheckmarkCell.swift in Sources */,
 				9950FD6B2713D50C00E1B3AF /* SwipeTableViewController.swift in Sources */,
 				991284BA2744A41000F7C7EE /* TimeSettingDelegate.swift in Sources */,
