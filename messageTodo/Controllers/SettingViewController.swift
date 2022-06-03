@@ -230,29 +230,14 @@ class SettingViewController: UITableViewController {
     
     //MARK: - Delete All Data Method
     private func deleteDataAction() {
-        let allItems = self.realm.objects(Item.self)
-        let allMessages = self.realm.objects(Message.self)
-        
         let alert = UIAlertController(title: "データの削除", message: "", preferredStyle: .alert)
         
-        let deleteItemAction = UIAlertAction(title: "全てのTodoを削除", style: .default) { [weak self] (action) in
-            do {
-                try self?.realm.write {
-                    self?.realm.delete(allItems)
-                }
-            } catch {
-                print("Error deleting All item, \(error)")
-            }
+        let deleteItemAction = UIAlertAction(title: "全てのTodoを削除", style: .default) { (action) in
+            ItemManager.shared.deleteAllItem()
             LocalNotificationManager.shared.removeScheduleAllNotification()
         }
-        let deleteMessageAction = UIAlertAction(title: "全ての言葉を削除", style: .default) { [weak self] (action) in
-            do {
-                try self?.realm.write {
-                    self?.realm.delete(allMessages)
-                }
-            } catch {
-                print("Error deleting All Messages, \(error)")
-            }
+        let deleteMessageAction = UIAlertAction(title: "全ての言葉を削除", style: .default) { (action) in
+            MessageManager.shared.deleteAllMessage()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         

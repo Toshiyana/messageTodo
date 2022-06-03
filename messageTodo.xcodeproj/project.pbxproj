@@ -52,6 +52,7 @@
 		9998EEED27420BDD00324E1B /* UITextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEEC27420BDC00324E1B /* UITextView+Additions.swift */; };
 		9998EEF1274372B600324E1B /* ItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEF0274372B600324E1B /* ItemDelegate.swift */; };
 		999BD72D2849FE8D00B3EB29 /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999BD72C2849FE8D00B3EB29 /* ItemManager.swift */; };
+		999BD72F284A0FBE00B3EB29 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999BD72E284A0FBE00B3EB29 /* MessageManager.swift */; };
 		99A0D77528454D7C007009D1 /* TimeSettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77428454D7C007009D1 /* TimeSettingViewController.storyboard */; };
 		99A0D77828454D95007009D1 /* ColorCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77628454D95007009D1 /* ColorCollectionViewController.storyboard */; };
 		99A0D77928454D95007009D1 /* MessagePopupViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77728454D95007009D1 /* MessagePopupViewController.storyboard */; };
@@ -138,6 +139,7 @@
 		9998EEEC27420BDC00324E1B /* UITextView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Additions.swift"; sourceTree = "<group>"; };
 		9998EEF0274372B600324E1B /* ItemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDelegate.swift; sourceTree = "<group>"; };
 		999BD72C2849FE8D00B3EB29 /* ItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManager.swift; sourceTree = "<group>"; };
+		999BD72E284A0FBE00B3EB29 /* MessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
 		99A0D77428454D7C007009D1 /* TimeSettingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TimeSettingViewController.storyboard; sourceTree = "<group>"; };
 		99A0D77628454D95007009D1 /* ColorCollectionViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ColorCollectionViewController.storyboard; sourceTree = "<group>"; };
 		99A0D77728454D95007009D1 /* MessagePopupViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessagePopupViewController.storyboard; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				9950FD8027142C2800E1B3AF /* Message.swift */,
 				9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */,
 				999BD72C2849FE8D00B3EB29 /* ItemManager.swift */,
+				999BD72E284A0FBE00B3EB29 /* MessageManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -657,6 +660,7 @@
 				9974537A274823F000749828 /* TimeSettingCell.swift in Sources */,
 				9950FD012712DB2800E1B3AF /* SceneDelegate.swift in Sources */,
 				9998EEF1274372B600324E1B /* ItemDelegate.swift in Sources */,
+				999BD72F284A0FBE00B3EB29 /* MessageManager.swift in Sources */,
 				997453CB274EB5E400749828 /* CheckmarkCell.swift in Sources */,
 				9950FD6B2713D50C00E1B3AF /* SwipeTableViewController.swift in Sources */,
 				991284BA2744A41000F7C7EE /* TimeSettingDelegate.swift in Sources */,

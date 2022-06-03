@@ -38,6 +38,18 @@ class ItemManager {
         }
     }
     
+    func deleteAllItem() {
+        guard let realm = try? Realm() else { return }
+        let allItems = realm.objects(Item.self)
+        do {
+            try realm.write {
+                realm.delete(allItems)
+            }
+        } catch {
+            print("Error deleting All item, \(error)")
+        }
+    }
+    
     func edit(item: Item, title: String, memo: String, reminderEnabled: Bool, wordEnabled: Bool, wordBody: String, timeInterval: TimeInterval, date: Date?, repeats: Bool, reminderType: String) {
         guard let realm = try? Realm() else { return }
         do {
