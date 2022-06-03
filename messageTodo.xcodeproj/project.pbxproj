@@ -297,9 +297,9 @@
 			children = (
 				9950FD7B27142B4A00E1B3AF /* Item.swift */,
 				9950FD8027142C2800E1B3AF /* Message.swift */,
-				9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */,
 				999BD72C2849FE8D00B3EB29 /* ItemManager.swift */,
 				999BD72E284A0FBE00B3EB29 /* MessageManager.swift */,
+				9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
