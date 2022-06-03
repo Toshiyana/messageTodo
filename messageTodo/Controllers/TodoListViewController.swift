@@ -233,16 +233,13 @@ class TodoListViewController: SwipeTableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        // delete cell in Editing mode
-        if editingStyle == .delete {
-            updateModel(at: indexPath)
-            loadItems()
-        }
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        // remove "delete button" in editing
+        return .none
     }
     
-    // テーブルビューが編集モードのときに、指定した行の背景をインデントするかどうかをdelegateに尋ねるメソッド
     override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        // remove "delete button's indent sapace" in editing
         return false
     }
     
