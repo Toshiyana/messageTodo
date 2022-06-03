@@ -51,6 +51,7 @@
 		9998EEE4273ED2BF00324E1B /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */; };
 		9998EEED27420BDD00324E1B /* UITextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEEC27420BDC00324E1B /* UITextView+Additions.swift */; };
 		9998EEF1274372B600324E1B /* ItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEF0274372B600324E1B /* ItemDelegate.swift */; };
+		999BD72D2849FE8D00B3EB29 /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999BD72C2849FE8D00B3EB29 /* ItemManager.swift */; };
 		99A0D77528454D7C007009D1 /* TimeSettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77428454D7C007009D1 /* TimeSettingViewController.storyboard */; };
 		99A0D77828454D95007009D1 /* ColorCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77628454D95007009D1 /* ColorCollectionViewController.storyboard */; };
 		99A0D77928454D95007009D1 /* MessagePopupViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77728454D95007009D1 /* MessagePopupViewController.storyboard */; };
@@ -136,6 +137,7 @@
 		9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		9998EEEC27420BDC00324E1B /* UITextView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Additions.swift"; sourceTree = "<group>"; };
 		9998EEF0274372B600324E1B /* ItemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDelegate.swift; sourceTree = "<group>"; };
+		999BD72C2849FE8D00B3EB29 /* ItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManager.swift; sourceTree = "<group>"; };
 		99A0D77428454D7C007009D1 /* TimeSettingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TimeSettingViewController.storyboard; sourceTree = "<group>"; };
 		99A0D77628454D95007009D1 /* ColorCollectionViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ColorCollectionViewController.storyboard; sourceTree = "<group>"; };
 		99A0D77728454D95007009D1 /* MessagePopupViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessagePopupViewController.storyboard; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				9950FD7B27142B4A00E1B3AF /* Item.swift */,
 				9950FD8027142C2800E1B3AF /* Message.swift */,
 				9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */,
+				999BD72C2849FE8D00B3EB29 /* ItemManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 				9946B4C4271BE57900AC1611 /* SettingVersionCell.swift in Sources */,
 				9950FCFF2712DB2800E1B3AF /* AppDelegate.swift in Sources */,
 				99059C562760893C0044957C /* SwitchCell.swift in Sources */,
+				999BD72D2849FE8D00B3EB29 /* ItemManager.swift in Sources */,
 				99128519274759C400F7C7EE /* TextViewCell.swift in Sources */,
 				9946B4B7271BB4EA00AC1611 /* SettingIconCell.swift in Sources */,
 				9950FD8627142E1F00E1B3AF /* Constants.swift in Sources */,
