@@ -53,6 +53,7 @@
 		9998EEF1274372B600324E1B /* ItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEF0274372B600324E1B /* ItemDelegate.swift */; };
 		999BD72D2849FE8D00B3EB29 /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999BD72C2849FE8D00B3EB29 /* ItemManager.swift */; };
 		999BD72F284A0FBE00B3EB29 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999BD72E284A0FBE00B3EB29 /* MessageManager.swift */; };
+		999BD73E284C36CE00B3EB29 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 999BD73D284C36CE00B3EB29 /* GoogleService-Info.plist */; };
 		99A0D77528454D7C007009D1 /* TimeSettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77428454D7C007009D1 /* TimeSettingViewController.storyboard */; };
 		99A0D77828454D95007009D1 /* ColorCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77628454D95007009D1 /* ColorCollectionViewController.storyboard */; };
 		99A0D77928454D95007009D1 /* MessagePopupViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77728454D95007009D1 /* MessagePopupViewController.storyboard */; };
@@ -140,6 +141,7 @@
 		9998EEF0274372B600324E1B /* ItemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDelegate.swift; sourceTree = "<group>"; };
 		999BD72C2849FE8D00B3EB29 /* ItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManager.swift; sourceTree = "<group>"; };
 		999BD72E284A0FBE00B3EB29 /* MessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
+		999BD73D284C36CE00B3EB29 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99A0D77428454D7C007009D1 /* TimeSettingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TimeSettingViewController.storyboard; sourceTree = "<group>"; };
 		99A0D77628454D95007009D1 /* ColorCollectionViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ColorCollectionViewController.storyboard; sourceTree = "<group>"; };
 		99A0D77728454D95007009D1 /* MessagePopupViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessagePopupViewController.storyboard; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				997453C6274EA17A00749828 /* Seed */,
 				9998EEE9273FFEC600324E1B /* SupportingFiles */,
 				9950FD0F2712DB2900E1B3AF /* Info.plist */,
+				999BD73D284C36CE00B3EB29 /* GoogleService-Info.plist */,
 				9950FD072712DB2800E1B3AF /* messageTodo.xcdatamodeld */,
 			);
 			path = messageTodo;
@@ -506,6 +509,7 @@
 				9974537B274823F000749828 /* TimeSettingCell.xib in Resources */,
 				9912851A274759C400F7C7EE /* TextViewCell.xib in Resources */,
 				99A0D77928454D95007009D1 /* MessagePopupViewController.storyboard in Resources */,
+				999BD73E284C36CE00B3EB29 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

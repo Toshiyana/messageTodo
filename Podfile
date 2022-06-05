@@ -6,6 +6,8 @@ target 'messageTodo' do
   # Pods for messageTodo
   pod 'RealmSwift'
   pod 'SwipeCellKit'
+  pod 'Google-Mobile-Ads-SDK'
+  pod 'FirebaseAnalytics'
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
