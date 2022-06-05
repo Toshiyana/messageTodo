@@ -14,7 +14,7 @@ class MessageListViewController: SwipeTableViewController {
     private var addButton: FloatingButton!
     @IBOutlet weak var sortButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
-    
+    private var bannerAdView: BannerAdView!
     
     let defaults = UserDefaults.standard
     var messages: Results<Message>?
@@ -29,8 +29,10 @@ class MessageListViewController: SwipeTableViewController {
         addButton.floatButton.addTarget(self, action: #selector(addButtonPressed(_:)), for: .touchUpInside)
         
         tableView.register(UINib(nibName: K.messageImageCellIdentifier, bundle: nil), forCellReuseIdentifier: K.messageImageCellIdentifier)
-
         tableView.separatorStyle = .none
+        
+        bannerAdView = BannerAdView(attachedToView: view)
+        bannerAdView.bannerView.rootViewController = self
     }
     
     override func viewWillAppear(_ animated: Bool) {

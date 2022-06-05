@@ -13,7 +13,7 @@ class FloatingButton: NSObject {
     private var parentView: UIView!
     
     private let trailingPadding: CGFloat = 20.0
-    private let bottomPadding: CGFloat = -20.0
+    private let bottomPadding: CGFloat = -70.0
     private let buttonHeight: CGFloat = 70.0
     private let buttonWidth: CGFloat = 70.0
     
@@ -79,8 +79,7 @@ class FloatingButton: NSObject {
             let guide = self.parentView.safeAreaLayoutGuide
             floatButton.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -(trailingPadding)).isActive = true
             floatButton.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: bottomPadding).isActive = true
-        }
-        else {
+        } else {
             let trailingSpacing = NSLayoutConstraint.constraints(withVisualFormat: "V:[floatButton]-\(trailingPadding)-|", options: NSLayoutConstraint.FormatOptions.alignAllCenterX, metrics: nil, views: views)
             let bottomSpacing = NSLayoutConstraint.constraints(withVisualFormat: "H:[floatButton]-\(bottomPadding)-|", options: NSLayoutConstraint.FormatOptions.alignAllCenterX, metrics: nil, views: views)
             parentView.addConstraints(trailingSpacing)

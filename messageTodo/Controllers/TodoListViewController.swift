@@ -13,6 +13,7 @@ class TodoListViewController: SwipeTableViewController {
 
     private var addButton: FloatingButton!
     @IBOutlet weak var editButton: UIBarButtonItem!//SwipeTableViewControllerを継承している場合、cell.delegate = selfをやらないと、storyboardから設定できない
+    private var bannerAdView: BannerAdView!
 
     let defaults = UserDefaults.standard
     var todoItems: Results<Item>?
@@ -31,6 +32,9 @@ class TodoListViewController: SwipeTableViewController {
         loadItems()
         addButton = FloatingButton(attachedToView: view)
         addButton.floatButton.addTarget(self, action: #selector(addButtonPressed(_:)), for: .touchUpInside)
+        
+        bannerAdView = BannerAdView(attachedToView: view)
+        bannerAdView.bannerView.rootViewController = self
     }
     
     override func viewWillAppear(_ animated: Bool) {

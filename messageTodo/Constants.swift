@@ -41,4 +41,9 @@ struct K {
     // UserDefault
     static let messagesOrder = "MessagesOrder"
     static let navbarColor = "NavBarColor"
+    
+    struct Admob {
+        static let myId = "ca-app-pub-3271463287204513/2391554920"
+        static let testId = "ca-app-pub-3940256099942544/2934735716"
+    }
 }

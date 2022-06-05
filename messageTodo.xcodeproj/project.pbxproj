@@ -54,6 +54,7 @@
 		999BD72D2849FE8D00B3EB29 /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999BD72C2849FE8D00B3EB29 /* ItemManager.swift */; };
 		999BD72F284A0FBE00B3EB29 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999BD72E284A0FBE00B3EB29 /* MessageManager.swift */; };
 		999BD73E284C36CE00B3EB29 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 999BD73D284C36CE00B3EB29 /* GoogleService-Info.plist */; };
+		999BD742284C9A3500B3EB29 /* BannerAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999BD741284C9A3400B3EB29 /* BannerAdView.swift */; };
 		99A0D77528454D7C007009D1 /* TimeSettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77428454D7C007009D1 /* TimeSettingViewController.storyboard */; };
 		99A0D77828454D95007009D1 /* ColorCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77628454D95007009D1 /* ColorCollectionViewController.storyboard */; };
 		99A0D77928454D95007009D1 /* MessagePopupViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77728454D95007009D1 /* MessagePopupViewController.storyboard */; };
@@ -142,6 +143,7 @@
 		999BD72C2849FE8D00B3EB29 /* ItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManager.swift; sourceTree = "<group>"; };
 		999BD72E284A0FBE00B3EB29 /* MessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
 		999BD73D284C36CE00B3EB29 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		999BD741284C9A3400B3EB29 /* BannerAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdView.swift; sourceTree = "<group>"; };
 		99A0D77428454D7C007009D1 /* TimeSettingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TimeSettingViewController.storyboard; sourceTree = "<group>"; };
 		99A0D77628454D95007009D1 /* ColorCollectionViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ColorCollectionViewController.storyboard; sourceTree = "<group>"; };
 		99A0D77728454D95007009D1 /* MessagePopupViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessagePopupViewController.storyboard; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				9998EEF4274410EA00324E1B /* CustomCells */,
 				9998EEF32744103B00324E1B /* CustomButton */,
 				9998EEF227440FFF00324E1B /* Storyboards */,
+				999BD741284C9A3400B3EB29 /* BannerAdView.swift */,
 				9950FD042712DB2800E1B3AF /* Main.storyboard */,
 			);
 			path = Views;
@@ -638,6 +641,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99F04A40274FA7700063D376 /* UITextField+Additions.swift in Sources */,
+				999BD742284C9A3500B3EB29 /* BannerAdView.swift in Sources */,
 				9967E5722735246200F80E28 /* MessagePopupDelegate.swift in Sources */,
 				9998EEED27420BDD00324E1B /* UITextView+Additions.swift in Sources */,
 				99128515274754B300F7C7EE /* TextFieldCell.swift in Sources */,
