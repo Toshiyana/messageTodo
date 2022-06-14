@@ -9,18 +9,19 @@ import Foundation
 import RealmSwift
 
 class ItemManager {
+    // MARK: - Singleton Implementation
     static let shared = ItemManager()
     
+    let realm = try? Realm()
+    
     func loadItems() -> Results<Item>? {
-        guard let realm = try? Realm() else { return nil}
-        return realm.objects(Item.self).sorted(byKeyPath: "orderOfItem")
+        return realm?.objects(Item.self).sorted(byKeyPath: "orderOfItem")
     }
     
     func save(item: Item) {
-        guard let realm = try? Realm() else { return }
         do {
-            try realm.write {
-                realm.add(item)
+            try realm?.write {
+                realm?.add(item)
             }
         } catch {
             print("Error saving item. \(error)")
@@ -28,10 +29,9 @@ class ItemManager {
     }
     
     func delete(item: Item) {
-        guard let realm = try? Realm() else { return }
         do {
-            try realm.write {
-                realm.delete(item)
+            try realm?.write {
+                realm?.delete(item)
             }
         } catch {
             print("Error deleting the item, \(error)")
@@ -39,11 +39,10 @@ class ItemManager {
     }
     
     func deleteAllItem() {
-        guard let realm = try? Realm() else { return }
-        let allItems = realm.objects(Item.self)
+        guard let allItems = realm?.objects(Item.self) else { return }
         do {
-            try realm.write {
-                realm.delete(allItems)
+            try realm?.write {
+                realm?.delete(allItems)
             }
         } catch {
             print("Error deleting All item, \(error)")
@@ -51,9 +50,8 @@ class ItemManager {
     }
     
     func edit(item: Item, title: String, memo: String, reminderEnabled: Bool, wordEnabled: Bool, wordBody: String, timeInterval: TimeInterval, date: Date?, repeats: Bool, reminderType: String) {
-        guard let realm = try? Realm() else { return }
         do {
-            try realm.write {
+            try realm?.write {
                 item.title = title
                 item.memo = memo
                 item.reminderEnabled = reminderEnabled
@@ -72,9 +70,8 @@ class ItemManager {
     }
     
     func check(item: Item) {
-        guard let realm = try? Realm() else { return }
         do {
-            try realm.write {
+            try realm?.write {
                 //realm.delete(item)//tapした時にitemの除去
                 item.isDone = !item.isDone
             }
@@ -85,9 +82,8 @@ class ItemManager {
     
     func sort(todoItems: Results<Item>?, sourceIndexPath: IndexPath, destinationIndexPath: IndexPath) {
         // move cell in Editing mode
-        guard let realm = try? Realm() else { return }
         do {
-            try realm.write {
+            try realm?.write {
                 let sourceItem = todoItems?[sourceIndexPath.row]
                 let destinationItem = todoItems?[destinationIndexPath.row]
 
