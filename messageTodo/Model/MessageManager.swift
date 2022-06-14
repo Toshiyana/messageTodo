@@ -9,27 +9,28 @@ import Foundation
 import RealmSwift
 
 class MessageManager {
+    // MARK: - Singleton Implementation
     static let shared = MessageManager()
     
+    let realm = try? Realm()
+    
     func loadMessages(in order: String?) -> Results<Message>? {
-        guard let realm = try? Realm() else { return nil }
         switch order {
         case "DateOrder":
-            return realm.objects(Message.self).sorted(byKeyPath: "dateCreated", ascending: true)
+            return realm?.objects(Message.self).sorted(byKeyPath: "dateCreated", ascending: true)
         case "TitleOrder":
-            return realm.objects(Message.self).sorted(byKeyPath: "content", ascending: true)
+            return realm?.objects(Message.self).sorted(byKeyPath: "content", ascending: true)
         case "NameOrder":
-            return realm.objects(Message.self).sorted(byKeyPath: "name", ascending: true)
+            return realm?.objects(Message.self).sorted(byKeyPath: "name", ascending: true)
         default:
-            return realm.objects(Message.self).sorted(byKeyPath: "dateCreated", ascending: true) //defaultは実行されない
+            return realm?.objects(Message.self).sorted(byKeyPath: "dateCreated", ascending: true) //defaultは実行されない
         }
     }
     
     func save(message: Message) {
-        guard let realm = try? Realm() else { return }
         do {
-            try realm.write {
-                realm.add(message)
+            try realm?.write {
+                realm?.add(message)
             }
         } catch {
             print("Error saving message. \(error)")
@@ -37,10 +38,9 @@ class MessageManager {
     }
     
     func delete(message: Message) {
-        guard let realm = try? Realm() else { return }
         do {
-            try realm.write {
-                realm.delete(message)
+            try realm?.write {
+                realm?.delete(message)
             }
         } catch {
             print("Error deleting the message, \(error)")
@@ -48,11 +48,10 @@ class MessageManager {
     }
     
     func deleteAllMessage() {
-        guard let realm = try? Realm() else { return }
-        let allMessages = realm.objects(Message.self)
+        guard let allMessages = realm?.objects(Message.self) else { return }
         do {
-            try realm.write {
-                realm.delete(allMessages)
+            try realm?.write {
+                realm?.delete(allMessages)
             }
         } catch {
             print("Error deleting All Messages, \(error)")
@@ -60,9 +59,8 @@ class MessageManager {
     }
     
     func edit(message: Message, name: String, content: String, imageData: Data?) {
-        guard let realm = try? Realm() else { return }
         do {
-            try realm.write {
+            try realm?.write {
                 message.name = name
                 message.content = content
                 message.dateCreated = Date()
@@ -74,7 +72,6 @@ class MessageManager {
     }
     
     func sort(by order: String) -> Results<Message>? {
-        guard let realm = try? Realm() else { return nil }
-        return realm.objects(Message.self).sorted(byKeyPath: order, ascending: true)
+        return realm?.objects(Message.self).sorted(byKeyPath: order, ascending: true)
     }
 }
