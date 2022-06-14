@@ -15,7 +15,6 @@ class MessagePopupViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
     
-    
     var showEditPopup: Bool = false
     var titleColor: UIColor?
     var name: String?
