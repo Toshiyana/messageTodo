@@ -7,6 +7,8 @@
 
 import UIKit
 import RealmSwift
+import FirebaseCore
+import GoogleMobileAds
 
 // Xcode12から@UIApplicationMainから@mainに変更
 @main
@@ -14,7 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        // Use Firebase library to configure APIs.
+        FirebaseApp.configure()
         
+        // Initialize the Google Mobile Ads SDK.
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
+        // initialize realm using seed data
         let defaultRealmPath = Realm.Configuration.defaultConfiguration.fileURL!
 
         let bundleRealmPath = Bundle.main.url(forResource: "default", withExtension: "realm")

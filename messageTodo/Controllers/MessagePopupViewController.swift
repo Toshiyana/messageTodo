@@ -11,10 +11,9 @@ class MessagePopupViewController: UIViewController {
     
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var iconImageButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
-    
     
     var showEditPopup: Bool = false
     var titleColor: UIColor?
@@ -32,20 +31,26 @@ class MessagePopupViewController: UIViewController {
         
         contentTextView.addDoneButton(title: "完了", target: self, selector: #selector(tapDone(sender:)))
         
-        iconImageView.layer.cornerRadius = iconImageView.frame.height / 2
-        
         popupView.layer.cornerRadius = 15
         popupView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         popupView.layer.masksToBounds = true
         
         titleLabel.backgroundColor = titleColor
         titleLabel.textColor = UIColor.white
+        
+        iconImageButton.layer.cornerRadius = iconImageButton.frame.width / 2
+        iconImageButton.layer.masksToBounds = true
 
         if showEditPopup {
             titleLabel.text = "言葉の編集"
             nameTextField.text = name
             contentTextView.text = content
-            iconImageView.image = UIImage(data: imgData!) // default画像設定しているので必ず存在するが、!良くない？
+
+            if let iconImage = UIImage(data: imgData!) {
+                iconImageButton.setImage(
+                    iconImage.withRenderingMode(.alwaysOriginal),
+                    for: .normal)
+            }
         }
     }
     
@@ -61,7 +66,7 @@ class MessagePopupViewController: UIViewController {
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         let nameText = nameTextField.text!
         let contentText = contentTextView.text!
-        let imageData = iconImageView.image?.pngData()//default画像を設定しているので、それも毎回保存してしまうのは良くない？
+        let imageData = iconImageButton.image(for: .normal)?.pngData()
         
         if showEditPopup {
             delegate?.popupValueEdited(name: nameText, content: contentText, imageData: imageData)
@@ -151,12 +156,12 @@ extension MessagePopupViewController: UIImagePickerControllerDelegate, UINavigat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
                 
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            iconImageView.image = editedImage
-//            let data = editedImage.pngData()!
-//            iconImageView.image = UIImage(data: data)
+            iconImageButton.setImage(editedImage.withRenderingMode(.alwaysOriginal), for: .normal)
+            
+            
         }
         else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            iconImageView.image = originalImage
+            iconImageButton.setImage(originalImage.withRenderingMode(.alwaysOriginal), for: .normal)
         }
         
         picker.dismiss(animated: true, completion: nil)

@@ -13,9 +13,9 @@ class TodoListViewController: SwipeTableViewController {
 
     private var addButton: FloatingButton!
     @IBOutlet weak var editButton: UIBarButtonItem!//SwipeTableViewControllerを継承している場合、cell.delegate = selfをやらないと、storyboardから設定できない
+    private var bannerAdView: BannerAdView!
 
     let defaults = UserDefaults.standard
-    let realm = try! Realm()
     var todoItems: Results<Item>?
     var showEditItem = false
     
@@ -32,6 +32,9 @@ class TodoListViewController: SwipeTableViewController {
         loadItems()
         addButton = FloatingButton(attachedToView: view)
         addButton.floatButton.addTarget(self, action: #selector(addButtonPressed(_:)), for: .touchUpInside)
+        
+        bannerAdView = BannerAdView(attachedToView: view)
+        bannerAdView.bannerView.rootViewController = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -123,37 +126,22 @@ class TodoListViewController: SwipeTableViewController {
     
     //MARK: - Load Data Method
     func loadItems() {
-        todoItems = realm.objects(Item.self).sorted(byKeyPath: "orderOfItem")
+        todoItems = ItemManager.shared.loadItems()
         tableView.reloadData()
     }
     
     //MARK: - Save Data Method
     private func save(item: Item) {
-        do {
-            try realm.write {
-                realm.add(item)
-            }
-        } catch {
-            print("Error saving item. \(error)")
-        }
-        
+        ItemManager.shared.save(item: item)
         tableView.reloadData()
     }
         
     //MARK: - Delete Data Method
     override func updateModel(at indexPath: IndexPath) {
         if let item = todoItems?[indexPath.row] {
-            
             // item削除前に、設定された通知も削除
             LocalNotificationManager.shared.removeScheduledNotification(item: item)
-            
-            do {
-                try realm.write {
-                    realm.delete(item)
-                }
-            } catch {
-                print("Error deleting the item, \(error)")
-            }
+            ItemManager.shared.delete(item: item)
         }
     }
     
@@ -179,9 +167,6 @@ class TodoListViewController: SwipeTableViewController {
     
     //MARK: - CheckButton Method
     @objc func checkButtonPressed(_ sender: UIButton) {
-
-//        print(sender.tag)
-
         if sender.isSelected {
             sender.isSelected = false
             sender.tintColor = .lightGray
@@ -192,57 +177,25 @@ class TodoListViewController: SwipeTableViewController {
         }
         
         if let item = todoItems?[sender.tag] {
-            do {
-                try realm.write {
-                    //realm.delete(item)//tapした時にitemの除去
-                    item.isDone = !item.isDone
-                }
-            } catch {
-                print("Error saving done status, \(error)")
-            }
+            ItemManager.shared.check(item: item)
         }
     }
     
     //MARK: - Editing Cell Method in Realm
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         // move cell in Editing mode
-        do {
-            try realm.write {
-                let sourceItem = todoItems?[sourceIndexPath.row]
-                let destinationItem = todoItems?[destinationIndexPath.row]
-                
-                let destinationItemOrder = destinationItem?.orderOfItem
-                
-                if sourceIndexPath.row < destinationIndexPath.row {
-                    for index in sourceIndexPath.row ... destinationIndexPath.row {
-                        todoItems?[index].orderOfItem -= 1
-                    }
-                } else {
-                    for index in (destinationIndexPath.row ..< sourceIndexPath.row).reversed() {
-                        todoItems?[index].orderOfItem += 1
-                    }
-                }
-                
-                guard let destOrder = destinationItemOrder else {
-                    fatalError("destinationItemOrder does not exist.")
-                }
-                sourceItem?.orderOfItem = destOrder
-            }
-        } catch {
-            print("Error moving the cell. \(error)")
-        }
+        ItemManager.shared.sort(todoItems: todoItems,
+                                sourceIndexPath: sourceIndexPath,
+                                destinationIndexPath: destinationIndexPath)
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        // delete cell in Editing mode
-        if editingStyle == .delete {
-            updateModel(at: indexPath)
-            loadItems()
-        }
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        // remove "delete button" in editing
+        return .none
     }
     
-    // テーブルビューが編集モードのときに、指定した行の背景をインデントするかどうかをdelegateに尋ねるメソッド
     override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        // remove "delete button's indent sapace" in editing
         return false
     }
     
@@ -267,7 +220,6 @@ extension TodoListViewController: ItemDelegate {
         newItem.reminder?.reminderType = reminderType
         
         save(item: newItem)
-        
         LocalNotificationManager.shared.scheduleNotification(item: newItem)
     }
     
@@ -276,23 +228,9 @@ extension TodoListViewController: ItemDelegate {
         // didSelectRowAtで、tableView.deselectRow()を実行すると、tableView.indexPathForSelectedRowがnilになるので注意
         if let indexPath = tableView.indexPathForSelectedRow,
            let item = todoItems?[indexPath.row] {
-            do {
-                try realm.write {
-                    item.title = title
-                    item.memo = memo
-                    item.reminderEnabled = reminderEnabled
-                    // About reminder
-                    item.reminder?.wordEnabled = wordEnabled
-                    item.reminder?.wordBody = wordBody
-                    item.reminder?.timeInterval = timeInterval
-                    item.reminder?.date = date
-                    item.reminder?.repeats = repeats
-                    item.reminder?.reminderType = reminderType
-
-                }
-            } catch {
-                print("Error editing item. \(error)")
-            }
+            ItemManager.shared.edit(item: item,
+                                    title: title, memo: memo, reminderEnabled: reminderEnabled, wordEnabled: wordEnabled, wordBody: wordBody,
+                                    timeInterval: timeInterval, date: date, repeats: repeats, reminderType: reminderType)
             tableView.reloadData()
 
             // 通知内容の更新

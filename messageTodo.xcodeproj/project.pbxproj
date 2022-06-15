@@ -51,6 +51,10 @@
 		9998EEE4273ED2BF00324E1B /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */; };
 		9998EEED27420BDD00324E1B /* UITextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEEC27420BDC00324E1B /* UITextView+Additions.swift */; };
 		9998EEF1274372B600324E1B /* ItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EEF0274372B600324E1B /* ItemDelegate.swift */; };
+		999BD72D2849FE8D00B3EB29 /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999BD72C2849FE8D00B3EB29 /* ItemManager.swift */; };
+		999BD72F284A0FBE00B3EB29 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999BD72E284A0FBE00B3EB29 /* MessageManager.swift */; };
+		999BD73E284C36CE00B3EB29 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 999BD73D284C36CE00B3EB29 /* GoogleService-Info.plist */; };
+		999BD742284C9A3500B3EB29 /* BannerAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999BD741284C9A3400B3EB29 /* BannerAdView.swift */; };
 		99A0D77528454D7C007009D1 /* TimeSettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77428454D7C007009D1 /* TimeSettingViewController.storyboard */; };
 		99A0D77828454D95007009D1 /* ColorCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77628454D95007009D1 /* ColorCollectionViewController.storyboard */; };
 		99A0D77928454D95007009D1 /* MessagePopupViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A0D77728454D95007009D1 /* MessagePopupViewController.storyboard */; };
@@ -136,6 +140,10 @@
 		9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		9998EEEC27420BDC00324E1B /* UITextView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Additions.swift"; sourceTree = "<group>"; };
 		9998EEF0274372B600324E1B /* ItemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDelegate.swift; sourceTree = "<group>"; };
+		999BD72C2849FE8D00B3EB29 /* ItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManager.swift; sourceTree = "<group>"; };
+		999BD72E284A0FBE00B3EB29 /* MessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
+		999BD73D284C36CE00B3EB29 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		999BD741284C9A3400B3EB29 /* BannerAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdView.swift; sourceTree = "<group>"; };
 		99A0D77428454D7C007009D1 /* TimeSettingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TimeSettingViewController.storyboard; sourceTree = "<group>"; };
 		99A0D77628454D95007009D1 /* ColorCollectionViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ColorCollectionViewController.storyboard; sourceTree = "<group>"; };
 		99A0D77728454D95007009D1 /* MessagePopupViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessagePopupViewController.storyboard; sourceTree = "<group>"; };
@@ -239,6 +247,7 @@
 				997453C6274EA17A00749828 /* Seed */,
 				9998EEE9273FFEC600324E1B /* SupportingFiles */,
 				9950FD0F2712DB2900E1B3AF /* Info.plist */,
+				999BD73D284C36CE00B3EB29 /* GoogleService-Info.plist */,
 				9950FD072712DB2800E1B3AF /* messageTodo.xcdatamodeld */,
 			);
 			path = messageTodo;
@@ -268,6 +277,7 @@
 				9998EEF4274410EA00324E1B /* CustomCells */,
 				9998EEF32744103B00324E1B /* CustomButton */,
 				9998EEF227440FFF00324E1B /* Storyboards */,
+				999BD741284C9A3400B3EB29 /* BannerAdView.swift */,
 				9950FD042712DB2800E1B3AF /* Main.storyboard */,
 			);
 			path = Views;
@@ -293,6 +303,8 @@
 			children = (
 				9950FD7B27142B4A00E1B3AF /* Item.swift */,
 				9950FD8027142C2800E1B3AF /* Message.swift */,
+				999BD72C2849FE8D00B3EB29 /* ItemManager.swift */,
+				999BD72E284A0FBE00B3EB29 /* MessageManager.swift */,
 				9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */,
 			);
 			path = Model;
@@ -500,6 +512,7 @@
 				9974537B274823F000749828 /* TimeSettingCell.xib in Resources */,
 				9912851A274759C400F7C7EE /* TextViewCell.xib in Resources */,
 				99A0D77928454D95007009D1 /* MessagePopupViewController.storyboard in Resources */,
+				999BD73E284C36CE00B3EB29 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +641,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99F04A40274FA7700063D376 /* UITextField+Additions.swift in Sources */,
+				999BD742284C9A3500B3EB29 /* BannerAdView.swift in Sources */,
 				9967E5722735246200F80E28 /* MessagePopupDelegate.swift in Sources */,
 				9998EEED27420BDD00324E1B /* UITextView+Additions.swift in Sources */,
 				99128515274754B300F7C7EE /* TextFieldCell.swift in Sources */,
@@ -643,6 +657,7 @@
 				9946B4C4271BE57900AC1611 /* SettingVersionCell.swift in Sources */,
 				9950FCFF2712DB2800E1B3AF /* AppDelegate.swift in Sources */,
 				99059C562760893C0044957C /* SwitchCell.swift in Sources */,
+				999BD72D2849FE8D00B3EB29 /* ItemManager.swift in Sources */,
 				99128519274759C400F7C7EE /* TextViewCell.swift in Sources */,
 				9946B4B7271BB4EA00AC1611 /* SettingIconCell.swift in Sources */,
 				9950FD8627142E1F00E1B3AF /* Constants.swift in Sources */,
@@ -653,6 +668,7 @@
 				9974537A274823F000749828 /* TimeSettingCell.swift in Sources */,
 				9950FD012712DB2800E1B3AF /* SceneDelegate.swift in Sources */,
 				9998EEF1274372B600324E1B /* ItemDelegate.swift in Sources */,
+				999BD72F284A0FBE00B3EB29 /* MessageManager.swift in Sources */,
 				997453CB274EB5E400749828 /* CheckmarkCell.swift in Sources */,
 				9950FD6B2713D50C00E1B3AF /* SwipeTableViewController.swift in Sources */,
 				991284BA2744A41000F7C7EE /* TimeSettingDelegate.swift in Sources */,

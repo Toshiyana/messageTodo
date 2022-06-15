@@ -14,10 +14,9 @@ class MessageListViewController: SwipeTableViewController {
     private var addButton: FloatingButton!
     @IBOutlet weak var sortButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
-    
+    private var bannerAdView: BannerAdView!
     
     let defaults = UserDefaults.standard
-    let realm = try! Realm()
     var messages: Results<Message>?
     private var showEditPopup = false
     
@@ -30,8 +29,10 @@ class MessageListViewController: SwipeTableViewController {
         addButton.floatButton.addTarget(self, action: #selector(addButtonPressed(_:)), for: .touchUpInside)
         
         tableView.register(UINib(nibName: K.messageImageCellIdentifier, bundle: nil), forCellReuseIdentifier: K.messageImageCellIdentifier)
-
         tableView.separatorStyle = .none
+        
+        bannerAdView = BannerAdView(attachedToView: view)
+        bannerAdView.bannerView.rootViewController = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +44,6 @@ class MessageListViewController: SwipeTableViewController {
         guard let navBar = navigationController?.navigationBar else {
             fatalError("NavigationController does not exist.")
         }
-
 
         // change color
         let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? ColorUtility.defaultColor
@@ -68,7 +68,6 @@ class MessageListViewController: SwipeTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.messageImageCellIdentifier, for: indexPath) as! ImageMessageCell
-        
         cell.delegate = self
         
         if let message = messages?[indexPath.row] {
@@ -112,45 +111,21 @@ class MessageListViewController: SwipeTableViewController {
     //MARK: - Load Data Method
     private func loadMessages() {
         // アプリ起動時のcellの並び順を、以前sortで並べ替えた順番にする
-        if let messageOrder = defaults.string(forKey: K.messagesOrder) {
-            switch messageOrder {
-            case "DateOrder":
-                messages = realm.objects(Message.self).sorted(byKeyPath: "dateCreated", ascending: true)
-            case "TitleOrder":
-                messages = realm.objects(Message.self).sorted(byKeyPath: "content", ascending: true)
-            case "NameOrder":
-                messages = realm.objects(Message.self).sorted(byKeyPath: "name", ascending: true)
-            default:
-                messages = realm.objects(Message.self)//defaultは実行されることがない
-            }
-        } else {
-            messages = realm.objects(Message.self).sorted(byKeyPath: "name", ascending: true)
-        }
+        let messageOrder: String? = defaults.string(forKey: K.messagesOrder)
+        messages = MessageManager.shared.loadMessages(in: messageOrder)
         tableView.reloadData()
     }
         
     //MARK: - Save Data Method
     private func save(message: Message) {
-        do {
-            try realm.write {
-                realm.add(message)
-            }
-        } catch {
-            print("Error saving message. \(error)")
-        }
+        MessageManager.shared.save(message: message)
         tableView.reloadData()
     }
         
     //MARK: - Delete Data Method
     override func updateModel(at indexPath: IndexPath) {
         if let message = messages?[indexPath.row] {
-            do {
-                try realm.write {
-                    realm.delete(message)
-                }
-            } catch {
-                print("Error deleting the message, \(error)")
-            }
+            MessageManager.shared.delete(message: message)
         }
     }
 
@@ -166,17 +141,17 @@ class MessageListViewController: SwipeTableViewController {
         if messages?.count != 0 {
             let sheet = UIAlertController(title: "Sort Messages", message: "", preferredStyle: .alert)
             let dateSortAction = UIAlertAction(title: "作成日順", style: .default) { [weak self] (action) in
-                self?.messages = self?.realm.objects(Message.self).sorted(byKeyPath: "dateCreated", ascending: true)
+                self?.messages = MessageManager.shared.sort(by: "dateCreated")
                 self?.defaults.set("DateOrder", forKey: K.messagesOrder)
                 self?.tableView.reloadData()
             }
             let contentSortAction = UIAlertAction(title: "言葉の内容順", style: .default) { [weak self] (action) in
-                self?.messages = self?.realm.objects(Message.self).sorted(byKeyPath: "content", ascending: true)
+                self?.messages = MessageManager.shared.sort(by: "content")
                 self?.defaults.set("TitleOrder", forKey: K.messagesOrder)
                 self?.tableView.reloadData()
             }
             let nameSortAction = UIAlertAction(title: "発言者順", style: .default) { [weak self] (action) in
-                self?.messages = self?.realm.objects(Message.self).sorted(byKeyPath: "name", ascending: true)
+                self?.messages = MessageManager.shared.sort(by: "name")
                 self?.defaults.set("NameOrder", forKey: K.messagesOrder)
                 self?.tableView.reloadData()
             }
@@ -227,17 +202,7 @@ extension MessageListViewController: MessagePopupDelegate {
 
         if let indexPath = tableView.indexPathForSelectedRow,
            let message = messages?[indexPath.row] {
-            
-            do {
-                try realm.write {
-                    message.name = name
-                    message.content = content
-                    message.dateCreated = Date()
-                    message.imageData = imageData
-                }
-            } catch {
-                print("Error editing message. \(error)")
-            }
+            MessageManager.shared.edit(message: message, name: name, content: content, imageData: imageData)
             tableView.reloadData()
         }
     }
