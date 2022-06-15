@@ -11,16 +11,20 @@ import GoogleMobileAds
 class BannerAdView: NSObject {
     var bannerView: GADBannerView!
     private var parentView: UIView!
-    private let bottomPadding: CGFloat = -10.0
+    private let bottomPadding: CGFloat = 0.0
     
     init(attachedToView view: UIView) {
         super.init()
         
         parentView = view
         
-        bannerView = GADBannerView(adSize: GADAdSizeBanner) // Banner size is "320x50"
+//        bannerView = GADBannerView(adSize: GADAdSizeBanner) // Banner size is "320x50"
+        bannerView = GADBannerView()
         parentView.addSubview(bannerView)
         installConstraints()
+        
+        bannerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        bannerView.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
         
         // set properties of GADBannerView
         bannerView.adUnitID = K.Admob.myId
