@@ -9,9 +9,7 @@
 ## 概要
 
 <pre>
-<img src="https://raw.githubusercontent.com/wiki/Toshiyana/messageTodo/images/6.5inch.001.jpeg" width="250">&nbsp; 
-<img src="https://raw.githubusercontent.com/wiki/Toshiyana/messageTodo/images/6.5inch.002.jpeg" width="250">&nbsp; 
-<img src="https://raw.githubusercontent.com/wiki/Toshiyana/messageTodo/images/6.5inch.003.jpeg" width="250">&nbsp; 
+<img src="https://raw.githubusercontent.com/wiki/Toshiyana/messageTodo/images/6.5inch.001.jpeg" width="250">&nbsp; <img src="https://raw.githubusercontent.com/wiki/Toshiyana/messageTodo/images/6.5inch.002.jpeg" width="250">&nbsp; <img src="https://raw.githubusercontent.com/wiki/Toshiyana/messageTodo/images/6.5inch.003.jpeg" width="250">&nbsp; 
 </pre>
 
 ## 使用技術
