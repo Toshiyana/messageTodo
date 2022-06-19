@@ -14,8 +14,10 @@
 
 ## 使用技術
 - UIKit
+- RealmSwift
 - SwipeCellKit
-- Admob
+- Google-Mobile-Ads-SDK
+- FirebaseAnalytics
 
 ## 画面
 
