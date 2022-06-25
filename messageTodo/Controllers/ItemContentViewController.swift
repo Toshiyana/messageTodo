@@ -14,7 +14,6 @@ class ItemContentViewController: UIViewController {
     @IBOutlet weak var navbar: UINavigationBar!
     
     let defaults = UserDefaults.standard
-    let realm = try! Realm()
     
     var delegate: ItemDelegate?
     var showEditItem: Bool = false
@@ -91,7 +90,7 @@ class ItemContentViewController: UIViewController {
         
         else {
             if wordEnabled {
-                let allMessages = realm.objects(Message.self)
+                guard let allMessages = MessageManager.shared.loadMessages(in: nil) else { return }
                 let messageCount = allMessages.count
                 
                 // wordEnabledがtrueのときは、wordSwitchよりmessageCountが0になることないので、このifはいらない気もする
@@ -239,7 +238,7 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
     @objc func didChangedWordSwitch(_ sender: UISwitch) {
         // wordがひとつも登録されていない時、onにできないようにして、メッセージ追加のアラートを表示
         // wordSwitchを切り替えるたびに、messageを全て取得するのはあまり良くない
-        let allMessages = realm.objects(Message.self)
+        guard let allMessages = MessageManager.shared.loadMessages(in: nil) else { return }
         let messageCount = allMessages.count
 
         if messageCount == 0 {
@@ -262,7 +261,7 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func showMessageAlert() {
-        let alert = UIAlertController(title: "言葉を添える場合、メッセージを追加してください", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "言葉が追加されていません", message: "", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
