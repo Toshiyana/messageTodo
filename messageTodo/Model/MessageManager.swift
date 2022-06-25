@@ -23,7 +23,7 @@ class MessageManager {
         case "NameOrder":
             return realm?.objects(Message.self).sorted(byKeyPath: "name", ascending: true)
         default:
-            return realm?.objects(Message.self).sorted(byKeyPath: "dateCreated", ascending: true) //defaultは実行されない
+            return realm?.objects(Message.self) //ItemContentControllerでReminderに設定するMessageを読み込む時に利用
         }
     }
     

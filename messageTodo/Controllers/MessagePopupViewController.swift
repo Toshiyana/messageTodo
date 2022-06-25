@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import CropViewController
 
-class MessagePopupViewController: UIViewController {
+class MessagePopupViewController: UIViewController, CropViewControllerDelegate {
     
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -122,6 +123,8 @@ extension MessagePopupViewController: UITextFieldDelegate {
 //    }
 }
 
+// UIImagePickerControllerDelegateとCropViewControllerを用いる場合
+// MARK: - UIImagePickerControllerDelegate
 extension MessagePopupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func showImagePickerControllerActionSheet() {
@@ -147,7 +150,7 @@ extension MessagePopupViewController: UIImagePickerControllerDelegate, UINavigat
         
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
-        imagePickerController.allowsEditing = true
+        imagePickerController.allowsEditing = false // CropViewControllerを利用するのでfalse（defaultはfalseだからなくても良い）
         imagePickerController.sourceType = sourceType
         
         present(imagePickerController, animated: true, completion: nil)
@@ -155,15 +158,66 @@ extension MessagePopupViewController: UIImagePickerControllerDelegate, UINavigat
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
                 
-        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            iconImageButton.setImage(editedImage.withRenderingMode(.alwaysOriginal), for: .normal)
-            
-            
-        }
-        else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            iconImageButton.setImage(originalImage.withRenderingMode(.alwaysOriginal), for: .normal)
-        }
+        guard let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+                
+        // CropViewControllerを用いて円状にCrop
+        let cropViewController = CropViewController(croppingStyle: .circular, image: originalImage)
+        cropViewController.delegate = self
         
-        picker.dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true) {
+            self.present(cropViewController, animated: true, completion: nil)
+        }
+    }
+    
+    func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        iconImageButton.setImage(image.withRenderingMode(.alwaysOriginal), for: .normal)
+        cropViewController.dismiss(animated: true, completion: nil)
     }
 }
+
+// UIImagePickerControllerのみを用いる場合
+//extension MessagePopupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+//
+//    func showImagePickerControllerActionSheet() {
+//
+//        let sheet = UIAlertController(title: "画像の選択", message: nil, preferredStyle: .alert)
+//
+//        let photoLibraryAction = UIAlertAction(title: "アルバムから選択", style: .default) { [weak self] (action) in
+//            self?.showImagePickerController(sourceType: .photoLibrary)
+//        }
+//        let cameraAction = UIAlertAction(title: "カメラで撮影", style: .default) { [weak self] (action) in
+//            self?.showImagePickerController(sourceType: .camera)
+//        }
+//        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+//
+//        sheet.addAction(photoLibraryAction)
+//        sheet.addAction(cameraAction)
+//        sheet.addAction(cancelAction)
+//
+//        present(sheet, animated: true, completion: nil)
+//    }
+//
+//    func showImagePickerController(sourceType: UIImagePickerController.SourceType) {
+//
+//        let imagePickerController = UIImagePickerController()
+//        imagePickerController.delegate = self
+//        imagePickerController.allowsEditing = true
+//        imagePickerController.sourceType = sourceType
+//
+//        present(imagePickerController, animated: true, completion: nil)
+//    }
+//
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//
+//        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+//            iconImageButton.setImage(editedImage.withRenderingMode(.alwaysOriginal), for: .normal)
+//
+//
+//        }
+//        else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+//            iconImageButton.setImage(originalImage.withRenderingMode(.alwaysOriginal), for: .normal)
+//        }
+//
+//        picker.dismiss(animated: true, completion: nil)
+//    }
+//}

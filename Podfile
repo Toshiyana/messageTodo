@@ -6,6 +6,7 @@ target 'messageTodo' do
   # Pods for messageTodo
   pod 'RealmSwift'
   pod 'SwipeCellKit'
+  pod 'CropViewController'
   pod 'Google-Mobile-Ads-SDK'
   pod 'FirebaseAnalytics'
 
