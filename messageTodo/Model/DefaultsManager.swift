@@ -21,4 +21,12 @@ final class DefaultsManager {
     func saveColor(color: UIColor?) {
         defaults.saveColor(color: color, key: K.navbarColor)
     }
+
+    func getMessageOrder() -> String? {
+        defaults.string(forKey: K.messagesOrder)
+    }
+
+    func saveMessageOrder(of method: String) {
+        defaults.set(method, forKey: K.messagesOrder)
+    }
 }

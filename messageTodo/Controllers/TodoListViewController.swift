@@ -14,7 +14,6 @@ class TodoListViewController: SwipeTableViewController {
     @IBOutlet weak var editButton: UIBarButtonItem!// SwipeTableViewControllerを継承している場合、cell.delegate = selfをやらないと、storyboardから設定できない
     private var bannerAdView: BannerAdView!
 
-    let defaults = UserDefaults.standard
     var todoItems: Results<Item>?
     var showEditItem = false
 
@@ -48,8 +47,7 @@ class TodoListViewController: SwipeTableViewController {
         }
 
         // change color
-        //        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? FlatOrange()
-        themeColor = defaults.getColorForKey(key: K.navbarColor) ?? ColorUtility.defaultColor
+        themeColor = DefaultsManager.shared.getColor() ?? ColorUtility.defaultColor
         ColorUtility.changeNabBarColor(navBar: navBar, color: themeColor!)
         addButton.floatButton.layer.backgroundColor = themeColor!.cgColor
 

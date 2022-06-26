@@ -46,7 +46,7 @@ class ColorCollectionViewController: UICollectionViewController {
     @IBAction private func colorButtonPressed(_ sender: UIButton) {
         let selectedColor = sender.backgroundColor
         DefaultsManager.shared.saveColor(color: selectedColor)
-        
+
         // NavBarを選択した色に更新するためには、.barTintColorに再度アクセスする必要あり
         guard let navBar = navigationController?.navigationBar else {
             fatalError("NavigationController does not exist.")

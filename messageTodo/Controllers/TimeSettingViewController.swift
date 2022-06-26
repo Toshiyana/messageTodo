@@ -20,8 +20,6 @@ class TimeSettingViewController: UIViewController {
 
     var showEditItem: Bool = false
 
-    let defaults = UserDefaults.standard
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,7 +31,7 @@ class TimeSettingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? ColorUtility.defaultColor
+        let themeColor = DefaultsManager.shared.getColor() ?? ColorUtility.defaultColor
         popupLabel.backgroundColor = themeColor
     }
 

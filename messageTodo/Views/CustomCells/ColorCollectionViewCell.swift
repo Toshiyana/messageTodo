@@ -9,7 +9,7 @@ import UIKit
 
 final class ColorCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var colorButton: UIButton!
-    @IBOutlet weak var colorName: UILabel!
+    @IBOutlet private weak var colorName: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

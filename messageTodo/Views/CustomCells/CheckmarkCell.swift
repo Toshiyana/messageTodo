@@ -15,7 +15,7 @@ final class CheckmarkCell: SwipeTableViewCell {
         return UINib(nibName: "CheckmarkCell", bundle: nil)
     }
 
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet private weak var label: UILabel!
     @IBOutlet weak var checkButton: UIButton!
 
     override func awakeFromNib() {

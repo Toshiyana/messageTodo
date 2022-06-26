@@ -14,7 +14,7 @@ final class TimeSettingCell: UITableViewCell {
         return UINib(nibName: "TimeSettingCell", bundle: nil)
     }
 
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet private weak var timeLabel: UILabel!
 
     func configure(timeText: String) {
         timeLabel.text = timeText

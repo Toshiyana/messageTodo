@@ -39,8 +39,13 @@ struct K {
     static let itemContentToTimeSetting = "goToTimeSetting"
 
     // UserDefault
-    static let messagesOrder = "MessagesOrder"
     static let navbarColor = "NavBarColor"
+    static let messagesOrder = "MessagesOrder"
+    struct MessageOrderMethod {
+        static let dateOrder = "DateOrder"
+        static let titleOrder = "TitleOrder"
+        static let nameOrder = "NameOrder"
+    }
 
     struct Admob {
         static let myId = "ca-app-pub-3271463287204513/2391554920"

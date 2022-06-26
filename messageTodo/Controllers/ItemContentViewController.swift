@@ -12,8 +12,6 @@ class ItemContentViewController: UIViewController {
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var navbar: UINavigationBar!
 
-    let defaults = UserDefaults.standard
-
     weak var delegate: ItemDelegate?
     var showEditItem: Bool = false
 
@@ -68,7 +66,7 @@ class ItemContentViewController: UIViewController {
         table.delegate = self
         table.dataSource = self
 
-        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? ColorUtility.defaultColor
+        let themeColor = DefaultsManager.shared.getColor() ?? ColorUtility.defaultColor
         ColorUtility.changeNabBarColor(navBar: navbar, color: themeColor)
     }
 

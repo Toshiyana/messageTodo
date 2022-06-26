@@ -14,7 +14,7 @@ final class SwitchCell: UITableViewCell {
         return UINib(nibName: "SwitchCell", bundle: nil)
     }
 
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet private weak var label: UILabel!
     @IBOutlet weak var mySwitch: UISwitch!
 
     override func awakeFromNib() {

@@ -15,7 +15,7 @@ class MessageListViewController: SwipeTableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     private var bannerAdView: BannerAdView!
 
-    let defaults = UserDefaults.standard
+    //    let defaults = UserDefaults.standard
     var messages: Results<Message>?
     private var showEditPopup = false
 
@@ -45,7 +45,7 @@ class MessageListViewController: SwipeTableViewController {
         }
 
         // change color
-        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? ColorUtility.defaultColor
+        let themeColor = DefaultsManager.shared.getColor() ?? ColorUtility.defaultColor
         ColorUtility.changeNabBarColor(navBar: navBar, color: themeColor)
         addButton.floatButton.layer.backgroundColor = themeColor.cgColor
         searchBar.tintColor = themeColor
@@ -90,7 +90,7 @@ class MessageListViewController: SwipeTableViewController {
         if segue.identifier == K.messageListTomessagePopup {
             let popup = segue.destination as! MessagePopupViewController
             popup.delegate = self
-            popup.titleColor = defaults.getColorForKey(key: K.navbarColor) ?? ColorUtility.defaultColor
+            popup.titleColor = DefaultsManager.shared.getColor() ?? ColorUtility.defaultColor
 
             if showEditPopup {
                 if let indexPath = tableView.indexPathForSelectedRow,
@@ -108,7 +108,7 @@ class MessageListViewController: SwipeTableViewController {
     // MARK: - Load Data Method
     private func loadMessages() {
         // アプリ起動時のcellの並び順を、以前sortで並べ替えた順番にする
-        let messageOrder: String? = defaults.string(forKey: K.messagesOrder)
+        let messageOrder: String? = DefaultsManager.shared.getMessageOrder()
         messages = MessageManager.shared.loadMessages(in: messageOrder)
         tableView.reloadData()
     }
@@ -140,17 +140,17 @@ class MessageListViewController: SwipeTableViewController {
             let sheet = UIAlertController(title: "Sort Messages", message: "", preferredStyle: .alert)
             let dateSortAction = UIAlertAction(title: "作成日順", style: .default) { [weak self] _ in
                 self?.messages = MessageManager.shared.sort(by: "dateCreated")
-                self?.defaults.set("DateOrder", forKey: K.messagesOrder)
+                DefaultsManager.shared.saveMessageOrder(of: K.MessageOrderMethod.dateOrder)
                 self?.tableView.reloadData()
             }
             let contentSortAction = UIAlertAction(title: "言葉の内容順", style: .default) { [weak self] _ in
                 self?.messages = MessageManager.shared.sort(by: "content")
-                self?.defaults.set("TitleOrder", forKey: K.messagesOrder)
+                DefaultsManager.shared.saveMessageOrder(of: K.MessageOrderMethod.titleOrder)
                 self?.tableView.reloadData()
             }
             let nameSortAction = UIAlertAction(title: "発言者順", style: .default) { [weak self] _ in
                 self?.messages = MessageManager.shared.sort(by: "name")
-                self?.defaults.set("NameOrder", forKey: K.messagesOrder)
+                DefaultsManager.shared.saveMessageOrder(of: K.MessageOrderMethod.nameOrder)
                 self?.tableView.reloadData()
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
