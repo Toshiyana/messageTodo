@@ -9,20 +9,19 @@ import UIKit
 import RealmSwift
 
 class TimeSettingViewController: UIViewController {
-    
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var popupLabel: UILabel!
     @IBOutlet weak var timeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var repeatLabel: UILabel!
     @IBOutlet weak var repeatSwitch: UISwitch!
-    
-    var delegate: TimeSettingDelegate?
-    
+
+    weak var delegate: TimeSettingDelegate?
+
     var showEditItem: Bool = false
-    
+
     let defaults = UserDefaults.standard
-            
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,12 +32,12 @@ class TimeSettingViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? ColorUtility.defaultColor
         popupLabel.backgroundColor = themeColor
     }
 
-    @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+    @IBAction private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             timePicker.datePickerMode = .countDownTimer
             repeatLabel.isHidden = false
@@ -49,21 +48,18 @@ class TimeSettingViewController: UIViewController {
             repeatSwitch.isHidden = true
         }
     }
-    
-    
-    @IBAction func cancelButtonPressed(_ sender: UIButton) {
+
+    @IBAction private func cancelButtonPressed(_ sender: UIButton) {
         dismiss(animated: false, completion: nil)
     }
-    
-    @IBAction func saveTimeButtonPressed(_ sender: UIButton) {
+
+    @IBAction private func saveTimeButtonPressed(_ sender: UIButton) {
         if timeSegmentedControl.selectedSegmentIndex == 0 {
             delegate?.setTimeInterval(timeInv: timePicker.countDownDuration, timeType: .time, timeRepeats: repeatSwitch.isOn)
         } else {
             delegate?.setDate(timeDate: timePicker.date, timeType: .calender)
         }
-        
+
         dismiss(animated: false, completion: nil)
     }
-    
 }
-

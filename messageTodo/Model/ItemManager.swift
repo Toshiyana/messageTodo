@@ -11,13 +11,13 @@ import RealmSwift
 class ItemManager {
     // MARK: - Singleton Implementation
     static let shared = ItemManager()
-    
+
     let realm = try? Realm()
-    
+
     func loadItems() -> Results<Item>? {
         return realm?.objects(Item.self).sorted(byKeyPath: "orderOfItem")
     }
-    
+
     func save(item: Item) {
         do {
             try realm?.write {
@@ -27,7 +27,7 @@ class ItemManager {
             print("Error saving item. \(error)")
         }
     }
-    
+
     func delete(item: Item) {
         do {
             try realm?.write {
@@ -37,7 +37,7 @@ class ItemManager {
             print("Error deleting the item, \(error)")
         }
     }
-    
+
     func deleteAllItem() {
         guard let allItems = realm?.objects(Item.self) else { return }
         do {
@@ -48,7 +48,7 @@ class ItemManager {
             print("Error deleting All item, \(error)")
         }
     }
-    
+
     func edit(item: Item, title: String, memo: String, reminderEnabled: Bool, wordEnabled: Bool, wordBody: String, timeInterval: TimeInterval, date: Date?, repeats: Bool, reminderType: String) {
         do {
             try realm?.write {
@@ -62,24 +62,23 @@ class ItemManager {
                 item.reminder?.date = date
                 item.reminder?.repeats = repeats
                 item.reminder?.reminderType = reminderType
-
             }
         } catch {
             print("Error editing item. \(error)")
         }
     }
-    
+
     func check(item: Item) {
         do {
             try realm?.write {
-                //realm.delete(item)//tapした時にitemの除去
+                // realm.delete(item)//tapした時にitemの除去
                 item.isDone = !item.isDone
             }
         } catch {
             print("Error saving done status, \(error)")
         }
     }
-    
+
     func sort(todoItems: Results<Item>?, sourceIndexPath: IndexPath, destinationIndexPath: IndexPath) {
         // move cell in Editing mode
         do {
@@ -108,5 +107,4 @@ class ItemManager {
             print("Error moving the cell. \(error)")
         }
     }
-    
 }

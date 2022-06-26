@@ -403,6 +403,7 @@
 				9950FCF82712DB2800E1B3AF /* Frameworks */,
 				9950FCF92712DB2800E1B3AF /* Resources */,
 				AC89A8BFA2764E0F6C843273 /* [CP] Embed Pods Frameworks */,
+				993F143128680CE300FE2AEB /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -571,6 +572,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-messageTodo-messageTodoUITests/Pods-messageTodo-messageTodoUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		993F143128680CE300FE2AEB /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect --format # 自動修正の有効化\n  swiftlint\nelse\n  echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		AC89A8BFA2764E0F6C843273 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

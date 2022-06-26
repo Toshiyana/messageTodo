@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol TimeSettingDelegate {
+protocol TimeSettingDelegate: AnyObject {
     func setTimeInterval(timeInv: TimeInterval, timeType: ReminderType, timeRepeats: Bool)
     func setDate(timeDate: Date, timeType: ReminderType)
 }

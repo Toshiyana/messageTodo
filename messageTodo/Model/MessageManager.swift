@@ -11,9 +11,9 @@ import RealmSwift
 class MessageManager {
     // MARK: - Singleton Implementation
     static let shared = MessageManager()
-    
+
     let realm = try? Realm()
-    
+
     func loadMessages(in order: String?) -> Results<Message>? {
         switch order {
         case "DateOrder":
@@ -23,10 +23,10 @@ class MessageManager {
         case "NameOrder":
             return realm?.objects(Message.self).sorted(byKeyPath: "name", ascending: true)
         default:
-            return realm?.objects(Message.self) //ItemContentControllerでReminderに設定するMessageを読み込む時に利用
+            return realm?.objects(Message.self) // ItemContentControllerでReminderに設定するMessageを読み込む時に利用
         }
     }
-    
+
     func save(message: Message) {
         do {
             try realm?.write {
@@ -36,7 +36,7 @@ class MessageManager {
             print("Error saving message. \(error)")
         }
     }
-    
+
     func delete(message: Message) {
         do {
             try realm?.write {
@@ -46,7 +46,7 @@ class MessageManager {
             print("Error deleting the message, \(error)")
         }
     }
-    
+
     func deleteAllMessage() {
         guard let allMessages = realm?.objects(Message.self) else { return }
         do {
@@ -57,7 +57,7 @@ class MessageManager {
             print("Error deleting All Messages, \(error)")
         }
     }
-    
+
     func edit(message: Message, name: String, content: String, imageData: Data?) {
         do {
             try realm?.write {
@@ -70,7 +70,7 @@ class MessageManager {
             print("Error editing message. \(error)")
         }
     }
-    
+
     func sort(by order: String) -> Results<Message>? {
         return realm?.objects(Message.self).sorted(byKeyPath: order, ascending: true)
     }

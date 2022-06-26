@@ -10,21 +10,20 @@ import UIKit
 class ColorCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var colorButton: UIButton!
     @IBOutlet weak var colorName: UILabel!
-    
+
     override func awakeFromNib() {
+        super.awakeFromNib()
         colorButton.layer.cornerRadius = colorButton.frame.width / 2
         colorButton.layer.masksToBounds = true
-        //colorButton.layer.borderWidth = 3.0
-        
-//        contentView.translatesAutoresizingMaskIntoConstraints = false
-//
-//        NSLayoutConstraint.activate([
-//                   contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//                   contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//                   contentView.topAnchor.constraint(equalTo: topAnchor),
-//                   contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
-//               ])
+        // colorButton.layer.borderWidth = 3.0
+
+        //        contentView.translatesAutoresizingMaskIntoConstraints = false
+        //
+        //        NSLayoutConstraint.activate([
+        //                   contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
+        //                   contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
+        //                   contentView.topAnchor.constraint(equalTo: topAnchor),
+        //                   contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        //               ])
     }
-    
-    
 }

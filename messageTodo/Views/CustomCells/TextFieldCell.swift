@@ -8,20 +8,19 @@
 import UIKit
 
 class TextFieldCell: UITableViewCell {
-
     static let identifier = "TextFieldCell"
-    
+
     @IBOutlet weak var field: UITextField!
-    
+
     static func nib() -> UINib {
         return UINib(nibName: "TextFieldCell", bundle: nil)
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         selectionStyle = .none
-        
+
         field.delegate = self
         field.placeholder = "タイトルを入力してください"
         field.layer.borderColor = UIColor.lightGray.cgColor

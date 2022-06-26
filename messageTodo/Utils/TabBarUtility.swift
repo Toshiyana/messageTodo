@@ -8,9 +8,7 @@
 import UIKit
 
 struct TabBarUtility {
-
-    static func Set(tabBar: UITabBar) {
-        
+    static func set(tabBar: UITabBar) {
         if #available(iOS 15.0, *) {
             let appearance = UITabBarAppearance()
             tabBar.standardAppearance = appearance
