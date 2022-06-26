@@ -46,10 +46,7 @@ struct SettingVersionOption {
     let detailText: String
 }
 
-class SettingViewController: UITableViewController {
-    let defaults = UserDefaults.standard
-    let realm = try! Realm()
-
+final class SettingViewController: UITableViewController {
     private var models = [Section]()
 
     private let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
@@ -72,7 +69,7 @@ class SettingViewController: UITableViewController {
         guard let navBar = navigationController?.navigationBar else {
             fatalError("NavigationController does not exist.")
         }
-        let themeColor = defaults.getColorForKey(key: K.navbarColor) ?? ColorUtility.defaultColor
+        let themeColor = DefaultsManager.shared.getColor() ?? ColorUtility.defaultColor
         ColorUtility.changeNabBarColor(navBar: navBar, color: themeColor)
 
         tableView.reloadData()

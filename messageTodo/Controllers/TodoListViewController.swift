@@ -9,15 +9,15 @@ import UIKit
 import SwipeCellKit
 import RealmSwift
 
-class TodoListViewController: SwipeTableViewController {
+final class TodoListViewController: SwipeTableViewController {
     private var addButton: FloatingButton!
     @IBOutlet weak var editButton: UIBarButtonItem!// SwipeTableViewControllerを継承している場合、cell.delegate = selfをやらないと、storyboardから設定できない
     private var bannerAdView: BannerAdView!
 
-    var todoItems: Results<Item>?
-    var showEditItem = false
+    private var todoItems: Results<Item>?
+    private var showEditItem = false
 
-    var themeColor: UIColor?
+    private var themeColor: UIColor?
 
     override func viewDidLoad() {
         // 画面初期表示の時にのみ呼び出し

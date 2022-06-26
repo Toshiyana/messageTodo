@@ -8,12 +8,12 @@
 import UIKit
 import CropViewController
 
-class MessagePopupViewController: UIViewController, CropViewControllerDelegate {
-    @IBOutlet weak var popupView: UIView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var iconImageButton: UIButton!
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var contentTextView: UITextView!
+final class MessagePopupViewController: UIViewController, CropViewControllerDelegate {
+    @IBOutlet private weak var popupView: UIView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var iconImageButton: UIButton!
+    @IBOutlet private weak var nameTextField: UITextField!
+    @IBOutlet private weak var contentTextView: UITextView!
 
     var showEditPopup: Bool = false
     var titleColor: UIColor?

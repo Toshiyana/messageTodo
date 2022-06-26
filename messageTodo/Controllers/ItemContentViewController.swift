@@ -8,14 +8,14 @@
 import UIKit
 import RealmSwift
 
-class ItemContentViewController: UIViewController {
+final class ItemContentViewController: UIViewController {
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var navbar: UINavigationBar!
 
     weak var delegate: ItemDelegate?
     var showEditItem: Bool = false
 
-    var item: Item?
+    private var item: Item?
 
     // tableの初期値
     var itemTitle: String = ""

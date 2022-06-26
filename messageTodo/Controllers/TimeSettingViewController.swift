@@ -8,17 +8,17 @@
 import UIKit
 import RealmSwift
 
-class TimeSettingViewController: UIViewController {
-    @IBOutlet weak var popupView: UIView!
-    @IBOutlet weak var popupLabel: UILabel!
-    @IBOutlet weak var timeSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var timePicker: UIDatePicker!
-    @IBOutlet weak var repeatLabel: UILabel!
-    @IBOutlet weak var repeatSwitch: UISwitch!
+final class TimeSettingViewController: UIViewController {
+    @IBOutlet private weak var popupView: UIView!
+    @IBOutlet private weak var popupLabel: UILabel!
+    @IBOutlet private weak var timeSegmentedControl: UISegmentedControl!
+    @IBOutlet private weak var timePicker: UIDatePicker!
+    @IBOutlet private weak var repeatLabel: UILabel!
+    @IBOutlet private weak var repeatSwitch: UISwitch!
 
     weak var delegate: TimeSettingDelegate?
 
-    var showEditItem: Bool = false
+    private var showEditItem: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()

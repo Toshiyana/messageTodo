@@ -9,14 +9,13 @@ import UIKit
 import RealmSwift
 import SwipeCellKit
 
-class MessageListViewController: SwipeTableViewController {
+final class MessageListViewController: SwipeTableViewController {
     private var addButton: FloatingButton!
-    @IBOutlet weak var sortButton: UIBarButtonItem!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet private weak var sortButton: UIBarButtonItem!
+    @IBOutlet private weak var searchBar: UISearchBar!
     private var bannerAdView: BannerAdView!
 
-    //    let defaults = UserDefaults.standard
-    var messages: Results<Message>?
+    private var messages: Results<Message>?
     private var showEditPopup = false
 
     override func viewDidLoad() {
@@ -137,7 +136,7 @@ class MessageListViewController: SwipeTableViewController {
         guard let messages = messages else { return }
 
         if !messages.isEmpty {
-            let sheet = UIAlertController(title: "Sort Messages", message: "", preferredStyle: .alert)
+            let sheet = UIAlertController(title: "言葉の並び替え", message: "", preferredStyle: .alert)
             let dateSortAction = UIAlertAction(title: "作成日順", style: .default) { [weak self] _ in
                 self?.messages = MessageManager.shared.sort(by: "dateCreated")
                 DefaultsManager.shared.saveMessageOrder(of: K.MessageOrderMethod.dateOrder)

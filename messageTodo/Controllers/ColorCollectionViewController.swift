@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ColorCollectionViewController: UICollectionViewController {
+final class ColorCollectionViewController: UICollectionViewController {
     private let colors: [UIColor] = ColorUtility.colors
 
     override func viewDidLoad() {
