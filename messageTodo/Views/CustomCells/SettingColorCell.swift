@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingColorCell: UITableViewCell {
+final class SettingColorCell: UITableViewCell {
     let defaults = UserDefaults.standard
 
     private let iconContainer: UIView = {

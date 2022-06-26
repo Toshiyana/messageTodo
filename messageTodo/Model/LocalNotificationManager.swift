@@ -15,7 +15,7 @@ enum LocalNotificationManagerConstants {
         "CalendarBasedNotificationThreadId"
 }
 
-class LocalNotificationManager: ObservableObject {
+final class LocalNotificationManager: ObservableObject {
     static let shared = LocalNotificationManager()
     @Published var settings: UNNotificationSettings?
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TimeSettingCell: UITableViewCell {
+final class TimeSettingCell: UITableViewCell {
     static let identifier = "TimeSettingCell"
 
     static func nib() -> UINib {

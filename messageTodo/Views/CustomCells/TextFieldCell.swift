@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TextFieldCell: UITableViewCell {
+final class TextFieldCell: UITableViewCell {
     static let identifier = "TextFieldCell"
 
     @IBOutlet weak var field: UITextField!

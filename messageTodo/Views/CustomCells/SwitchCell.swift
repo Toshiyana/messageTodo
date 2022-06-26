@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SwitchCell: UITableViewCell {
+final class SwitchCell: UITableViewCell {
     static let identifier = "SwitchCell"
 
     static func nib() -> UINib {

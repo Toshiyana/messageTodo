@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingIconCell: UITableViewCell {
+final class SettingIconCell: UITableViewCell {
     private let iconContainer: UIView = {
         let view = UIView()
         view.clipsToBounds = true

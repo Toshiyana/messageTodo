@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ColorCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var colorButton: UIButton!
+final class ColorCollectionViewCell: UICollectionViewCell {
+    @IBOutlet private weak var colorButton: UIButton!
     @IBOutlet weak var colorName: UILabel!
 
     override func awakeFromNib() {
@@ -25,5 +25,16 @@ class ColorCollectionViewCell: UICollectionViewCell {
         //                   contentView.topAnchor.constraint(equalTo: topAnchor),
         //                   contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
         //               ])
+    }
+
+    func configure(color: UIColor, name: String?) {
+        colorButton.backgroundColor = color
+        colorName.text = name ?? ""
+
+        if colorButton.backgroundColor == DefaultsManager.shared.getColor() {
+            colorButton.layer.borderWidth = 3.0
+        } else {
+            colorButton.layer.borderWidth = 0.0
+        }
     }
 }

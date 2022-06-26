@@ -8,7 +8,7 @@
 import UIKit
 import SwipeCellKit
 
-class CheckmarkCell: SwipeTableViewCell {
+final class CheckmarkCell: SwipeTableViewCell {
     static let identifier = "CheckmarkCell"
 
     static func nib() -> UINib {

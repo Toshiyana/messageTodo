@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class Item: Object {
+final class Item: Object {
     @objc dynamic var id: String = UUID().uuidString
     @objc dynamic var title: String = ""
     @objc dynamic var memo: String = ""
@@ -30,7 +30,7 @@ enum ReminderType: String {
     case calender
 }
 
-class Reminder: Object {
+final class Reminder: Object {
     @objc dynamic var wordEnabled: Bool = false
     @objc dynamic var wordBody: String = ""
     @objc dynamic var timeInterval: TimeInterval = 0

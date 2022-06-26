@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class MessageManager {
+final class MessageManager {
     // MARK: - Singleton Implementation
     static let shared = MessageManager()
 

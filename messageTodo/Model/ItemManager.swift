@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class ItemManager {
+final class ItemManager {
     // MARK: - Singleton Implementation
     static let shared = ItemManager()
 

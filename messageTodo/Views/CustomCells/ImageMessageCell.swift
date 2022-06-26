@@ -8,7 +8,7 @@
 import UIKit
 import SwipeCellKit
 
-class ImageMessageCell: SwipeTableViewCell {
+final class ImageMessageCell: SwipeTableViewCell {
     @IBOutlet weak var messageView: UIView!
     @IBOutlet weak var messageImgView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!

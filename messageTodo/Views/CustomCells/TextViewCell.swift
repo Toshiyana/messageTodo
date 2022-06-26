@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TextViewCell: UITableViewCell {
+final class TextViewCell: UITableViewCell {
     static let identifier = "TextViewCell"
 
     static func nib() -> UINib {
