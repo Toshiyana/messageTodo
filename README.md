@@ -16,8 +16,11 @@
 - UIKit
 - RealmSwift
 - SwipeCellKit
+- CropViewController
 - Google-Mobile-Ads-SDK
 - FirebaseAnalytics
+- SwiftLint
+- GUI Architecture: MVC
 
 ## Screenshots
 
