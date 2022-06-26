@@ -25,9 +25,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Please allow to take a picture</string>
+	<string>アプリに表示・使用するための写真を撮影する目的でリクエストします。</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Please allow to access photo library</string>
+	<string>アプリに表示・使用するための写真をライブラリから選択する目的でリクエストします。</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
