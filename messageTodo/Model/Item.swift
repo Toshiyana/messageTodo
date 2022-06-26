@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class Item: Object {
+final class Item: Object {
     @objc dynamic var id: String = UUID().uuidString
     @objc dynamic var title: String = ""
     @objc dynamic var memo: String = ""
@@ -16,7 +16,7 @@ class Item: Object {
     @objc dynamic var orderOfItem: Int = 0
     @objc dynamic var reminderEnabled: Bool = false
     @objc dynamic var reminder: Reminder?
-    
+
     // プライマリーキー：プライマリキーにidを設定した場合、idが一意の値のときのみデータベースに保存される。
     // UUID().uuidStringは一意の値を生成
     override class func primaryKey() -> String? {
@@ -30,7 +30,7 @@ enum ReminderType: String {
     case calender
 }
 
-class Reminder: Object {
+final class Reminder: Object {
     @objc dynamic var wordEnabled: Bool = false
     @objc dynamic var wordBody: String = ""
     @objc dynamic var timeInterval: TimeInterval = 0

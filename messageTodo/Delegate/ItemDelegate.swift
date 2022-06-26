@@ -7,21 +7,20 @@
 
 import Foundation
 
-protocol ItemDelegate {
-    
+protocol ItemDelegate: AnyObject {
     func itemValueAdded(title: String, memo: String, reminderEnabled: Bool,
-                           wordEnabled: Bool,
-                           wordBody: String,
-                           timeInterval: TimeInterval,
-                           date: Date?,
-                           repeats: Bool,
-                           reminderType: String)
-    
+                        wordEnabled: Bool,
+                        wordBody: String,
+                        timeInterval: TimeInterval,
+                        date: Date?,
+                        repeats: Bool,
+                        reminderType: String)
+
     func itemValueEdited(title: String, memo: String, reminderEnabled: Bool,
-                            wordEnabled: Bool,
-                            wordBody: String,
-                            timeInterval: TimeInterval,
-                            date: Date?,
-                            repeats: Bool,
-                            reminderType: String)
+                         wordEnabled: Bool,
+                         wordBody: String,
+                         timeInterval: TimeInterval,
+                         date: Date?,
+                         repeats: Bool,
+                         reminderType: String)
 }

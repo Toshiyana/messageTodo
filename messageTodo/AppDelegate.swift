@@ -13,15 +13,13 @@ import GoogleMobileAds
 // Xcode12から@UIApplicationMainから@mainに変更
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         // Use Firebase library to configure APIs.
         FirebaseApp.configure()
-        
+
         // Initialize the Google Mobile Ads SDK.
         GADMobileAds.sharedInstance().start(completionHandler: nil)
-        
+
         // initialize realm using seed data
         let defaultRealmPath = Realm.Configuration.defaultConfiguration.fileURL!
 
@@ -35,29 +33,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
-        
-//        do {
-//            //let realm = try Realm()
-//            _ = try Realm()
-//        } catch {
-//            print("Error initialising new realm, \(error)")
-//        }
-            
-//        print(Realm.Configuration.defaultConfiguration.fileURL)//realmのdataが保存されているファイルまでのpath
-        
+        //        do {
+        //            //let realm = try Realm()
+        //            _ = try Realm()
+        //        } catch {
+        //            print("Error initialising new realm, \(error)")
+        //        }
+
+        //        print(Realm.Configuration.defaultConfiguration.fileURL)//realmのdataが保存されているファイルまでのpath
+
         setupNotifications(on: application)
-        
+
         return true
     }
 }
 
 extension AppDelegate {
-    
     func setupNotifications(on application: UIApplication) {
-        
         let center = UNUserNotificationCenter.current()
         let options: UNAuthorizationOptions = [.alert, .badge, .sound]
-        
+
         center.requestAuthorization(options: options) { granted, error in
             if let error = error {
                 print("Failed to request authorization for notification center: \(error.localizedDescription)")
@@ -72,25 +67,23 @@ extension AppDelegate {
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print("The notification is about to be presented")
         // iOS14以降では.alertは非推奨。.alert = [.list, .banner]
         completionHandler([.list, .banner, .badge, .sound])
     }
-    
+
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        
         defer { completionHandler() }
         guard response.actionIdentifier == UNNotificationDefaultActionIdentifier else {
             return
         }
-        
+
         let content = response.notification.request.content
         print("Title: \(content.title)")
         print("Body: \(content.body)")
-        
+
         if let userInfo = content.userInfo as? [String: Any],
            let aps = userInfo["aps"] as? [String: Any] {
             print("aps: \(aps)")

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol MessagePopupDelegate {
+protocol MessagePopupDelegate: AnyObject {
     func popupValueAdded(name: String, content: String, imageData: Data?)
     func popupValueEdited(name: String, content: String, imageData: Data?)
 }

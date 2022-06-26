@@ -18,6 +18,7 @@
 		9912851A274759C400F7C7EE /* TextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99128518274759C400F7C7EE /* TextViewCell.xib */; };
 		993B2A3F2726EB14007A7C59 /* ImageMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993B2A3D2726EB14007A7C59 /* ImageMessageCell.swift */; };
 		993B2A402726EB14007A7C59 /* ImageMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993B2A3E2726EB14007A7C59 /* ImageMessageCell.xib */; };
+		993F143328681C0700FE2AEB /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F143228681C0700FE2AEB /* DefaultsManager.swift */; };
 		9946B4AA271ABC2D00AC1611 /* UserDefaults+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9946B4A9271ABC2D00AC1611 /* UserDefaults+UIColor.swift */; };
 		9946B4B2271B0EE200AC1611 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9946B4B1271B0EE200AC1611 /* SettingViewController.swift */; };
 		9946B4B7271BB4EA00AC1611 /* SettingIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9946B4B6271BB4EA00AC1611 /* SettingIconCell.swift */; };
@@ -101,6 +102,7 @@
 		99128518274759C400F7C7EE /* TextViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewCell.xib; sourceTree = "<group>"; };
 		993B2A3D2726EB14007A7C59 /* ImageMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMessageCell.swift; sourceTree = "<group>"; };
 		993B2A3E2726EB14007A7C59 /* ImageMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageMessageCell.xib; sourceTree = "<group>"; };
+		993F143228681C0700FE2AEB /* DefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
 		9946B4A9271ABC2D00AC1611 /* UserDefaults+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+UIColor.swift"; sourceTree = "<group>"; };
 		9946B4B1271B0EE200AC1611 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		9946B4B6271BB4EA00AC1611 /* SettingIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingIconCell.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				999BD72C2849FE8D00B3EB29 /* ItemManager.swift */,
 				999BD72E284A0FBE00B3EB29 /* MessageManager.swift */,
 				9998EEE3273ED2BF00324E1B /* LocalNotificationManager.swift */,
+				993F143228681C0700FE2AEB /* DefaultsManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				9950FCF82712DB2800E1B3AF /* Frameworks */,
 				9950FCF92712DB2800E1B3AF /* Resources */,
 				AC89A8BFA2764E0F6C843273 /* [CP] Embed Pods Frameworks */,
+				993F143128680CE300FE2AEB /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -572,6 +576,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-messageTodo-messageTodoUITests/Pods-messageTodo-messageTodoUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		993F143128680CE300FE2AEB /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect --format # 自動修正の有効化\n  swiftlint\nelse\n  echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		AC89A8BFA2764E0F6C843273 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -659,6 +681,7 @@
 				99059C562760893C0044957C /* SwitchCell.swift in Sources */,
 				999BD72D2849FE8D00B3EB29 /* ItemManager.swift in Sources */,
 				99128519274759C400F7C7EE /* TextViewCell.swift in Sources */,
+				993F143328681C0700FE2AEB /* DefaultsManager.swift in Sources */,
 				9946B4B7271BB4EA00AC1611 /* SettingIconCell.swift in Sources */,
 				9950FD8627142E1F00E1B3AF /* Constants.swift in Sources */,
 				9950FD7C27142B4A00E1B3AF /* Item.swift in Sources */,

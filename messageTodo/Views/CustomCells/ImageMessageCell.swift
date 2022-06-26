@@ -8,13 +8,12 @@
 import UIKit
 import SwipeCellKit
 
-class ImageMessageCell: SwipeTableViewCell {
+final class ImageMessageCell: SwipeTableViewCell {
+    @IBOutlet private weak var messageView: UIView!
+    @IBOutlet private weak var messageImgView: UIImageView!
+    @IBOutlet private weak var messageLabel: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
 
-    @IBOutlet weak var messageView: UIView!
-    @IBOutlet weak var messageImgView: UIImageView!
-    @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -32,5 +31,4 @@ class ImageMessageCell: SwipeTableViewCell {
         messageLabel.text = message
         nameLabel.text = name
     }
-    
 }
