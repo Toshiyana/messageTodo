@@ -25,7 +25,7 @@ MVC
 - UserDefaults: Save a theme color and a message arrangement.
 
 [Libraries]
-- RealmSwift: Use as database.
+- RealmSwift: Use for a database.
 - SwipeCellKit: Use for deleting a cell.
 - CropViewController: Use for cropping a image after chosing it from album or camera.
 - Google-Mobile-Ads-SDK: Use for admob.
