@@ -21,7 +21,7 @@ MVC
 - UIKit
 
 [DataBase]
-- RealmSwift: Save Items Data and Messages Data.
+- RealmSwift: Save Items data and Messages data.
 - UserDefaults: Save a theme color and a message arrangement.
 
 [Libraries]
