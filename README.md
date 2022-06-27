@@ -13,14 +13,24 @@
 </pre>
 
 ## Technologies
+[GUI Architecture]
+MVC
+
+[Languages]
+- Swift
 - UIKit
-- RealmSwift
-- SwipeCellKit
-- CropViewController
-- Google-Mobile-Ads-SDK
-- FirebaseAnalytics
-- SwiftLint
-- GUI Architecture: MVC
+
+[DataBase]
+- RealmSwift: Save Items Data and Messages Data.
+- UserDefaults: Save a theme color and a message arrangement.
+
+[Libraries]
+- RealmSwift: Use as database.
+- SwipeCellKit: Use for deleting a cell.
+- CropViewController: Use for cropping a image after chosing it from album or camera.
+- Google-Mobile-Ads-SDK: Use for admob.
+- FirebaseAnalytics: Use for analytics.
+- SwiftLint: Use for formatting codes.
 
 ## Screenshots
 
