@@ -12,6 +12,11 @@
 <img src="https://raw.githubusercontent.com/wiki/Toshiyana/messageTodo/images/6.5inch.001.jpeg" width="220">&nbsp; <img src="https://raw.githubusercontent.com/wiki/Toshiyana/messageTodo/images/6.5inch.002.jpeg" width="220">&nbsp; <img src="https://raw.githubusercontent.com/wiki/Toshiyana/messageTodo/images/6.5inch.003.jpeg" width="220">&nbsp; 
 </pre>
 
+## Reason for Devlopment
+コロナ禍でリモートとなったことで、人によってはモチベーションが低下してしまう事がわかっている（https://prtimes.jp/main/html/rd/p/000000008.000057624.html ）。
+そこで、モチベーションを上げながらタスクをこなしていくために、自身の好きな言葉・名言で応援してくれるタスク管理アプリを開発。![image](https://user-images.githubusercontent.com/58250083/175858982-4f3f3340-dcbf-44c8-b49e-5e0cc08ff6a8.png)
+
+
 ## Technologies
 [GUI Architecture]
 MVC
