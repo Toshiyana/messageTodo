@@ -1,4 +1,4 @@
-# MessageTodo
+# WordsTodo
 
 <p align="center">
   <a href="https://apps.apple.com/jp/app/wordstodo/id1598603193">
