@@ -144,6 +144,7 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
 
                 textViewCell.textView.delegate = self
                 textViewCell.configure(text: itemMemo) // itemMemoは、Addのときに初期値の""で、showEditItemがtrueのときにTodoListVCから渡された値が入る
+                textViewCell.textView.addDoneButton(title: "完了", target: self, selector: #selector(tapDone(sender:)))
 
                 return textViewCell
             }
@@ -196,6 +197,10 @@ extension ItemContentViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         tableView.estimatedRowHeight = 150
         return UITableView.automaticDimension
+    }
+
+    @objc func tapDone(sender: Any) {
+        self.view.endEditing(true)
     }
 
     @objc func didChangedField(_ sender: UITextField) {
