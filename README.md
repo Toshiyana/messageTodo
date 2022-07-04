@@ -47,29 +47,28 @@ MVC
 | <img src="https://raw.githubusercontent.com/wiki/Toshiyana/messageTodo/images/WordsListView.png" width=220 > | <img src="https://raw.githubusercontent.com/wiki/Toshiyana/messageTodo/images/SettingWordsView.png" width=220 > | <img src="https://raw.githubusercontent.com/wiki/Toshiyana/messageTodo/images/SettingView.png" width=220 > | <img src="https://raw.githubusercontent.com/wiki/Toshiyana/messageTodo/images/ThemeColorView.png" width=220 > |
 
 ## 難しかった点
-- Delegateパターンを用いた、複数画面に渡ってデータを渡すための処理の記述に苦労した。
-- タスクのリマインダーを設定するためのローカル通知機能の実装に苦労した。
+* Delegateパターンを用いた、複数画面に渡ってデータを渡すための処理の記述に苦労した。
+* タスクのリマインダーを設定するためのローカル通知機能の実装に苦労した。
 
 自分で調べてもわからない時は、iOSアプリ開発のコミュニティの現役エンジニアに質問して解決した。
 
 ## 工夫した点
-[機能面]
-・新規性。好きな言葉を添えてタスクを通知するという今までにないアプリ。
-・誰でも簡単に操作できるような分かりやすいUI。
-・24種類のテーマカラーを選択可能。
-・タスクのリマインダー機能。時間間隔と日時で設定可能。
-・ユーザからの不具合の声に対応できるよう、アプリ内からGoogleフォームで問い合わせできるようにした。
-・検索機能。
-・並び替え機能。
+### 機能面
+* 新規性。好きな言葉を添えてタスクを通知するという今までにないアプリ。
+* 誰でも簡単に操作できるような分かりやすいUI。
+* 24種類のテーマカラーを選択可能。
+* タスクのリマインダー機能。時間間隔と日時で設定可能。
+* ユーザからの不具合の声に対応できるよう、アプリ内からGoogleフォームで問い合わせできるようにした。
+* 検索機能。
+* 並び替え機能。
 
-[技術面]
-・ViewControllerの肥大化を軽減するために、MVCアーキテクチャを採用した。
-・データをローカルに保存するためにRealmを用いた。
-・操作性向上のため、SwipeCellKitやCropViewControllerなどのライブラリを用いた。
-・コードを整えるために、SwiftLintを導入した。
-・パフォーマンス向上のため、finalやprivate修飾子を適宜用いた。
-・収益化のために、Admobを導入した。
+### 技術面
+* ViewControllerの肥大化を軽減するために、MVCアーキテクチャを採用した。
+* データをローカルに保存するためにRealmを用いた。
+* 操作性向上のため、SwipeCellKitやCropViewControllerなどのライブラリを用いた。
+* コードを整えるために、SwiftLintを導入した。
+* パフォーマンス向上のため、finalやprivate修飾子を適宜用いた。
+* 収益化のために、Admobを導入した。
 
-[GitHubでのコード管理]
-・管理しやすくするために、main, develop, feature/…などとブランチを分けて機能ごとにブランチを作って開発を進めた。
-![image](https://user-images.githubusercontent.com/58250083/177159268-5486707e-7d2a-4221-bbfc-f3d6b7a0d7e0.png)
+### GitHubでのコード管理
+* 管理しやすくするために、main, develop, feature/…などとブランチを分けて機能ごとにブランチを作って開発を進めた。
