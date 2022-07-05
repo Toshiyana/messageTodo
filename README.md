@@ -47,7 +47,7 @@ MVC
 | <img src="https://raw.githubusercontent.com/wiki/Toshiyana/messageTodo/images/WordsListView.png" width=220 > | <img src="https://raw.githubusercontent.com/wiki/Toshiyana/messageTodo/images/SettingWordsView.png" width=220 > | <img src="https://raw.githubusercontent.com/wiki/Toshiyana/messageTodo/images/SettingView.png" width=220 > | <img src="https://raw.githubusercontent.com/wiki/Toshiyana/messageTodo/images/ThemeColorView.png" width=220 > |
 
 ## 難しかった点
-* Delegateパターンを用いた、複数画面に渡ってデータを渡すための処理の記述に苦労した。
+* Delegateパターンを用いた、クラスから他のクラスに処理を任せる実装の理解に苦労した。
 * タスクのリマインダーを設定するためのローカル通知機能の実装に苦労した。
 
 自分で調べてもわからない時は、iOSアプリ開発のコミュニティの現役エンジニアに質問して解決した。
